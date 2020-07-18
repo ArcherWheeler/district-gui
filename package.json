@@ -1,0 +1,19 @@
+{
+  "name": "district-gui",
+  "version": "1.0.0",
+  "description": "view district plans",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build --public-url . index.html"
+  },
+  "author": "Archer Wheeler",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4"
+  },
+  "dependencies": {
+    "fetch": "^1.1.0",
+    "ol": "^6.3.1"
+  }
+}
