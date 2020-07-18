@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build --public-url . index.html"
+    "build": "parcel build --public-url . index.html",
+    "predeploy": "rm -rf dist && parcel build --public-url . index.html"
   },
   "author": "Archer Wheeler",
   "license": "ISC",
