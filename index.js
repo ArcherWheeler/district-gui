@@ -12,18 +12,8 @@ const districtPlans = require('./district_plans/*.geojson');
 // Hacky global var to update / delete layers from the open layer map app
 var currentLayer = null;
 
-const styles = {
-  'Polygon': new Style({
-    stroke: new Stroke({
-      color: 'blue',
-      lineDash: [4],
-      width: 3
-    }),
-    fill: new Fill({
-      color: 'rgba(0, 0, 255, 0.1)'
-    })
-  })
-};
+var styles = {};
+
 const styleFunction = (feature) => {
   return styles[feature.getGeometry().getType()];
 };
@@ -55,8 +45,24 @@ const updateMap = (mapToDisplay) => {
       const vectorLayer = new VectorLayer({
         source: new VectorSource({
           features: (new GeoJSON()).readFeatures(data)
-        }),
-        style: styleFunction
+        })
+      });
+
+      vectorLayer.getSource().forEachFeature(function(feature) {
+        styles = {
+          'Polygon': new Style({
+            stroke: new Stroke({
+              color: 'black',
+              lineDash: [4],
+              width: 3
+            }),
+            fill: new Fill({
+              color: 'rgba(' + Math.floor(Math.random() * 256) + ", " + Math.floor(Math.random() * 256)
+              + ', ' + Math.floor(Math.random() * 256) + ', 0.3)'       
+            })
+          })
+        };
+        feature.setStyle(styleFunction(feature));
       });
       currentLayer = vectorLayer;
       map.addLayer(vectorLayer);
