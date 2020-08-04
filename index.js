@@ -38,6 +38,7 @@ const updateMap = (mapToDisplay) => {
   if (currentLayer != null) {
     map.removeLayer(currentLayer);
   }
+
   if (mapToDisplay in districtPlans) {
     fetch(districtPlans[mapToDisplay])
     .then(response => response.json())

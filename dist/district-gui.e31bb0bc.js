@@ -69148,12 +69148,15 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 module.exports = "/arizona.bf1a91f7.geojson";
 },{}],"district_plans/texas.geojson":[function(require,module,exports) {
 module.exports = "/texas.32ecb3b9.geojson";
+},{}],"district_plans/texas_clipped.geojson":[function(require,module,exports) {
+module.exports = "/texas_clipped.90962017.geojson";
 },{}],"district_plans/*.geojson":[function(require,module,exports) {
 module.exports = {
   "arizona": require("./arizona.geojson"),
-  "texas": require("./texas.geojson")
+  "texas": require("./texas.geojson"),
+  "texas_clipped": require("./texas_clipped.geojson")
 };
-},{"./arizona.geojson":"district_plans/arizona.geojson","./texas.geojson":"district_plans/texas.geojson"}],"index.js":[function(require,module,exports) {
+},{"./arizona.geojson":"district_plans/arizona.geojson","./texas.geojson":"district_plans/texas.geojson","./texas_clipped.geojson":"district_plans/texas_clipped.geojson"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 require("ol/ol.css");
@@ -69268,7 +69271,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63396" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65250" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
