@@ -8,25 +8,11 @@ import {Circle as CircleStyle, Fill, Stroke, Style} from 'ol/style';
 import 'fs';
 
 const districtPlans = require('./district_plans/*.geojson');
+const statePlans = require('./state_plans/*.geojson');
 
-// Hacky global var to update / delete layers from the open layer map app
-var currentLayer = null;
-
-const styles = {
-  'Polygon': new Style({
-    stroke: new Stroke({
-      color: 'blue',
-      lineDash: [4],
-      width: 3
-    }),
-    fill: new Fill({
-      color: 'rgba(0, 0, 255, 0.1)'
-    })
-  })
-};
-const styleFunction = (feature) => {
-  return styles[feature.getGeometry().getType()];
-};
+// Hacky global vars to update / delete layers from the open layer map app
+var currentDistrictLayer = null;
+var currentStateLayer = null;
 
 var map = new Map({
   layers: [
@@ -42,24 +28,62 @@ var map = new Map({
   })
 });
 
+function hexToRGB(hex, alpha) {
+  var r = parseInt(hex.slice(1, 3), 16),
+      g = parseInt(hex.slice(3, 5), 16),
+      b = parseInt(hex.slice(5, 7), 16);
+
+  if (alpha) {
+      return "rgba(" + r + ", " + g + ", " + b + ", " + alpha + ")";
+  } else {
+      return "rgb(" + r + ", " + g + ", " + b + ")";
+  }
+}
+
 const urlHashPart = () => window.location.hash.substr(1)
 
 const updateMap = (mapToDisplay) => {
-  if (currentLayer != null) {
-    map.removeLayer(currentLayer);
+  if (currentDistrictLayer != null) {
+    map.removeLayer(currentDistrictLayer);
+    map.removeLayer(currentStateLayer);
   }
+
   if (mapToDisplay in districtPlans) {
     fetch(districtPlans[mapToDisplay])
     .then(response => response.json())
     .then(data => {
-      const vectorLayer = new VectorLayer({
+      const districtVectorLayer = new VectorLayer({
         source: new VectorSource({
           features: (new GeoJSON()).readFeatures(data)
         }),
-        style: styleFunction
+        style: function (feature) {
+          return new Style({
+            fill: new Fill({
+              color: hexToRGB(feature.get('color'), 0.3)
+            })
+          })
+        }
       });
-      currentLayer = vectorLayer;
-      map.addLayer(vectorLayer);
+      currentDistrictLayer = districtVectorLayer;
+      map.addLayer(districtVectorLayer);
+    })
+
+    fetch(statePlans[mapToDisplay])
+    .then(response => response.json())
+    .then(data => {
+      const stateVectorLayer = new VectorLayer({
+        source: new VectorSource({
+          features: (new GeoJSON()).readFeatures(data)
+        }),
+        style: new Style({
+          stroke: new Stroke({
+            color: 'black',
+            width: 2
+          })
+        })
+      });
+      currentStateLayer = stateVectorLayer;
+      map.addLayer(stateVectorLayer);
     })
   }
 }
