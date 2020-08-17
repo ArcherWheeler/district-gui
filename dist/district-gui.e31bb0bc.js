@@ -69148,15 +69148,18 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 module.exports = "/arizona.bf1a91f7.geojson";
 },{}],"district_plans/texas.geojson":[function(require,module,exports) {
 module.exports = "/texas.32ecb3b9.geojson";
-},{}],"district_plans/texas_clipped.geojson":[function(require,module,exports) {
-module.exports = "/texas_clipped.90962017.geojson";
 },{}],"district_plans/*.geojson":[function(require,module,exports) {
 module.exports = {
   "arizona": require("./arizona.geojson"),
-  "texas": require("./texas.geojson"),
-  "texas_clipped": require("./texas_clipped.geojson")
+  "texas": require("./texas.geojson")
 };
-},{"./arizona.geojson":"district_plans/arizona.geojson","./texas.geojson":"district_plans/texas.geojson","./texas_clipped.geojson":"district_plans/texas_clipped.geojson"}],"index.js":[function(require,module,exports) {
+},{"./arizona.geojson":"district_plans/arizona.geojson","./texas.geojson":"district_plans/texas.geojson"}],"state_plans/texas.geojson":[function(require,module,exports) {
+module.exports = "/texas.492be67b.geojson";
+},{}],"state_plans/*.geojson":[function(require,module,exports) {
+module.exports = {
+  "texas": require("./texas.geojson")
+};
+},{"./texas.geojson":"state_plans/texas.geojson"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 require("ol/ol.css");
@@ -69177,16 +69180,13 @@ require("fs");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var districtPlans = require('./district_plans/*.geojson'); // Hacky global var to update / delete layers from the open layer map app
+var districtPlans = require('./district_plans/*.geojson');
+
+var statePlans = require('./state_plans/*.geojson'); // Hacky global vars to update / delete layers from the open layer map app
 
 
-var currentLayer = null;
-var styles = {};
-
-var styleFunction = function styleFunction(feature) {
-  return styles[feature.getGeometry().getType()];
-};
-
+var currentDistrictLayer = null;
+var currentStateLayer = null;
 var map = new _Map.default({
   layers: [new _layer.Tile({
     source: new _source.OSM()
@@ -69199,41 +69199,63 @@ var map = new _Map.default({
   })
 });
 
+function hexToRGB(hex, alpha) {
+  var r = parseInt(hex.slice(1, 3), 16),
+      g = parseInt(hex.slice(3, 5), 16),
+      b = parseInt(hex.slice(5, 7), 16);
+
+  if (alpha) {
+    return "rgba(" + r + ", " + g + ", " + b + ", " + alpha + ")";
+  } else {
+    return "rgb(" + r + ", " + g + ", " + b + ")";
+  }
+}
+
 var urlHashPart = function urlHashPart() {
   return window.location.hash.substr(1);
 };
 
 var updateMap = function updateMap(mapToDisplay) {
-  if (currentLayer != null) {
-    map.removeLayer(currentLayer);
+  if (currentDistrictLayer != null) {
+    map.removeLayer(currentDistrictLayer);
+    map.removeLayer(currentStateLayer);
   }
 
   if (mapToDisplay in districtPlans) {
     fetch(districtPlans[mapToDisplay]).then(function (response) {
       return response.json();
     }).then(function (data) {
-      var vectorLayer = new _layer.Vector({
+      var districtVectorLayer = new _layer.Vector({
         source: new _source.Vector({
           features: new _GeoJSON.default().readFeatures(data)
+        }),
+        style: function style(feature) {
+          return new _style.Style({
+            fill: new _style.Fill({
+              color: hexToRGB(feature.get('color'), 0.3)
+            })
+          });
+        }
+      });
+      currentDistrictLayer = districtVectorLayer;
+      map.addLayer(districtVectorLayer);
+    });
+    fetch(statePlans[mapToDisplay]).then(function (response) {
+      return response.json();
+    }).then(function (data) {
+      var stateVectorLayer = new _layer.Vector({
+        source: new _source.Vector({
+          features: new _GeoJSON.default().readFeatures(data)
+        }),
+        style: new _style.Style({
+          stroke: new _style.Stroke({
+            color: 'black',
+            width: 2
+          })
         })
       });
-      vectorLayer.getSource().forEachFeature(function (feature) {
-        styles = {
-          'Polygon': new _style.Style({
-            stroke: new _style.Stroke({
-              color: 'black',
-              lineDash: [4],
-              width: 3
-            }),
-            fill: new _style.Fill({
-              color: 'rgba(' + Math.floor(Math.random() * 256) + ", " + Math.floor(Math.random() * 256) + ', ' + Math.floor(Math.random() * 256) + ', 0.3)'
-            })
-          })
-        };
-        feature.setStyle(styleFunction(feature));
-      });
-      currentLayer = vectorLayer;
-      map.addLayer(vectorLayer);
+      currentStateLayer = stateVectorLayer;
+      map.addLayer(stateVectorLayer);
     });
   }
 };
@@ -69243,7 +69265,7 @@ updateMap(urlHashPart());
 window.onhashchange = function () {
   updateMap(urlHashPart());
 };
-},{"ol/ol.css":"node_modules/ol/ol.css","ol/Map":"node_modules/ol/Map.js","ol/View":"node_modules/ol/View.js","ol/format/GeoJSON":"node_modules/ol/format/GeoJSON.js","ol/layer":"node_modules/ol/layer.js","ol/source":"node_modules/ol/source.js","ol/style":"node_modules/ol/style.js","fs":"node_modules/parcel-bundler/src/builtins/_empty.js","./district_plans/*.geojson":"district_plans/*.geojson"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"ol/ol.css":"node_modules/ol/ol.css","ol/Map":"node_modules/ol/Map.js","ol/View":"node_modules/ol/View.js","ol/format/GeoJSON":"node_modules/ol/format/GeoJSON.js","ol/layer":"node_modules/ol/layer.js","ol/source":"node_modules/ol/source.js","ol/style":"node_modules/ol/style.js","fs":"node_modules/parcel-bundler/src/builtins/_empty.js","./district_plans/*.geojson":"district_plans/*.geojson","./state_plans/*.geojson":"state_plans/*.geojson"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -69271,7 +69293,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65250" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61947" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
