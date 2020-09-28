@@ -327,62 +327,32 @@ function (_super) {
 
 var _default = AssertionError;
 exports.default = _default;
-},{"./util.js":"node_modules/ol/util.js"}],"node_modules/ol/CollectionEventType.js":[function(require,module,exports) {
+},{"./util.js":"node_modules/ol/util.js"}],"node_modules/ol/asserts.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports.assert = assert;
+
+var _AssertionError = _interopRequireDefault(require("./AssertionError.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
- * @module ol/CollectionEventType
+ * @module ol/asserts
  */
 
 /**
- * @enum {string}
+ * @param {*} assertion Assertion we expected to be truthy.
+ * @param {number} errorCode Error code.
  */
-var _default = {
-  /**
-   * Triggered when an item is added to the collection.
-   * @event module:ol/Collection.CollectionEvent#add
-   * @api
-   */
-  ADD: 'add',
-
-  /**
-   * Triggered when an item is removed from the collection.
-   * @event module:ol/Collection.CollectionEvent#remove
-   * @api
-   */
-  REMOVE: 'remove'
-};
-exports.default = _default;
-},{}],"node_modules/ol/ObjectEventType.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-/**
- * @module ol/ObjectEventType
- */
-
-/**
- * @enum {string}
- */
-var _default = {
-  /**
-   * Triggered when a property is changed.
-   * @event module:ol/Object.ObjectEvent#propertychange
-   * @api
-   */
-  PROPERTYCHANGE: 'propertychange'
-};
-exports.default = _default;
-},{}],"node_modules/ol/obj.js":[function(require,module,exports) {
+function assert(assertion, errorCode) {
+  if (!assertion) {
+    throw new _AssertionError.default(errorCode);
+  }
+}
+},{"./AssertionError.js":"node_modules/ol/AssertionError.js"}],"node_modules/ol/obj.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -595,7 +565,78 @@ function unlistenByKey(key) {
     (0, _obj.clear)(key);
   }
 }
-},{"./obj.js":"node_modules/ol/obj.js"}],"node_modules/ol/Disposable.js":[function(require,module,exports) {
+},{"./obj.js":"node_modules/ol/obj.js"}],"node_modules/ol/events/EventType.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+/**
+ * @module ol/events/EventType
+ */
+
+/**
+ * @enum {string}
+ * @const
+ */
+var _default = {
+  /**
+   * Generic change event. Triggered when the revision counter is increased.
+   * @event module:ol/events/Event~BaseEvent#change
+   * @api
+   */
+  CHANGE: 'change',
+
+  /**
+   * Generic error event. Triggered when an error occurs.
+   * @event module:ol/events/Event~BaseEvent#error
+   * @api
+   */
+  ERROR: 'error',
+  BLUR: 'blur',
+  CLEAR: 'clear',
+  CONTEXTMENU: 'contextmenu',
+  CLICK: 'click',
+  DBLCLICK: 'dblclick',
+  DRAGENTER: 'dragenter',
+  DRAGOVER: 'dragover',
+  DROP: 'drop',
+  FOCUS: 'focus',
+  KEYDOWN: 'keydown',
+  KEYPRESS: 'keypress',
+  LOAD: 'load',
+  RESIZE: 'resize',
+  TOUCHMOVE: 'touchmove',
+  WHEEL: 'wheel'
+};
+exports.default = _default;
+},{}],"node_modules/ol/ObjectEventType.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+/**
+ * @module ol/ObjectEventType
+ */
+
+/**
+ * @enum {string}
+ */
+var _default = {
+  /**
+   * Triggered when a property is changed.
+   * @event module:ol/Object.ObjectEvent#propertychange
+   * @api
+   */
+  PROPERTYCHANGE: 'propertychange'
+};
+exports.default = _default;
+},{}],"node_modules/ol/Disposable.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1350,54 +1391,7 @@ function (_super) {
 
 var _default = Target;
 exports.default = _default;
-},{"../Disposable.js":"node_modules/ol/Disposable.js","../functions.js":"node_modules/ol/functions.js","./Event.js":"node_modules/ol/events/Event.js","../obj.js":"node_modules/ol/obj.js"}],"node_modules/ol/events/EventType.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-/**
- * @module ol/events/EventType
- */
-
-/**
- * @enum {string}
- * @const
- */
-var _default = {
-  /**
-   * Generic change event. Triggered when the revision counter is increased.
-   * @event module:ol/events/Event~BaseEvent#change
-   * @api
-   */
-  CHANGE: 'change',
-
-  /**
-   * Generic error event. Triggered when an error occurs.
-   * @event module:ol/events/Event~BaseEvent#error
-   * @api
-   */
-  ERROR: 'error',
-  BLUR: 'blur',
-  CLEAR: 'clear',
-  CONTEXTMENU: 'contextmenu',
-  CLICK: 'click',
-  DBLCLICK: 'dblclick',
-  DRAGENTER: 'dragenter',
-  DRAGOVER: 'dragover',
-  DROP: 'drop',
-  FOCUS: 'focus',
-  KEYDOWN: 'keydown',
-  KEYPRESS: 'keypress',
-  LOAD: 'load',
-  RESIZE: 'resize',
-  TOUCHMOVE: 'touchmove',
-  WHEEL: 'wheel'
-};
-exports.default = _default;
-},{}],"node_modules/ol/Observable.js":[function(require,module,exports) {
+},{"../Disposable.js":"node_modules/ol/Disposable.js","../functions.js":"node_modules/ol/functions.js","./Event.js":"node_modules/ol/events/Event.js","../obj.js":"node_modules/ol/obj.js"}],"node_modules/ol/Observable.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1872,1822 +1866,22 @@ function getChangeEventType(key) {
 
 var _default = BaseObject;
 exports.default = _default;
-},{"./util.js":"node_modules/ol/util.js","./ObjectEventType.js":"node_modules/ol/ObjectEventType.js","./Observable.js":"node_modules/ol/Observable.js","./events/Event.js":"node_modules/ol/events/Event.js","./obj.js":"node_modules/ol/obj.js"}],"node_modules/ol/Collection.js":[function(require,module,exports) {
+},{"./util.js":"node_modules/ol/util.js","./ObjectEventType.js":"node_modules/ol/ObjectEventType.js","./Observable.js":"node_modules/ol/Observable.js","./events/Event.js":"node_modules/ol/events/Event.js","./obj.js":"node_modules/ol/obj.js"}],"node_modules/ol/Feature.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = exports.CollectionEvent = void 0;
-
-var _AssertionError = _interopRequireDefault(require("./AssertionError.js"));
-
-var _CollectionEventType = _interopRequireDefault(require("./CollectionEventType.js"));
-
-var _Object = _interopRequireDefault(require("./Object.js"));
-
-var _Event = _interopRequireDefault(require("./events/Event.js"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var __extends = void 0 && (void 0).__extends || function () {
-  var extendStatics = function (d, b) {
-    extendStatics = Object.setPrototypeOf || {
-      __proto__: []
-    } instanceof Array && function (d, b) {
-      d.__proto__ = b;
-    } || function (d, b) {
-      for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    };
-
-    return extendStatics(d, b);
-  };
-
-  return function (d, b) {
-    extendStatics(d, b);
-
-    function __() {
-      this.constructor = d;
-    }
-
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-  };
-}();
-/**
- * @module ol/Collection
- */
-
-
-/**
- * @enum {string}
- * @private
- */
-var Property = {
-  LENGTH: 'length'
-};
-/**
- * @classdesc
- * Events emitted by {@link module:ol/Collection~Collection} instances are instances of this
- * type.
- */
-
-var CollectionEvent =
-/** @class */
-function (_super) {
-  __extends(CollectionEvent, _super);
-  /**
-   * @param {CollectionEventType} type Type.
-   * @param {*=} opt_element Element.
-   * @param {number=} opt_index The index of the added or removed element.
-   */
-
-
-  function CollectionEvent(type, opt_element, opt_index) {
-    var _this = _super.call(this, type) || this;
-    /**
-     * The element that is added to or removed from the collection.
-     * @type {*}
-     * @api
-     */
-
-
-    _this.element = opt_element;
-    /**
-     * The index of the added or removed element.
-     * @type {number}
-     * @api
-     */
-
-    _this.index = opt_index;
-    return _this;
-  }
-
-  return CollectionEvent;
-}(_Event.default);
-
-exports.CollectionEvent = CollectionEvent;
-
-/**
- * @typedef {Object} Options
- * @property {boolean} [unique=false] Disallow the same item from being added to
- * the collection twice.
- */
-
-/**
- * @classdesc
- * An expanded version of standard JS Array, adding convenience methods for
- * manipulation. Add and remove changes to the Collection trigger a Collection
- * event. Note that this does not cover changes to the objects _within_ the
- * Collection; they trigger events on the appropriate object, not on the
- * Collection as a whole.
- *
- * @fires CollectionEvent
- *
- * @template T
- * @api
- */
-var Collection =
-/** @class */
-function (_super) {
-  __extends(Collection, _super);
-  /**
-   * @param {Array<T>=} opt_array Array.
-   * @param {Options=} opt_options Collection options.
-   */
-
-
-  function Collection(opt_array, opt_options) {
-    var _this = _super.call(this) || this;
-
-    var options = opt_options || {};
-    /**
-     * @private
-     * @type {boolean}
-     */
-
-    _this.unique_ = !!options.unique;
-    /**
-     * @private
-     * @type {!Array<T>}
-     */
-
-    _this.array_ = opt_array ? opt_array : [];
-
-    if (_this.unique_) {
-      for (var i = 0, ii = _this.array_.length; i < ii; ++i) {
-        _this.assertUnique_(_this.array_[i], i);
-      }
-    }
-
-    _this.updateLength_();
-
-    return _this;
-  }
-  /**
-   * Remove all elements from the collection.
-   * @api
-   */
-
-
-  Collection.prototype.clear = function () {
-    while (this.getLength() > 0) {
-      this.pop();
-    }
-  };
-  /**
-   * Add elements to the collection.  This pushes each item in the provided array
-   * to the end of the collection.
-   * @param {!Array<T>} arr Array.
-   * @return {Collection<T>} This collection.
-   * @api
-   */
-
-
-  Collection.prototype.extend = function (arr) {
-    for (var i = 0, ii = arr.length; i < ii; ++i) {
-      this.push(arr[i]);
-    }
-
-    return this;
-  };
-  /**
-   * Iterate over each element, calling the provided callback.
-   * @param {function(T, number, Array<T>): *} f The function to call
-   *     for every element. This function takes 3 arguments (the element, the
-   *     index and the array). The return value is ignored.
-   * @api
-   */
-
-
-  Collection.prototype.forEach = function (f) {
-    var array = this.array_;
-
-    for (var i = 0, ii = array.length; i < ii; ++i) {
-      f(array[i], i, array);
-    }
-  };
-  /**
-   * Get a reference to the underlying Array object. Warning: if the array
-   * is mutated, no events will be dispatched by the collection, and the
-   * collection's "length" property won't be in sync with the actual length
-   * of the array.
-   * @return {!Array<T>} Array.
-   * @api
-   */
-
-
-  Collection.prototype.getArray = function () {
-    return this.array_;
-  };
-  /**
-   * Get the element at the provided index.
-   * @param {number} index Index.
-   * @return {T} Element.
-   * @api
-   */
-
-
-  Collection.prototype.item = function (index) {
-    return this.array_[index];
-  };
-  /**
-   * Get the length of this collection.
-   * @return {number} The length of the array.
-   * @observable
-   * @api
-   */
-
-
-  Collection.prototype.getLength = function () {
-    return this.get(Property.LENGTH);
-  };
-  /**
-   * Insert an element at the provided index.
-   * @param {number} index Index.
-   * @param {T} elem Element.
-   * @api
-   */
-
-
-  Collection.prototype.insertAt = function (index, elem) {
-    if (this.unique_) {
-      this.assertUnique_(elem);
-    }
-
-    this.array_.splice(index, 0, elem);
-    this.updateLength_();
-    this.dispatchEvent(new CollectionEvent(_CollectionEventType.default.ADD, elem, index));
-  };
-  /**
-   * Remove the last element of the collection and return it.
-   * Return `undefined` if the collection is empty.
-   * @return {T|undefined} Element.
-   * @api
-   */
-
-
-  Collection.prototype.pop = function () {
-    return this.removeAt(this.getLength() - 1);
-  };
-  /**
-   * Insert the provided element at the end of the collection.
-   * @param {T} elem Element.
-   * @return {number} New length of the collection.
-   * @api
-   */
-
-
-  Collection.prototype.push = function (elem) {
-    if (this.unique_) {
-      this.assertUnique_(elem);
-    }
-
-    var n = this.getLength();
-    this.insertAt(n, elem);
-    return this.getLength();
-  };
-  /**
-   * Remove the first occurrence of an element from the collection.
-   * @param {T} elem Element.
-   * @return {T|undefined} The removed element or undefined if none found.
-   * @api
-   */
-
-
-  Collection.prototype.remove = function (elem) {
-    var arr = this.array_;
-
-    for (var i = 0, ii = arr.length; i < ii; ++i) {
-      if (arr[i] === elem) {
-        return this.removeAt(i);
-      }
-    }
-
-    return undefined;
-  };
-  /**
-   * Remove the element at the provided index and return it.
-   * Return `undefined` if the collection does not contain this index.
-   * @param {number} index Index.
-   * @return {T|undefined} Value.
-   * @api
-   */
-
-
-  Collection.prototype.removeAt = function (index) {
-    var prev = this.array_[index];
-    this.array_.splice(index, 1);
-    this.updateLength_();
-    this.dispatchEvent(new CollectionEvent(_CollectionEventType.default.REMOVE, prev, index));
-    return prev;
-  };
-  /**
-   * Set the element at the provided index.
-   * @param {number} index Index.
-   * @param {T} elem Element.
-   * @api
-   */
-
-
-  Collection.prototype.setAt = function (index, elem) {
-    var n = this.getLength();
-
-    if (index < n) {
-      if (this.unique_) {
-        this.assertUnique_(elem, index);
-      }
-
-      var prev = this.array_[index];
-      this.array_[index] = elem;
-      this.dispatchEvent(new CollectionEvent(_CollectionEventType.default.REMOVE, prev, index));
-      this.dispatchEvent(new CollectionEvent(_CollectionEventType.default.ADD, elem, index));
-    } else {
-      for (var j = n; j < index; ++j) {
-        this.insertAt(j, undefined);
-      }
-
-      this.insertAt(index, elem);
-    }
-  };
-  /**
-   * @private
-   */
-
-
-  Collection.prototype.updateLength_ = function () {
-    this.set(Property.LENGTH, this.array_.length);
-  };
-  /**
-   * @private
-   * @param {T} elem Element.
-   * @param {number=} opt_except Optional index to ignore.
-   */
-
-
-  Collection.prototype.assertUnique_ = function (elem, opt_except) {
-    for (var i = 0, ii = this.array_.length; i < ii; ++i) {
-      if (this.array_[i] === elem && i !== opt_except) {
-        throw new _AssertionError.default(58);
-      }
-    }
-  };
-
-  return Collection;
-}(_Object.default);
-
-var _default = Collection;
-exports.default = _default;
-},{"./AssertionError.js":"node_modules/ol/AssertionError.js","./CollectionEventType.js":"node_modules/ol/CollectionEventType.js","./Object.js":"node_modules/ol/Object.js","./events/Event.js":"node_modules/ol/events/Event.js"}],"node_modules/ol/MapEvent.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.createStyleFunction = createStyleFunction;
 exports.default = void 0;
 
-var _Event = _interopRequireDefault(require("./events/Event.js"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var __extends = void 0 && (void 0).__extends || function () {
-  var extendStatics = function (d, b) {
-    extendStatics = Object.setPrototypeOf || {
-      __proto__: []
-    } instanceof Array && function (d, b) {
-      d.__proto__ = b;
-    } || function (d, b) {
-      for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    };
-
-    return extendStatics(d, b);
-  };
-
-  return function (d, b) {
-    extendStatics(d, b);
-
-    function __() {
-      this.constructor = d;
-    }
-
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-  };
-}();
-/**
- * @module ol/MapEvent
- */
-
-
-/**
- * @classdesc
- * Events emitted as map events are instances of this type.
- * See {@link module:ol/PluggableMap~PluggableMap} for which events trigger a map event.
- */
-var MapEvent =
-/** @class */
-function (_super) {
-  __extends(MapEvent, _super);
-  /**
-   * @param {string} type Event type.
-   * @param {import("./PluggableMap.js").default} map Map.
-   * @param {?import("./PluggableMap.js").FrameState=} opt_frameState Frame state.
-   */
-
-
-  function MapEvent(type, map, opt_frameState) {
-    var _this = _super.call(this, type) || this;
-    /**
-     * The map where the event occurred.
-     * @type {import("./PluggableMap.js").default}
-     * @api
-     */
-
-
-    _this.map = map;
-    /**
-     * The frame state at the time of the event.
-     * @type {?import("./PluggableMap.js").FrameState}
-     * @api
-     */
-
-    _this.frameState = opt_frameState !== undefined ? opt_frameState : null;
-    return _this;
-  }
-
-  return MapEvent;
-}(_Event.default);
-
-var _default = MapEvent;
-exports.default = _default;
-},{"./events/Event.js":"node_modules/ol/events/Event.js"}],"node_modules/ol/MapBrowserEvent.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _MapEvent = _interopRequireDefault(require("./MapEvent.js"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var __extends = void 0 && (void 0).__extends || function () {
-  var extendStatics = function (d, b) {
-    extendStatics = Object.setPrototypeOf || {
-      __proto__: []
-    } instanceof Array && function (d, b) {
-      d.__proto__ = b;
-    } || function (d, b) {
-      for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    };
-
-    return extendStatics(d, b);
-  };
-
-  return function (d, b) {
-    extendStatics(d, b);
-
-    function __() {
-      this.constructor = d;
-    }
-
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-  };
-}();
-/**
- * @module ol/MapBrowserEvent
- */
-
-
-/**
- * @classdesc
- * Events emitted as map browser events are instances of this type.
- * See {@link module:ol/PluggableMap~PluggableMap} for which events trigger a map browser event.
- */
-var MapBrowserEvent =
-/** @class */
-function (_super) {
-  __extends(MapBrowserEvent, _super);
-  /**
-   * @param {string} type Event type.
-   * @param {import("./PluggableMap.js").default} map Map.
-   * @param {Event} browserEvent Browser event.
-   * @param {boolean=} opt_dragging Is the map currently being dragged?
-   * @param {?import("./PluggableMap.js").FrameState=} opt_frameState Frame state.
-   */
-
-
-  function MapBrowserEvent(type, map, browserEvent, opt_dragging, opt_frameState) {
-    var _this = _super.call(this, type, map, opt_frameState) || this;
-    /**
-     * The original browser event.
-     * @const
-     * @type {Event}
-     * @api
-     */
-
-
-    _this.originalEvent = browserEvent;
-    /**
-     * The map pixel relative to the viewport corresponding to the original browser event.
-     * @type {?import("./pixel.js").Pixel}
-     */
-
-    _this.pixel_ = null;
-    /**
-     * The coordinate in the user projection corresponding to the original browser event.
-     * @type {?import("./coordinate.js").Coordinate}
-     */
-
-    _this.coordinate_ = null;
-    /**
-     * Indicates if the map is currently being dragged. Only set for
-     * `POINTERDRAG` and `POINTERMOVE` events. Default is `false`.
-     *
-     * @type {boolean}
-     * @api
-     */
-
-    _this.dragging = opt_dragging !== undefined ? opt_dragging : false;
-    return _this;
-  }
-
-  Object.defineProperty(MapBrowserEvent.prototype, "pixel", {
-    /**
-     * The map pixel relative to the viewport corresponding to the original browser event.
-     * @type {import("./pixel.js").Pixel}
-     * @api
-     */
-    get: function () {
-      if (!this.pixel_) {
-        this.pixel_ = this.map.getEventPixel(this.originalEvent);
-      }
-
-      return this.pixel_;
-    },
-    set: function (pixel) {
-      this.pixel_ = pixel;
-    },
-    enumerable: true,
-    configurable: true
-  });
-  Object.defineProperty(MapBrowserEvent.prototype, "coordinate", {
-    /**
-     * The coordinate corresponding to the original browser event.  This will be in the user
-     * projection if one is set.  Otherwise it will be in the view projection.
-     * @type {import("./coordinate.js").Coordinate}
-     * @api
-     */
-    get: function () {
-      if (!this.coordinate_) {
-        this.coordinate_ = this.map.getCoordinateFromPixel(this.pixel);
-      }
-
-      return this.coordinate_;
-    },
-    set: function (coordinate) {
-      this.coordinate_ = coordinate;
-    },
-    enumerable: true,
-    configurable: true
-  });
-  /**
-   * Prevents the default browser action.
-   * See https://developer.mozilla.org/en-US/docs/Web/API/event.preventDefault.
-   * @override
-   * @api
-   */
-
-  MapBrowserEvent.prototype.preventDefault = function () {
-    _super.prototype.preventDefault.call(this);
-
-    this.originalEvent.preventDefault();
-  };
-  /**
-   * Prevents further propagation of the current event.
-   * See https://developer.mozilla.org/en-US/docs/Web/API/event.stopPropagation.
-   * @override
-   * @api
-   */
-
-
-  MapBrowserEvent.prototype.stopPropagation = function () {
-    _super.prototype.stopPropagation.call(this);
-
-    this.originalEvent.stopPropagation();
-  };
-
-  return MapBrowserEvent;
-}(_MapEvent.default);
-
-var _default = MapBrowserEvent;
-exports.default = _default;
-},{"./MapEvent.js":"node_modules/ol/MapEvent.js"}],"node_modules/elm-pep/dist/elm-pep.js":[function(require,module,exports) {
-// This Source Code Form is subject to the terms of the Mozilla Public
-// License, v. 2.0. If a copy of the MPL was not distributed with this
-// file, You can obtain one at http://mozilla.org/MPL/2.0/
-// Variable to hold current primary touch event identifier.
-// iOS needs this since it does not attribute
-// identifier 0 to primary touch event.
-var primaryTouchId = null;
-// Variable to hold mouse pointer captures.
-var mouseCaptureTarget = null;
-if (!("PointerEvent" in window)) {
-    // Define {set,release}PointerCapture
-    definePointerCapture();
-    // Create Pointer polyfill from mouse events only on non-touch device
-    if (!("TouchEvent" in window)) {
-        addMouseToPointerListener(document, "mousedown", "pointerdown");
-        addMouseToPointerListener(document, "mousemove", "pointermove");
-        addMouseToPointerListener(document, "mouseup", "pointerup");
-    }
-    // Define Pointer polyfill from touch events
-    addTouchToPointerListener(document, "touchstart", "pointerdown");
-    addTouchToPointerListener(document, "touchmove", "pointermove");
-    addTouchToPointerListener(document, "touchend", "pointerup");
-}
-// Function defining {set,release}PointerCapture from {set,releas}Capture
-function definePointerCapture() {
-    Element.prototype.setPointerCapture = Element.prototype.setCapture;
-    Element.prototype.releasePointerCapture = Element.prototype.releaseCapture;
-}
-// Function converting a Mouse event to a Pointer event.
-function addMouseToPointerListener(target, mouseType, pointerType) {
-    target.addEventListener(mouseType, function (mouseEvent) {
-        var pointerEvent = new MouseEvent(pointerType, mouseEvent);
-        pointerEvent.pointerId = 1;
-        pointerEvent.isPrimary = true;
-        pointerEvent.pointerType = "mouse";
-        pointerEvent.width = 1;
-        pointerEvent.height = 1;
-        pointerEvent.tiltX = 0;
-        pointerEvent.tiltY = 0;
-        // pressure is 0.5 if a button is holded
-        "buttons" in mouseEvent && mouseEvent.buttons !== 0
-            ? (pointerEvent.pressure = 0.5)
-            : (pointerEvent.pressure = 0);
-        // if already capturing mouse event, transfer target
-        // and don't forget implicit release on mouseup.
-        var target = mouseEvent.target;
-        if (mouseCaptureTarget !== null) {
-            target = mouseCaptureTarget;
-            if (mouseType === "mouseup") {
-                mouseCaptureTarget = null;
-            }
-        }
-        target.dispatchEvent(pointerEvent);
-        if (pointerEvent.defaultPrevented) {
-            mouseEvent.preventDefault();
-        }
-    });
-}
-// Function converting a Touch event to a Pointer event.
-function addTouchToPointerListener(target, touchType, pointerType) {
-    target.addEventListener(touchType, function (touchEvent) {
-        var changedTouches = touchEvent.changedTouches;
-        var nbTouches = changedTouches.length;
-        for (var t = 0; t < nbTouches; t++) {
-            var pointerEvent = new CustomEvent(pointerType, {
-                bubbles: true,
-                cancelable: true
-            });
-            pointerEvent.ctrlKey = touchEvent.ctrlKey;
-            pointerEvent.shiftKey = touchEvent.shiftKey;
-            pointerEvent.altKey = touchEvent.altKey;
-            pointerEvent.metaKey = touchEvent.metaKey;
-            var touch = changedTouches.item(t);
-            pointerEvent.clientX = touch.clientX;
-            pointerEvent.clientY = touch.clientY;
-            pointerEvent.screenX = touch.screenX;
-            pointerEvent.screenY = touch.screenY;
-            pointerEvent.pageX = touch.pageX;
-            pointerEvent.pageY = touch.pageY;
-            var rect = touch.target.getBoundingClientRect();
-            pointerEvent.offsetX = touch.clientX - rect.left;
-            pointerEvent.offsetY = touch.clientY - rect.top;
-            pointerEvent.pointerId = 1 + touch.identifier;
-            // Default values for standard MouseEvent fields.
-            pointerEvent.button = 0;
-            pointerEvent.buttons = 1;
-            pointerEvent.movementX = 0;
-            pointerEvent.movementY = 0;
-            pointerEvent.region = null;
-            pointerEvent.relatedTarget = null;
-            pointerEvent.x = pointerEvent.clientX;
-            pointerEvent.y = pointerEvent.clientY;
-            // Pointer event details
-            pointerEvent.pointerType = "touch";
-            pointerEvent.width = 1;
-            pointerEvent.height = 1;
-            pointerEvent.tiltX = 0;
-            pointerEvent.tiltY = 0;
-            pointerEvent.pressure = 1;
-            // First touch is the primary pointer event.
-            if (touchType === "touchstart" && primaryTouchId === null) {
-                primaryTouchId = touch.identifier;
-            }
-            pointerEvent.isPrimary = touch.identifier === primaryTouchId;
-            // If first touch ends, reset primary touch id.
-            if (touchType === "touchend" && pointerEvent.isPrimary) {
-                primaryTouchId = null;
-            }
-            touchEvent.target.dispatchEvent(pointerEvent);
-            if (pointerEvent.defaultPrevented) {
-                touchEvent.preventDefault();
-            }
-        }
-    });
-}
-
-},{}],"node_modules/ol/has.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.PASSIVE_EVENT_LISTENERS = exports.IMAGE_DECODE = exports.WORKER_OFFSCREEN_CANVAS = exports.DEVICE_PIXEL_RATIO = exports.MAC = exports.WEBKIT = exports.SAFARI = exports.FIREFOX = void 0;
-
-/**
- * @module ol/has
- */
-var ua = typeof navigator !== 'undefined' ? navigator.userAgent.toLowerCase() : '';
-/**
- * User agent string says we are dealing with Firefox as browser.
- * @type {boolean}
- */
-
-var FIREFOX = ua.indexOf('firefox') !== -1;
-/**
- * User agent string says we are dealing with Safari as browser.
- * @type {boolean}
- */
-
-exports.FIREFOX = FIREFOX;
-var SAFARI = ua.indexOf('safari') !== -1 && ua.indexOf('chrom') == -1;
-/**
- * User agent string says we are dealing with a WebKit engine.
- * @type {boolean}
- */
-
-exports.SAFARI = SAFARI;
-var WEBKIT = ua.indexOf('webkit') !== -1 && ua.indexOf('edge') == -1;
-/**
- * User agent string says we are dealing with a Mac as platform.
- * @type {boolean}
- */
-
-exports.WEBKIT = WEBKIT;
-var MAC = ua.indexOf('macintosh') !== -1;
-/**
- * The ratio between physical pixels and device-independent pixels
- * (dips) on the device (`window.devicePixelRatio`).
- * @const
- * @type {number}
- * @api
- */
-
-exports.MAC = MAC;
-var DEVICE_PIXEL_RATIO = typeof devicePixelRatio !== 'undefined' ? devicePixelRatio : 1;
-/**
- * The execution context is a worker with OffscreenCanvas available.
- * @const
- * @type {boolean}
- */
-
-exports.DEVICE_PIXEL_RATIO = DEVICE_PIXEL_RATIO;
-var WORKER_OFFSCREEN_CANVAS = typeof WorkerGlobalScope !== 'undefined' && typeof OffscreenCanvas !== 'undefined' && self instanceof WorkerGlobalScope; //eslint-disable-line
-
-/**
- * Image.prototype.decode() is supported.
- * @type {boolean}
- */
-
-exports.WORKER_OFFSCREEN_CANVAS = WORKER_OFFSCREEN_CANVAS;
-var IMAGE_DECODE = typeof Image !== 'undefined' && Image.prototype.decode;
-/**
- * @type {boolean}
- */
-
-exports.IMAGE_DECODE = IMAGE_DECODE;
-
-var PASSIVE_EVENT_LISTENERS = function () {
-  var passive = false;
-
-  try {
-    var options = Object.defineProperty({}, 'passive', {
-      get: function () {
-        passive = true;
-      }
-    });
-    window.addEventListener('_', null, options);
-    window.removeEventListener('_', null, options);
-  } catch (error) {// passive not supported
-  }
-
-  return passive;
-}();
-
-exports.PASSIVE_EVENT_LISTENERS = PASSIVE_EVENT_LISTENERS;
-},{}],"node_modules/ol/MapBrowserEventType.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _EventType = _interopRequireDefault(require("./events/EventType.js"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/**
- * @module ol/MapBrowserEventType
- */
-
-/**
- * Constants for event names.
- * @enum {string}
- */
-var _default = {
-  /**
-   * A true single click with no dragging and no double click. Note that this
-   * event is delayed by 250 ms to ensure that it is not a double click.
-   * @event module:ol/MapBrowserEvent~MapBrowserEvent#singleclick
-   * @api
-   */
-  SINGLECLICK: 'singleclick',
-
-  /**
-   * A click with no dragging. A double click will fire two of this.
-   * @event module:ol/MapBrowserEvent~MapBrowserEvent#click
-   * @api
-   */
-  CLICK: _EventType.default.CLICK,
-
-  /**
-   * A true double click, with no dragging.
-   * @event module:ol/MapBrowserEvent~MapBrowserEvent#dblclick
-   * @api
-   */
-  DBLCLICK: _EventType.default.DBLCLICK,
-
-  /**
-   * Triggered when a pointer is dragged.
-   * @event module:ol/MapBrowserEvent~MapBrowserEvent#pointerdrag
-   * @api
-   */
-  POINTERDRAG: 'pointerdrag',
-
-  /**
-   * Triggered when a pointer is moved. Note that on touch devices this is
-   * triggered when the map is panned, so is not the same as mousemove.
-   * @event module:ol/MapBrowserEvent~MapBrowserEvent#pointermove
-   * @api
-   */
-  POINTERMOVE: 'pointermove',
-  POINTERDOWN: 'pointerdown',
-  POINTERUP: 'pointerup',
-  POINTEROVER: 'pointerover',
-  POINTEROUT: 'pointerout',
-  POINTERENTER: 'pointerenter',
-  POINTERLEAVE: 'pointerleave',
-  POINTERCANCEL: 'pointercancel'
-};
-exports.default = _default;
-},{"./events/EventType.js":"node_modules/ol/events/EventType.js"}],"node_modules/ol/MapBrowserPointerEvent.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _MapBrowserEvent = _interopRequireDefault(require("./MapBrowserEvent.js"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var __extends = void 0 && (void 0).__extends || function () {
-  var extendStatics = function (d, b) {
-    extendStatics = Object.setPrototypeOf || {
-      __proto__: []
-    } instanceof Array && function (d, b) {
-      d.__proto__ = b;
-    } || function (d, b) {
-      for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    };
-
-    return extendStatics(d, b);
-  };
-
-  return function (d, b) {
-    extendStatics(d, b);
-
-    function __() {
-      this.constructor = d;
-    }
-
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-  };
-}();
-/**
- * @module ol/MapBrowserPointerEvent
- */
-
-
-var MapBrowserPointerEvent =
-/** @class */
-function (_super) {
-  __extends(MapBrowserPointerEvent, _super);
-  /**
-   * @param {string} type Event type.
-   * @param {import("./PluggableMap.js").default} map Map.
-   * @param {PointerEvent} pointerEvent Pointer event.
-   * @param {boolean=} opt_dragging Is the map currently being dragged?
-   * @param {?import("./PluggableMap.js").FrameState=} opt_frameState Frame state.
-   */
-
-
-  function MapBrowserPointerEvent(type, map, pointerEvent, opt_dragging, opt_frameState) {
-    var _this = _super.call(this, type, map, pointerEvent, opt_dragging, opt_frameState) || this;
-    /**
-     * @const
-     * @type {PointerEvent}
-     */
-
-
-    _this.pointerEvent = pointerEvent;
-    return _this;
-  }
-
-  return MapBrowserPointerEvent;
-}(_MapBrowserEvent.default);
-
-var _default = MapBrowserPointerEvent;
-exports.default = _default;
-},{"./MapBrowserEvent.js":"node_modules/ol/MapBrowserEvent.js"}],"node_modules/ol/pointer/EventType.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-/**
- * @module ol/pointer/EventType
- */
-
-/**
- * Constants for event names.
- * @enum {string}
- */
-var _default = {
-  POINTERMOVE: 'pointermove',
-  POINTERDOWN: 'pointerdown',
-  POINTERUP: 'pointerup',
-  POINTEROVER: 'pointerover',
-  POINTEROUT: 'pointerout',
-  POINTERENTER: 'pointerenter',
-  POINTERLEAVE: 'pointerleave',
-  POINTERCANCEL: 'pointercancel'
-};
-exports.default = _default;
-},{}],"node_modules/ol/MapBrowserEventHandler.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-require("elm-pep");
-
-var _has = require("./has.js");
-
-var _MapBrowserEventType = _interopRequireDefault(require("./MapBrowserEventType.js"));
-
-var _MapBrowserPointerEvent = _interopRequireDefault(require("./MapBrowserPointerEvent.js"));
+var _asserts = require("./asserts.js");
 
 var _events = require("./events.js");
 
-var _Target = _interopRequireDefault(require("./events/Target.js"));
-
-var _EventType = _interopRequireDefault(require("./pointer/EventType.js"));
-
-var _EventType2 = _interopRequireDefault(require("./events/EventType.js"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/**
- * @module ol/MapBrowserEventHandler
- */
-var __extends = void 0 && (void 0).__extends || function () {
-  var extendStatics = function (d, b) {
-    extendStatics = Object.setPrototypeOf || {
-      __proto__: []
-    } instanceof Array && function (d, b) {
-      d.__proto__ = b;
-    } || function (d, b) {
-      for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    };
-
-    return extendStatics(d, b);
-  };
-
-  return function (d, b) {
-    extendStatics(d, b);
-
-    function __() {
-      this.constructor = d;
-    }
-
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-  };
-}();
-
-var MapBrowserEventHandler =
-/** @class */
-function (_super) {
-  __extends(MapBrowserEventHandler, _super);
-  /**
-   * @param {import("./PluggableMap.js").default} map The map with the viewport to listen to events on.
-   * @param {number=} moveTolerance The minimal distance the pointer must travel to trigger a move.
-   */
-
-
-  function MapBrowserEventHandler(map, moveTolerance) {
-    var _this = _super.call(this, map) || this;
-    /**
-     * This is the element that we will listen to the real events on.
-     * @type {import("./PluggableMap.js").default}
-     * @private
-     */
-
-
-    _this.map_ = map;
-    /**
-     * @type {any}
-     * @private
-     */
-
-    _this.clickTimeoutId_;
-    /**
-     * @type {boolean}
-     * @private
-     */
-
-    _this.dragging_ = false;
-    /**
-     * @type {!Array<import("./events.js").EventsKey>}
-     * @private
-     */
-
-    _this.dragListenerKeys_ = [];
-    /**
-     * @type {number}
-     * @private
-     */
-
-    _this.moveTolerance_ = moveTolerance ? moveTolerance * _has.DEVICE_PIXEL_RATIO : _has.DEVICE_PIXEL_RATIO;
-    /**
-     * The most recent "down" type event (or null if none have occurred).
-     * Set on pointerdown.
-     * @type {PointerEvent}
-     * @private
-     */
-
-    _this.down_ = null;
-
-    var element = _this.map_.getViewport();
-    /**
-     * @type {number}
-     * @private
-     */
-
-
-    _this.activePointers_ = 0;
-    /**
-     * @type {!Object<number, boolean>}
-     * @private
-     */
-
-    _this.trackedTouches_ = {};
-    _this.element_ = element;
-    /**
-     * @type {?import("./events.js").EventsKey}
-     * @private
-     */
-
-    _this.pointerdownListenerKey_ = (0, _events.listen)(element, _EventType.default.POINTERDOWN, _this.handlePointerDown_, _this);
-    /**
-     * @type {PointerEvent}
-     * @private
-     */
-
-    _this.originalPointerMoveEvent_;
-    /**
-     * @type {?import("./events.js").EventsKey}
-     * @private
-     */
-
-    _this.relayedListenerKey_ = (0, _events.listen)(element, _EventType.default.POINTERMOVE, _this.relayEvent_, _this);
-    /**
-     * @private
-     */
-
-    _this.boundHandleTouchMove_ = _this.handleTouchMove_.bind(_this);
-
-    _this.element_.addEventListener(_EventType2.default.TOUCHMOVE, _this.boundHandleTouchMove_, _has.PASSIVE_EVENT_LISTENERS ? {
-      passive: false
-    } : false);
-
-    return _this;
-  }
-  /**
-   * @param {PointerEvent} pointerEvent Pointer
-   * event.
-   * @private
-   */
-
-
-  MapBrowserEventHandler.prototype.emulateClick_ = function (pointerEvent) {
-    var newEvent = new _MapBrowserPointerEvent.default(_MapBrowserEventType.default.CLICK, this.map_, pointerEvent);
-    this.dispatchEvent(newEvent);
-
-    if (this.clickTimeoutId_ !== undefined) {
-      // double-click
-      clearTimeout(this.clickTimeoutId_);
-      this.clickTimeoutId_ = undefined;
-      newEvent = new _MapBrowserPointerEvent.default(_MapBrowserEventType.default.DBLCLICK, this.map_, pointerEvent);
-      this.dispatchEvent(newEvent);
-    } else {
-      // click
-      this.clickTimeoutId_ = setTimeout(function () {
-        this.clickTimeoutId_ = undefined;
-        var newEvent = new _MapBrowserPointerEvent.default(_MapBrowserEventType.default.SINGLECLICK, this.map_, pointerEvent);
-        this.dispatchEvent(newEvent);
-      }.bind(this), 250);
-    }
-  };
-  /**
-   * Keeps track on how many pointers are currently active.
-   *
-   * @param {PointerEvent} pointerEvent Pointer
-   * event.
-   * @private
-   */
-
-
-  MapBrowserEventHandler.prototype.updateActivePointers_ = function (pointerEvent) {
-    var event = pointerEvent;
-
-    if (event.type == _MapBrowserEventType.default.POINTERUP || event.type == _MapBrowserEventType.default.POINTERCANCEL) {
-      delete this.trackedTouches_[event.pointerId];
-    } else if (event.type == _MapBrowserEventType.default.POINTERDOWN) {
-      this.trackedTouches_[event.pointerId] = true;
-    }
-
-    this.activePointers_ = Object.keys(this.trackedTouches_).length;
-  };
-  /**
-   * @param {PointerEvent} pointerEvent Pointer
-   * event.
-   * @private
-   */
-
-
-  MapBrowserEventHandler.prototype.handlePointerUp_ = function (pointerEvent) {
-    this.updateActivePointers_(pointerEvent);
-    var newEvent = new _MapBrowserPointerEvent.default(_MapBrowserEventType.default.POINTERUP, this.map_, pointerEvent);
-    this.dispatchEvent(newEvent); // We emulate click events on left mouse button click, touch contact, and pen
-    // contact. isMouseActionButton returns true in these cases (evt.button is set
-    // to 0).
-    // See http://www.w3.org/TR/pointerevents/#button-states
-    // We only fire click, singleclick, and doubleclick if nobody has called
-    // event.stopPropagation() or event.preventDefault().
-
-    if (!newEvent.propagationStopped && !this.dragging_ && this.isMouseActionButton_(pointerEvent)) {
-      this.emulateClick_(this.down_);
-    }
-
-    if (this.activePointers_ === 0) {
-      this.dragListenerKeys_.forEach(_events.unlistenByKey);
-      this.dragListenerKeys_.length = 0;
-      this.dragging_ = false;
-      this.down_ = null;
-    }
-  };
-  /**
-   * @param {PointerEvent} pointerEvent Pointer
-   * event.
-   * @return {boolean} If the left mouse button was pressed.
-   * @private
-   */
-
-
-  MapBrowserEventHandler.prototype.isMouseActionButton_ = function (pointerEvent) {
-    return pointerEvent.button === 0;
-  };
-  /**
-   * @param {PointerEvent} pointerEvent Pointer
-   * event.
-   * @private
-   */
-
-
-  MapBrowserEventHandler.prototype.handlePointerDown_ = function (pointerEvent) {
-    this.updateActivePointers_(pointerEvent);
-    var newEvent = new _MapBrowserPointerEvent.default(_MapBrowserEventType.default.POINTERDOWN, this.map_, pointerEvent);
-    this.dispatchEvent(newEvent);
-    this.down_ = pointerEvent;
-
-    if (this.dragListenerKeys_.length === 0) {
-      this.dragListenerKeys_.push((0, _events.listen)(document, _MapBrowserEventType.default.POINTERMOVE, this.handlePointerMove_, this), (0, _events.listen)(document, _MapBrowserEventType.default.POINTERUP, this.handlePointerUp_, this),
-      /* Note that the listener for `pointercancel is set up on
-       * `pointerEventHandler_` and not `documentPointerEventHandler_` like
-       * the `pointerup` and `pointermove` listeners.
-       *
-       * The reason for this is the following: `TouchSource.vacuumTouches_()`
-       * issues `pointercancel` events, when there was no `touchend` for a
-       * `touchstart`. Now, let's say a first `touchstart` is registered on
-       * `pointerEventHandler_`. The `documentPointerEventHandler_` is set up.
-       * But `documentPointerEventHandler_` doesn't know about the first
-       * `touchstart`. If there is no `touchend` for the `touchstart`, we can
-       * only receive a `touchcancel` from `pointerEventHandler_`, because it is
-       * only registered there.
-       */
-      (0, _events.listen)(this.element_, _MapBrowserEventType.default.POINTERCANCEL, this.handlePointerUp_, this));
-    }
-  };
-  /**
-   * @param {PointerEvent} pointerEvent Pointer
-   * event.
-   * @private
-   */
-
-
-  MapBrowserEventHandler.prototype.handlePointerMove_ = function (pointerEvent) {
-    // Between pointerdown and pointerup, pointermove events are triggered.
-    // To avoid a 'false' touchmove event to be dispatched, we test if the pointer
-    // moved a significant distance.
-    if (this.isMoving_(pointerEvent)) {
-      this.dragging_ = true;
-      var newEvent = new _MapBrowserPointerEvent.default(_MapBrowserEventType.default.POINTERDRAG, this.map_, pointerEvent, this.dragging_);
-      this.dispatchEvent(newEvent);
-    }
-  };
-  /**
-   * Wrap and relay a pointer event.  Note that this requires that the type
-   * string for the MapBrowserPointerEvent matches the PointerEvent type.
-   * @param {PointerEvent} pointerEvent Pointer
-   * event.
-   * @private
-   */
-
-
-  MapBrowserEventHandler.prototype.relayEvent_ = function (pointerEvent) {
-    this.originalPointerMoveEvent_ = pointerEvent;
-    var dragging = !!(this.down_ && this.isMoving_(pointerEvent));
-    this.dispatchEvent(new _MapBrowserPointerEvent.default(pointerEvent.type, this.map_, pointerEvent, dragging));
-  };
-  /**
-   * Flexible handling of a `touch-action: none` css equivalent: because calling
-   * `preventDefault()` on a `pointermove` event does not stop native page scrolling
-   * and zooming, we also listen for `touchmove` and call `preventDefault()` on it
-   * when an interaction (currently `DragPan` handles the event.
-   * @param {TouchEvent} event Event.
-   * @private
-   */
-
-
-  MapBrowserEventHandler.prototype.handleTouchMove_ = function (event) {
-    // Due to https://github.com/mpizenberg/elm-pep/issues/2, `this.originalPointerMoveEvent_`
-    // may not be initialized yet when we get here on a platform without native pointer events.
-    if (!this.originalPointerMoveEvent_ || this.originalPointerMoveEvent_.defaultPrevented) {
-      event.preventDefault();
-    }
-  };
-  /**
-   * @param {PointerEvent} pointerEvent Pointer
-   * event.
-   * @return {boolean} Is moving.
-   * @private
-   */
-
-
-  MapBrowserEventHandler.prototype.isMoving_ = function (pointerEvent) {
-    return this.dragging_ || Math.abs(pointerEvent.clientX - this.down_.clientX) > this.moveTolerance_ || Math.abs(pointerEvent.clientY - this.down_.clientY) > this.moveTolerance_;
-  };
-  /**
-   * @inheritDoc
-   */
-
-
-  MapBrowserEventHandler.prototype.disposeInternal = function () {
-    if (this.relayedListenerKey_) {
-      (0, _events.unlistenByKey)(this.relayedListenerKey_);
-      this.relayedListenerKey_ = null;
-    }
-
-    this.element_.removeEventListener(_EventType2.default.TOUCHMOVE, this.boundHandleTouchMove_);
-
-    if (this.pointerdownListenerKey_) {
-      (0, _events.unlistenByKey)(this.pointerdownListenerKey_);
-      this.pointerdownListenerKey_ = null;
-    }
-
-    this.dragListenerKeys_.forEach(_events.unlistenByKey);
-    this.dragListenerKeys_.length = 0;
-    this.element_ = null;
-
-    _super.prototype.disposeInternal.call(this);
-  };
-
-  return MapBrowserEventHandler;
-}(_Target.default);
-
-var _default = MapBrowserEventHandler;
-exports.default = _default;
-},{"elm-pep":"node_modules/elm-pep/dist/elm-pep.js","./has.js":"node_modules/ol/has.js","./MapBrowserEventType.js":"node_modules/ol/MapBrowserEventType.js","./MapBrowserPointerEvent.js":"node_modules/ol/MapBrowserPointerEvent.js","./events.js":"node_modules/ol/events.js","./events/Target.js":"node_modules/ol/events/Target.js","./pointer/EventType.js":"node_modules/ol/pointer/EventType.js","./events/EventType.js":"node_modules/ol/events/EventType.js"}],"node_modules/ol/MapEventType.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-/**
- * @module ol/MapEventType
- */
-
-/**
- * @enum {string}
- */
-var _default = {
-  /**
-   * Triggered after a map frame is rendered.
-   * @event module:ol/MapEvent~MapEvent#postrender
-   * @api
-   */
-  POSTRENDER: 'postrender',
-
-  /**
-   * Triggered when the map starts moving.
-   * @event module:ol/MapEvent~MapEvent#movestart
-   * @api
-   */
-  MOVESTART: 'movestart',
-
-  /**
-   * Triggered after the map is moved.
-   * @event module:ol/MapEvent~MapEvent#moveend
-   * @api
-   */
-  MOVEEND: 'moveend'
-};
-exports.default = _default;
-},{}],"node_modules/ol/MapProperty.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-/**
- * @module ol/MapProperty
- */
-
-/**
- * @enum {string}
- */
-var _default = {
-  LAYERGROUP: 'layergroup',
-  SIZE: 'size',
-  TARGET: 'target',
-  VIEW: 'view'
-};
-exports.default = _default;
-},{}],"node_modules/ol/render/EventType.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-/**
- * @module ol/render/EventType
- */
-
-/**
- * @enum {string}
- */
-var _default = {
-  /**
-   * Triggered before a layer is rendered.
-   * @event module:ol/render/Event~RenderEvent#prerender
-   * @api
-   */
-  PRERENDER: 'prerender',
-
-  /**
-   * Triggered after a layer is rendered.
-   * @event module:ol/render/Event~RenderEvent#postrender
-   * @api
-   */
-  POSTRENDER: 'postrender',
-
-  /**
-   * Triggered before layers are rendered.
-   * The event object will not have a `context` set.
-   * @event module:ol/render/Event~RenderEvent#precompose
-   * @api
-   */
-  PRECOMPOSE: 'precompose',
-
-  /**
-   * Triggered after all layers are rendered.
-   * The event object will not have a `context` set.
-   * @event module:ol/render/Event~RenderEvent#postcompose
-   * @api
-   */
-  POSTCOMPOSE: 'postcompose',
-
-  /**
-   * Triggered when rendering is complete, i.e. all sources and tiles have
-   * finished loading for the current viewport, and all tiles are faded in.
-   * The event object will not have a `context` set.
-   * @event module:ol/render/Event~RenderEvent#rendercomplete
-   * @api
-   */
-  RENDERCOMPLETE: 'rendercomplete'
-};
-exports.default = _default;
-},{}],"node_modules/ol/TileState.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-/**
- * @module ol/TileState
- */
-
-/**
- * @enum {number}
- */
-var _default = {
-  IDLE: 0,
-  LOADING: 1,
-  LOADED: 2,
-
-  /**
-   * Indicates that tile loading failed
-   * @type {number}
-   */
-  ERROR: 3,
-  EMPTY: 4
-};
-exports.default = _default;
-},{}],"node_modules/ol/asserts.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.assert = assert;
-
-var _AssertionError = _interopRequireDefault(require("./AssertionError.js"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/**
- * @module ol/asserts
- */
-
-/**
- * @param {*} assertion Assertion we expected to be truthy.
- * @param {number} errorCode Error code.
- */
-function assert(assertion, errorCode) {
-  if (!assertion) {
-    throw new _AssertionError.default(errorCode);
-  }
-}
-},{"./AssertionError.js":"node_modules/ol/AssertionError.js"}],"node_modules/ol/structs/PriorityQueue.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = exports.DROP = void 0;
-
-var _asserts = require("../asserts.js");
-
-var _obj = require("../obj.js");
-
-/**
- * @module ol/structs/PriorityQueue
- */
-
-/**
- * @type {number}
- */
-var DROP = Infinity;
-/**
- * @classdesc
- * Priority queue.
- *
- * The implementation is inspired from the Closure Library's Heap class and
- * Python's heapq module.
- *
- * See http://closure-library.googlecode.com/svn/docs/closure_goog_structs_heap.js.source.html
- * and http://hg.python.org/cpython/file/2.7/Lib/heapq.py.
- *
- * @template T
- */
-
-exports.DROP = DROP;
-
-var PriorityQueue =
-/** @class */
-function () {
-  /**
-   * @param {function(T): number} priorityFunction Priority function.
-   * @param {function(T): string} keyFunction Key function.
-   */
-  function PriorityQueue(priorityFunction, keyFunction) {
-    /**
-     * @type {function(T): number}
-     * @private
-     */
-    this.priorityFunction_ = priorityFunction;
-    /**
-     * @type {function(T): string}
-     * @private
-     */
-
-    this.keyFunction_ = keyFunction;
-    /**
-     * @type {Array<T>}
-     * @private
-     */
-
-    this.elements_ = [];
-    /**
-     * @type {Array<number>}
-     * @private
-     */
-
-    this.priorities_ = [];
-    /**
-     * @type {!Object<string, boolean>}
-     * @private
-     */
-
-    this.queuedElements_ = {};
-  }
-  /**
-   * FIXME empty description for jsdoc
-   */
-
-
-  PriorityQueue.prototype.clear = function () {
-    this.elements_.length = 0;
-    this.priorities_.length = 0;
-    (0, _obj.clear)(this.queuedElements_);
-  };
-  /**
-   * Remove and return the highest-priority element. O(log N).
-   * @return {T} Element.
-   */
-
-
-  PriorityQueue.prototype.dequeue = function () {
-    var elements = this.elements_;
-    var priorities = this.priorities_;
-    var element = elements[0];
-
-    if (elements.length == 1) {
-      elements.length = 0;
-      priorities.length = 0;
-    } else {
-      elements[0] = elements.pop();
-      priorities[0] = priorities.pop();
-      this.siftUp_(0);
-    }
-
-    var elementKey = this.keyFunction_(element);
-    delete this.queuedElements_[elementKey];
-    return element;
-  };
-  /**
-   * Enqueue an element. O(log N).
-   * @param {T} element Element.
-   * @return {boolean} The element was added to the queue.
-   */
-
-
-  PriorityQueue.prototype.enqueue = function (element) {
-    (0, _asserts.assert)(!(this.keyFunction_(element) in this.queuedElements_), 31); // Tried to enqueue an `element` that was already added to the queue
-
-    var priority = this.priorityFunction_(element);
-
-    if (priority != DROP) {
-      this.elements_.push(element);
-      this.priorities_.push(priority);
-      this.queuedElements_[this.keyFunction_(element)] = true;
-      this.siftDown_(0, this.elements_.length - 1);
-      return true;
-    }
-
-    return false;
-  };
-  /**
-   * @return {number} Count.
-   */
-
-
-  PriorityQueue.prototype.getCount = function () {
-    return this.elements_.length;
-  };
-  /**
-   * Gets the index of the left child of the node at the given index.
-   * @param {number} index The index of the node to get the left child for.
-   * @return {number} The index of the left child.
-   * @private
-   */
-
-
-  PriorityQueue.prototype.getLeftChildIndex_ = function (index) {
-    return index * 2 + 1;
-  };
-  /**
-   * Gets the index of the right child of the node at the given index.
-   * @param {number} index The index of the node to get the right child for.
-   * @return {number} The index of the right child.
-   * @private
-   */
-
-
-  PriorityQueue.prototype.getRightChildIndex_ = function (index) {
-    return index * 2 + 2;
-  };
-  /**
-   * Gets the index of the parent of the node at the given index.
-   * @param {number} index The index of the node to get the parent for.
-   * @return {number} The index of the parent.
-   * @private
-   */
-
-
-  PriorityQueue.prototype.getParentIndex_ = function (index) {
-    return index - 1 >> 1;
-  };
-  /**
-   * Make this a heap. O(N).
-   * @private
-   */
-
-
-  PriorityQueue.prototype.heapify_ = function () {
-    var i;
-
-    for (i = (this.elements_.length >> 1) - 1; i >= 0; i--) {
-      this.siftUp_(i);
-    }
-  };
-  /**
-   * @return {boolean} Is empty.
-   */
-
-
-  PriorityQueue.prototype.isEmpty = function () {
-    return this.elements_.length === 0;
-  };
-  /**
-   * @param {string} key Key.
-   * @return {boolean} Is key queued.
-   */
-
-
-  PriorityQueue.prototype.isKeyQueued = function (key) {
-    return key in this.queuedElements_;
-  };
-  /**
-   * @param {T} element Element.
-   * @return {boolean} Is queued.
-   */
-
-
-  PriorityQueue.prototype.isQueued = function (element) {
-    return this.isKeyQueued(this.keyFunction_(element));
-  };
-  /**
-   * @param {number} index The index of the node to move down.
-   * @private
-   */
-
-
-  PriorityQueue.prototype.siftUp_ = function (index) {
-    var elements = this.elements_;
-    var priorities = this.priorities_;
-    var count = elements.length;
-    var element = elements[index];
-    var priority = priorities[index];
-    var startIndex = index;
-
-    while (index < count >> 1) {
-      var lIndex = this.getLeftChildIndex_(index);
-      var rIndex = this.getRightChildIndex_(index);
-      var smallerChildIndex = rIndex < count && priorities[rIndex] < priorities[lIndex] ? rIndex : lIndex;
-      elements[index] = elements[smallerChildIndex];
-      priorities[index] = priorities[smallerChildIndex];
-      index = smallerChildIndex;
-    }
-
-    elements[index] = element;
-    priorities[index] = priority;
-    this.siftDown_(startIndex, index);
-  };
-  /**
-   * @param {number} startIndex The index of the root.
-   * @param {number} index The index of the node to move up.
-   * @private
-   */
-
-
-  PriorityQueue.prototype.siftDown_ = function (startIndex, index) {
-    var elements = this.elements_;
-    var priorities = this.priorities_;
-    var element = elements[index];
-    var priority = priorities[index];
-
-    while (index > startIndex) {
-      var parentIndex = this.getParentIndex_(index);
-
-      if (priorities[parentIndex] > priority) {
-        elements[index] = elements[parentIndex];
-        priorities[index] = priorities[parentIndex];
-        index = parentIndex;
-      } else {
-        break;
-      }
-    }
-
-    elements[index] = element;
-    priorities[index] = priority;
-  };
-  /**
-   * FIXME empty description for jsdoc
-   */
-
-
-  PriorityQueue.prototype.reprioritize = function () {
-    var priorityFunction = this.priorityFunction_;
-    var elements = this.elements_;
-    var priorities = this.priorities_;
-    var index = 0;
-    var n = elements.length;
-    var element, i, priority;
-
-    for (i = 0; i < n; ++i) {
-      element = elements[i];
-      priority = priorityFunction(element);
-
-      if (priority == DROP) {
-        delete this.queuedElements_[this.keyFunction_(element)];
-      } else {
-        priorities[index] = priority;
-        elements[index++] = element;
-      }
-    }
-
-    elements.length = index;
-    priorities.length = index;
-    this.heapify_();
-  };
-
-  return PriorityQueue;
-}();
-
-var _default = PriorityQueue;
-exports.default = _default;
-},{"../asserts.js":"node_modules/ol/asserts.js","../obj.js":"node_modules/ol/obj.js"}],"node_modules/ol/TileQueue.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.getTilePriority = getTilePriority;
-exports.default = void 0;
-
-var _TileState = _interopRequireDefault(require("./TileState.js"));
-
 var _EventType = _interopRequireDefault(require("./events/EventType.js"));
 
-var _PriorityQueue = _interopRequireWildcard(require("./structs/PriorityQueue.js"));
+var _Object = _interopRequireWildcard(require("./Object.js"));
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
@@ -3719,501 +1913,346 @@ var __extends = void 0 && (void 0).__extends || function () {
   };
 }();
 /**
- * @module ol/TileQueue
+ * @module ol/Feature
  */
 
 
 /**
- * @typedef {function(import("./Tile.js").default, string, import("./coordinate.js").Coordinate, number): number} PriorityFunction
+ * @typedef {typeof Feature|typeof import("./render/Feature.js").default} FeatureClass
  */
-var TileQueue =
+
+/**
+ * @typedef {Feature|import("./render/Feature.js").default} FeatureLike
+ */
+
+/**
+ * @classdesc
+ * A vector object for geographic features with a geometry and other
+ * attribute properties, similar to the features in vector file formats like
+ * GeoJSON.
+ *
+ * Features can be styled individually with `setStyle`; otherwise they use the
+ * style of their vector layer.
+ *
+ * Note that attribute properties are set as {@link module:ol/Object} properties on
+ * the feature object, so they are observable, and have get/set accessors.
+ *
+ * Typically, a feature has a single geometry property. You can set the
+ * geometry using the `setGeometry` method and get it with `getGeometry`.
+ * It is possible to store more than one geometry on a feature using attribute
+ * properties. By default, the geometry used for rendering is identified by
+ * the property name `geometry`. If you want to use another geometry property
+ * for rendering, use the `setGeometryName` method to change the attribute
+ * property associated with the geometry for the feature.  For example:
+ *
+ * ```js
+ *
+ * import Feature from 'ol/Feature';
+ * import Polygon from 'ol/geom/Polygon';
+ * import Point from 'ol/geom/Point';
+ *
+ * var feature = new Feature({
+ *   geometry: new Polygon(polyCoords),
+ *   labelPoint: new Point(labelCoords),
+ *   name: 'My Polygon'
+ * });
+ *
+ * // get the polygon geometry
+ * var poly = feature.getGeometry();
+ *
+ * // Render the feature as a point using the coordinates from labelPoint
+ * feature.setGeometryName('labelPoint');
+ *
+ * // get the point geometry
+ * var point = feature.getGeometry();
+ * ```
+ *
+ * @api
+ * @template {import("./geom/Geometry.js").default} Geometry
+ */
+var Feature =
 /** @class */
 function (_super) {
-  __extends(TileQueue, _super);
+  __extends(Feature, _super);
   /**
-   * @param {PriorityFunction} tilePriorityFunction Tile priority function.
-   * @param {function(): ?} tileChangeCallback Function called on each tile change event.
+   * @param {Geometry|Object<string, *>=} opt_geometryOrProperties
+   *     You may pass a Geometry object directly, or an object literal containing
+   *     properties. If you pass an object literal, you may include a Geometry
+   *     associated with a `geometry` key.
    */
 
 
-  function TileQueue(tilePriorityFunction, tileChangeCallback) {
-    var _this = _super.call(this,
-    /**
-     * @param {Array} element Element.
-     * @return {number} Priority.
-     */
-    function (element) {
-      return tilePriorityFunction.apply(null, element);
-    },
-    /**
-     * @param {Array} element Element.
-     * @return {string} Key.
-     */
-    function (element) {
-      return (
-        /** @type {import("./Tile.js").default} */
-        element[0].getKey()
-      );
-    }) || this;
-    /** @private */
-
-
-    _this.boundHandleTileChange_ = _this.handleTileChange.bind(_this);
+  function Feature(opt_geometryOrProperties) {
+    var _this = _super.call(this) || this;
     /**
      * @private
-     * @type {function(): ?}
+     * @type {number|string|undefined}
      */
 
-    _this.tileChangeCallback_ = tileChangeCallback;
+
+    _this.id_ = undefined;
+    /**
+     * @type {string}
+     * @private
+     */
+
+    _this.geometryName_ = 'geometry';
+    /**
+     * User provided style.
+     * @private
+     * @type {import("./style/Style.js").StyleLike}
+     */
+
+    _this.style_ = null;
     /**
      * @private
-     * @type {number}
+     * @type {import("./style/Style.js").StyleFunction|undefined}
      */
 
-    _this.tilesLoading_ = 0;
+    _this.styleFunction_ = undefined;
     /**
      * @private
-     * @type {!Object<string,boolean>}
+     * @type {?import("./events.js").EventsKey}
      */
 
-    _this.tilesLoadingKeys_ = {};
+    _this.geometryChangeKey_ = null;
+
+    _this.addEventListener((0, _Object.getChangeEventType)(_this.geometryName_), _this.handleGeometryChanged_);
+
+    if (opt_geometryOrProperties) {
+      if (typeof
+      /** @type {?} */
+      opt_geometryOrProperties.getSimplifiedGeometry === 'function') {
+        var geometry =
+        /** @type {Geometry} */
+        opt_geometryOrProperties;
+
+        _this.setGeometry(geometry);
+      } else {
+        /** @type {Object<string, *>} */
+        var properties = opt_geometryOrProperties;
+
+        _this.setProperties(properties);
+      }
+    }
+
     return _this;
   }
   /**
-   * @inheritDoc
+   * Clone this feature. If the original feature has a geometry it
+   * is also cloned. The feature id is not set in the clone.
+   * @return {Feature} The clone.
+   * @api
    */
 
 
-  TileQueue.prototype.enqueue = function (element) {
-    var added = _super.prototype.enqueue.call(this, element);
+  Feature.prototype.clone = function () {
+    var clone = new Feature(this.getProperties());
+    clone.setGeometryName(this.getGeometryName());
+    var geometry = this.getGeometry();
 
-    if (added) {
-      var tile = element[0];
-      tile.addEventListener(_EventType.default.CHANGE, this.boundHandleTileChange_);
+    if (geometry) {
+      clone.setGeometry(geometry.clone());
     }
 
-    return added;
-  };
-  /**
-   * @return {number} Number of tiles loading.
-   */
+    var style = this.getStyle();
 
-
-  TileQueue.prototype.getTilesLoading = function () {
-    return this.tilesLoading_;
-  };
-  /**
-   * @param {import("./events/Event.js").default} event Event.
-   * @protected
-   */
-
-
-  TileQueue.prototype.handleTileChange = function (event) {
-    var tile =
-    /** @type {import("./Tile.js").default} */
-    event.target;
-    var state = tile.getState();
-
-    if (tile.hifi && state === _TileState.default.LOADED || state === _TileState.default.ERROR || state === _TileState.default.EMPTY) {
-      tile.removeEventListener(_EventType.default.CHANGE, this.boundHandleTileChange_);
-      var tileKey = tile.getKey();
-
-      if (tileKey in this.tilesLoadingKeys_) {
-        delete this.tilesLoadingKeys_[tileKey];
-        --this.tilesLoading_;
-      }
-
-      this.tileChangeCallback_();
+    if (style) {
+      clone.setStyle(style);
     }
+
+    return clone;
   };
   /**
-   * @param {number} maxTotalLoading Maximum number tiles to load simultaneously.
-   * @param {number} maxNewLoads Maximum number of new tiles to load.
+   * Get the feature's default geometry.  A feature may have any number of named
+   * geometries.  The "default" geometry (the one that is rendered by default) is
+   * set when calling {@link module:ol/Feature~Feature#setGeometry}.
+   * @return {Geometry|undefined} The default geometry for the feature.
+   * @api
+   * @observable
    */
 
 
-  TileQueue.prototype.loadMoreTiles = function (maxTotalLoading, maxNewLoads) {
-    var newLoads = 0;
-    var state, tile, tileKey;
+  Feature.prototype.getGeometry = function () {
+    return (
+      /** @type {Geometry|undefined} */
+      this.get(this.geometryName_)
+    );
+  };
+  /**
+   * Get the feature identifier.  This is a stable identifier for the feature and
+   * is either set when reading data from a remote source or set explicitly by
+   * calling {@link module:ol/Feature~Feature#setId}.
+   * @return {number|string|undefined} Id.
+   * @api
+   */
 
-    while (this.tilesLoading_ < maxTotalLoading && newLoads < maxNewLoads && this.getCount() > 0) {
-      tile =
-      /** @type {import("./Tile.js").default} */
-      this.dequeue()[0];
-      tileKey = tile.getKey();
-      state = tile.getState();
 
-      if (state === _TileState.default.IDLE && !(tileKey in this.tilesLoadingKeys_)) {
-        this.tilesLoadingKeys_[tileKey] = true;
-        ++this.tilesLoading_;
-        ++newLoads;
-        tile.load();
-      }
+  Feature.prototype.getId = function () {
+    return this.id_;
+  };
+  /**
+   * Get the name of the feature's default geometry.  By default, the default
+   * geometry is named `geometry`.
+   * @return {string} Get the property name associated with the default geometry
+   *     for this feature.
+   * @api
+   */
+
+
+  Feature.prototype.getGeometryName = function () {
+    return this.geometryName_;
+  };
+  /**
+   * Get the feature's style. Will return what was provided to the
+   * {@link module:ol/Feature~Feature#setStyle} method.
+   * @return {import("./style/Style.js").StyleLike} The feature style.
+   * @api
+   */
+
+
+  Feature.prototype.getStyle = function () {
+    return this.style_;
+  };
+  /**
+   * Get the feature's style function.
+   * @return {import("./style/Style.js").StyleFunction|undefined} Return a function
+   * representing the current style of this feature.
+   * @api
+   */
+
+
+  Feature.prototype.getStyleFunction = function () {
+    return this.styleFunction_;
+  };
+  /**
+   * @private
+   */
+
+
+  Feature.prototype.handleGeometryChange_ = function () {
+    this.changed();
+  };
+  /**
+   * @private
+   */
+
+
+  Feature.prototype.handleGeometryChanged_ = function () {
+    if (this.geometryChangeKey_) {
+      (0, _events.unlistenByKey)(this.geometryChangeKey_);
+      this.geometryChangeKey_ = null;
     }
+
+    var geometry = this.getGeometry();
+
+    if (geometry) {
+      this.geometryChangeKey_ = (0, _events.listen)(geometry, _EventType.default.CHANGE, this.handleGeometryChange_, this);
+    }
+
+    this.changed();
+  };
+  /**
+   * Set the default geometry for the feature.  This will update the property
+   * with the name returned by {@link module:ol/Feature~Feature#getGeometryName}.
+   * @param {Geometry|undefined} geometry The new geometry.
+   * @api
+   * @observable
+   */
+
+
+  Feature.prototype.setGeometry = function (geometry) {
+    this.set(this.geometryName_, geometry);
+  };
+  /**
+   * Set the style for the feature.  This can be a single style object, an array
+   * of styles, or a function that takes a resolution and returns an array of
+   * styles. If it is `null` the feature has no style (a `null` style).
+   * @param {import("./style/Style.js").StyleLike} style Style for this feature.
+   * @api
+   * @fires module:ol/events/Event~BaseEvent#event:change
+   */
+
+
+  Feature.prototype.setStyle = function (style) {
+    this.style_ = style;
+    this.styleFunction_ = !style ? undefined : createStyleFunction(style);
+    this.changed();
+  };
+  /**
+   * Set the feature id.  The feature id is considered stable and may be used when
+   * requesting features or comparing identifiers returned from a remote source.
+   * The feature id can be used with the
+   * {@link module:ol/source/Vector~VectorSource#getFeatureById} method.
+   * @param {number|string|undefined} id The feature id.
+   * @api
+   * @fires module:ol/events/Event~BaseEvent#event:change
+   */
+
+
+  Feature.prototype.setId = function (id) {
+    this.id_ = id;
+    this.changed();
+  };
+  /**
+   * Set the property name to be used when getting the feature's default geometry.
+   * When calling {@link module:ol/Feature~Feature#getGeometry}, the value of the property with
+   * this name will be returned.
+   * @param {string} name The property name of the default geometry.
+   * @api
+   */
+
+
+  Feature.prototype.setGeometryName = function (name) {
+    this.removeEventListener((0, _Object.getChangeEventType)(this.geometryName_), this.handleGeometryChanged_);
+    this.geometryName_ = name;
+    this.addEventListener((0, _Object.getChangeEventType)(this.geometryName_), this.handleGeometryChanged_);
+    this.handleGeometryChanged_();
   };
 
-  return TileQueue;
-}(_PriorityQueue.default);
-
-var _default = TileQueue;
+  return Feature;
+}(_Object.default);
 /**
- * @param {import('./PluggableMap.js').FrameState} frameState Frame state.
- * @param {import("./Tile.js").default} tile Tile.
- * @param {string} tileSourceKey Tile source key.
- * @param {import("./coordinate.js").Coordinate} tileCenter Tile center.
- * @param {number} tileResolution Tile resolution.
- * @return {number} Tile priority.
- */
-
-exports.default = _default;
-
-function getTilePriority(frameState, tile, tileSourceKey, tileCenter, tileResolution) {
-  // Filter out tiles at higher zoom levels than the current zoom level, or that
-  // are outside the visible extent.
-  if (!frameState || !(tileSourceKey in frameState.wantedTiles)) {
-    return _PriorityQueue.DROP;
-  }
-
-  if (!frameState.wantedTiles[tileSourceKey][tile.getKey()]) {
-    return _PriorityQueue.DROP;
-  } // Prioritize the highest zoom level tiles closest to the focus.
-  // Tiles at higher zoom levels are prioritized using Math.log(tileResolution).
-  // Within a zoom level, tiles are prioritized by the distance in pixels between
-  // the center of the tile and the center of the viewport.  The factor of 65536
-  // means that the prioritization should behave as desired for tiles up to
-  // 65536 * Math.log(2) = 45426 pixels from the focus.
-
-
-  var center = frameState.viewState.center;
-  var deltaX = tileCenter[0] - center[0];
-  var deltaY = tileCenter[1] - center[1];
-  return 65536 * Math.log(tileResolution) + Math.sqrt(deltaX * deltaX + deltaY * deltaY) / tileResolution;
-}
-},{"./TileState.js":"node_modules/ol/TileState.js","./events/EventType.js":"node_modules/ol/events/EventType.js","./structs/PriorityQueue.js":"node_modules/ol/structs/PriorityQueue.js"}],"node_modules/ol/tilegrid/common.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.DEFAULT_TILE_SIZE = exports.DEFAULT_MAX_ZOOM = void 0;
-
-/**
- * @module ol/tilegrid/common
- */
-
-/**
- * Default maximum zoom for default tile grids.
- * @type {number}
- */
-var DEFAULT_MAX_ZOOM = 42;
-/**
- * Default tile size.
- * @type {number}
- */
-
-exports.DEFAULT_MAX_ZOOM = DEFAULT_MAX_ZOOM;
-var DEFAULT_TILE_SIZE = 256;
-exports.DEFAULT_TILE_SIZE = DEFAULT_TILE_SIZE;
-},{}],"node_modules/ol/math.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.clamp = clamp;
-exports.squaredSegmentDistance = squaredSegmentDistance;
-exports.squaredDistance = squaredDistance;
-exports.solveLinearSystem = solveLinearSystem;
-exports.toDegrees = toDegrees;
-exports.toRadians = toRadians;
-exports.modulo = modulo;
-exports.lerp = lerp;
-exports.cosh = void 0;
-
-/**
- * @module ol/math
- */
-
-/**
- * Takes a number and clamps it to within the provided bounds.
- * @param {number} value The input number.
- * @param {number} min The minimum value to return.
- * @param {number} max The maximum value to return.
- * @return {number} The input number if it is within bounds, or the nearest
- *     number within the bounds.
- */
-function clamp(value, min, max) {
-  return Math.min(Math.max(value, min), max);
-}
-/**
- * Return the hyperbolic cosine of a given number. The method will use the
- * native `Math.cosh` function if it is available, otherwise the hyperbolic
- * cosine will be calculated via the reference implementation of the Mozilla
- * developer network.
- *
- * @param {number} x X.
- * @return {number} Hyperbolic cosine of x.
+ * Convert the provided object into a feature style function.  Functions passed
+ * through unchanged.  Arrays of Style or single style objects wrapped
+ * in a new feature style function.
+ * @param {!import("./style/Style.js").StyleFunction|!Array<import("./style/Style.js").default>|!import("./style/Style.js").default} obj
+ *     A feature style function, a single style, or an array of styles.
+ * @return {import("./style/Style.js").StyleFunction} A style function.
  */
 
 
-var cosh = function () {
-  // Wrapped in a iife, to save the overhead of checking for the native
-  // implementation on every invocation.
-  var cosh;
-
-  if ('cosh' in Math) {
-    // The environment supports the native Math.cosh function, use it…
-    cosh = Math.cosh;
+function createStyleFunction(obj) {
+  if (typeof obj === 'function') {
+    return obj;
   } else {
-    // … else, use the reference implementation of MDN:
-    cosh = function (x) {
-      var y =
-      /** @type {Math} */
-      Math.exp(x);
-      return (y + 1 / y) / 2;
+    /**
+     * @type {Array<import("./style/Style.js").default>}
+     */
+    var styles_1;
+
+    if (Array.isArray(obj)) {
+      styles_1 = obj;
+    } else {
+      (0, _asserts.assert)(typeof
+      /** @type {?} */
+      obj.getZIndex === 'function', 41); // Expected an `import("./style/Style.js").Style` or an array of `import("./style/Style.js").Style`
+
+      var style =
+      /** @type {import("./style/Style.js").default} */
+      obj;
+      styles_1 = [style];
+    }
+
+    return function () {
+      return styles_1;
     };
   }
-
-  return cosh;
-}();
-/**
- * Returns the square of the closest distance between the point (x, y) and the
- * line segment (x1, y1) to (x2, y2).
- * @param {number} x X.
- * @param {number} y Y.
- * @param {number} x1 X1.
- * @param {number} y1 Y1.
- * @param {number} x2 X2.
- * @param {number} y2 Y2.
- * @return {number} Squared distance.
- */
-
-
-exports.cosh = cosh;
-
-function squaredSegmentDistance(x, y, x1, y1, x2, y2) {
-  var dx = x2 - x1;
-  var dy = y2 - y1;
-
-  if (dx !== 0 || dy !== 0) {
-    var t = ((x - x1) * dx + (y - y1) * dy) / (dx * dx + dy * dy);
-
-    if (t > 1) {
-      x1 = x2;
-      y1 = y2;
-    } else if (t > 0) {
-      x1 += dx * t;
-      y1 += dy * t;
-    }
-  }
-
-  return squaredDistance(x, y, x1, y1);
 }
-/**
- * Returns the square of the distance between the points (x1, y1) and (x2, y2).
- * @param {number} x1 X1.
- * @param {number} y1 Y1.
- * @param {number} x2 X2.
- * @param {number} y2 Y2.
- * @return {number} Squared distance.
- */
 
-
-function squaredDistance(x1, y1, x2, y2) {
-  var dx = x2 - x1;
-  var dy = y2 - y1;
-  return dx * dx + dy * dy;
-}
-/**
- * Solves system of linear equations using Gaussian elimination method.
- *
- * @param {Array<Array<number>>} mat Augmented matrix (n x n + 1 column)
- *                                     in row-major order.
- * @return {Array<number>} The resulting vector.
- */
-
-
-function solveLinearSystem(mat) {
-  var n = mat.length;
-
-  for (var i = 0; i < n; i++) {
-    // Find max in the i-th column (ignoring i - 1 first rows)
-    var maxRow = i;
-    var maxEl = Math.abs(mat[i][i]);
-
-    for (var r = i + 1; r < n; r++) {
-      var absValue = Math.abs(mat[r][i]);
-
-      if (absValue > maxEl) {
-        maxEl = absValue;
-        maxRow = r;
-      }
-    }
-
-    if (maxEl === 0) {
-      return null; // matrix is singular
-    } // Swap max row with i-th (current) row
-
-
-    var tmp = mat[maxRow];
-    mat[maxRow] = mat[i];
-    mat[i] = tmp; // Subtract the i-th row to make all the remaining rows 0 in the i-th column
-
-    for (var j = i + 1; j < n; j++) {
-      var coef = -mat[j][i] / mat[i][i];
-
-      for (var k = i; k < n + 1; k++) {
-        if (i == k) {
-          mat[j][k] = 0;
-        } else {
-          mat[j][k] += coef * mat[i][k];
-        }
-      }
-    }
-  } // Solve Ax=b for upper triangular matrix A (mat)
-
-
-  var x = new Array(n);
-
-  for (var l = n - 1; l >= 0; l--) {
-    x[l] = mat[l][n] / mat[l][l];
-
-    for (var m = l - 1; m >= 0; m--) {
-      mat[m][n] -= mat[m][l] * x[l];
-    }
-  }
-
-  return x;
-}
-/**
- * Converts radians to to degrees.
- *
- * @param {number} angleInRadians Angle in radians.
- * @return {number} Angle in degrees.
- */
-
-
-function toDegrees(angleInRadians) {
-  return angleInRadians * 180 / Math.PI;
-}
-/**
- * Converts degrees to radians.
- *
- * @param {number} angleInDegrees Angle in degrees.
- * @return {number} Angle in radians.
- */
-
-
-function toRadians(angleInDegrees) {
-  return angleInDegrees * Math.PI / 180;
-}
-/**
- * Returns the modulo of a / b, depending on the sign of b.
- *
- * @param {number} a Dividend.
- * @param {number} b Divisor.
- * @return {number} Modulo.
- */
-
-
-function modulo(a, b) {
-  var r = a % b;
-  return r * b < 0 ? r + b : r;
-}
-/**
- * Calculates the linearly interpolated value of x between a and b.
- *
- * @param {number} a Number
- * @param {number} b Number
- * @param {number} x Value to be interpolated.
- * @return {number} Interpolated value.
- */
-
-
-function lerp(a, b, x) {
-  return a + x * (b - a);
-}
-},{}],"node_modules/ol/centerconstraint.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.createExtent = createExtent;
-exports.none = none;
-
-var _math = require("./math.js");
-
-/**
- * @module ol/centerconstraint
- */
-
-/**
- * @typedef {function((import("./coordinate.js").Coordinate|undefined), number, import("./size.js").Size, boolean=): (import("./coordinate.js").Coordinate|undefined)} Type
- */
-
-/**
- * @param {import("./extent.js").Extent} extent Extent.
- * @param {boolean} onlyCenter If true, the constraint will only apply to the view center.
- * @param {boolean} smooth If true, the view will be able to go slightly out of the given extent
- * (only during interaction and animation).
- * @return {Type} The constraint.
- */
-function createExtent(extent, onlyCenter, smooth) {
-  return (
-    /**
-     * @param {import("./coordinate.js").Coordinate|undefined} center Center.
-     * @param {number} resolution Resolution.
-     * @param {import("./size.js").Size} size Viewport size; unused if `onlyCenter` was specified.
-     * @param {boolean=} opt_isMoving True if an interaction or animation is in progress.
-     * @return {import("./coordinate.js").Coordinate|undefined} Center.
-     */
-    function (center, resolution, size, opt_isMoving) {
-      if (center) {
-        var viewWidth = onlyCenter ? 0 : size[0] * resolution;
-        var viewHeight = onlyCenter ? 0 : size[1] * resolution;
-        var minX = extent[0] + viewWidth / 2;
-        var maxX = extent[2] - viewWidth / 2;
-        var minY = extent[1] + viewHeight / 2;
-        var maxY = extent[3] - viewHeight / 2; // note: when zooming out of bounds, min and max values for x and y may
-        // end up inverted (min > max); this has to be accounted for
-
-        if (minX > maxX) {
-          minX = (maxX + minX) / 2;
-          maxX = minX;
-        }
-
-        if (minY > maxY) {
-          minY = (maxY + minY) / 2;
-          maxY = minY;
-        }
-
-        var x = (0, _math.clamp)(center[0], minX, maxX);
-        var y = (0, _math.clamp)(center[1], minY, maxY);
-        var ratio = 30 * resolution; // during an interaction, allow some overscroll
-
-        if (opt_isMoving && smooth) {
-          x += -ratio * Math.log(1 + Math.max(0, minX - center[0]) / ratio) + ratio * Math.log(1 + Math.max(0, center[0] - maxX) / ratio);
-          y += -ratio * Math.log(1 + Math.max(0, minY - center[1]) / ratio) + ratio * Math.log(1 + Math.max(0, center[1] - maxY) / ratio);
-        }
-
-        return [x, y];
-      } else {
-        return undefined;
-      }
-    }
-  );
-}
-/**
- * @param {import("./coordinate.js").Coordinate=} center Center.
- * @return {import("./coordinate.js").Coordinate|undefined} Center.
- */
-
-
-function none(center) {
-  return center;
-}
-},{"./math.js":"node_modules/ol/math.js"}],"node_modules/ol/extent/Corner.js":[function(require,module,exports) {
+var _default = Feature;
+exports.default = _default;
+},{"./asserts.js":"node_modules/ol/asserts.js","./events.js":"node_modules/ol/events.js","./events/EventType.js":"node_modules/ol/events/EventType.js","./Object.js":"node_modules/ol/Object.js"}],"node_modules/ol/extent/Corner.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5188,312 +3227,7 @@ function wrapX(extent, projection) {
 
   return extent;
 }
-},{"./asserts.js":"node_modules/ol/asserts.js","./extent/Corner.js":"node_modules/ol/extent/Corner.js","./extent/Relationship.js":"node_modules/ol/extent/Relationship.js"}],"node_modules/ol/resolutionconstraint.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.createSnapToResolutions = createSnapToResolutions;
-exports.createSnapToPower = createSnapToPower;
-exports.createMinMaxResolution = createMinMaxResolution;
-
-var _array = require("./array.js");
-
-var _extent = require("./extent.js");
-
-var _math = require("./math.js");
-
-/**
- * @module ol/resolutionconstraint
- */
-
-/**
- * @typedef {function((number|undefined), number, import("./size.js").Size, boolean=): (number|undefined)} Type
- */
-
-/**
- * Returns a modified resolution taking into account the viewport size and maximum
- * allowed extent.
- * @param {number} resolution Resolution
- * @param {import("./extent.js").Extent=} maxExtent Maximum allowed extent.
- * @param {import("./size.js").Size} viewportSize Viewport size.
- * @param {boolean} showFullExtent Whether to show the full extent.
- * @return {number} Capped resolution.
- */
-function getViewportClampedResolution(resolution, maxExtent, viewportSize, showFullExtent) {
-  var xResolution = (0, _extent.getWidth)(maxExtent) / viewportSize[0];
-  var yResolution = (0, _extent.getHeight)(maxExtent) / viewportSize[1];
-
-  if (showFullExtent) {
-    return Math.min(resolution, Math.max(xResolution, yResolution));
-  }
-
-  return Math.min(resolution, Math.min(xResolution, yResolution));
-}
-/**
- * Returns a modified resolution to be between maxResolution and minResolution while
- * still allowing the value to be slightly out of bounds.
- * Note: the computation is based on the logarithm function (ln):
- *  - at 1, ln(x) is 0
- *  - above 1, ln(x) keeps increasing but at a much slower pace than x
- * The final result is clamped to prevent getting too far away from bounds.
- * @param {number} resolution Resolution.
- * @param {number} maxResolution Max resolution.
- * @param {number} minResolution Min resolution.
- * @return {number} Smoothed resolution.
- */
-
-
-function getSmoothClampedResolution(resolution, maxResolution, minResolution) {
-  var result = Math.min(resolution, maxResolution);
-  var ratio = 50;
-  result *= Math.log(1 + ratio * Math.max(0, resolution / maxResolution - 1)) / ratio + 1;
-
-  if (minResolution) {
-    result = Math.max(result, minResolution);
-    result /= Math.log(1 + ratio * Math.max(0, minResolution / resolution - 1)) / ratio + 1;
-  }
-
-  return (0, _math.clamp)(result, minResolution / 2, maxResolution * 2);
-}
-/**
- * @param {Array<number>} resolutions Resolutions.
- * @param {boolean=} opt_smooth If true, the view will be able to slightly exceed resolution limits. Default: true.
- * @param {import("./extent.js").Extent=} opt_maxExtent Maximum allowed extent.
- * @param {boolean=} opt_showFullExtent If true, allows us to show the full extent. Default: false.
- * @return {Type} Zoom function.
- */
-
-
-function createSnapToResolutions(resolutions, opt_smooth, opt_maxExtent, opt_showFullExtent) {
-  return (
-    /**
-     * @param {number|undefined} resolution Resolution.
-     * @param {number} direction Direction.
-     * @param {import("./size.js").Size} size Viewport size.
-     * @param {boolean=} opt_isMoving True if an interaction or animation is in progress.
-     * @return {number|undefined} Resolution.
-     */
-    function (resolution, direction, size, opt_isMoving) {
-      if (resolution !== undefined) {
-        var maxResolution = resolutions[0];
-        var minResolution = resolutions[resolutions.length - 1];
-        var cappedMaxRes = opt_maxExtent ? getViewportClampedResolution(maxResolution, opt_maxExtent, size, opt_showFullExtent) : maxResolution; // during interacting or animating, allow intermediary values
-
-        if (opt_isMoving) {
-          var smooth = opt_smooth !== undefined ? opt_smooth : true;
-
-          if (!smooth) {
-            return (0, _math.clamp)(resolution, minResolution, cappedMaxRes);
-          }
-
-          return getSmoothClampedResolution(resolution, cappedMaxRes, minResolution);
-        }
-
-        var capped = Math.min(cappedMaxRes, resolution);
-        var z = Math.floor((0, _array.linearFindNearest)(resolutions, capped, direction));
-
-        if (resolutions[z] > cappedMaxRes && z < resolutions.length - 1) {
-          return resolutions[z + 1];
-        }
-
-        return resolutions[z];
-      } else {
-        return undefined;
-      }
-    }
-  );
-}
-/**
- * @param {number} power Power.
- * @param {number} maxResolution Maximum resolution.
- * @param {number=} opt_minResolution Minimum resolution.
- * @param {boolean=} opt_smooth If true, the view will be able to slightly exceed resolution limits. Default: true.
- * @param {import("./extent.js").Extent=} opt_maxExtent Maximum allowed extent.
- * @param {boolean=} opt_showFullExtent If true, allows us to show the full extent. Default: false.
- * @return {Type} Zoom function.
- */
-
-
-function createSnapToPower(power, maxResolution, opt_minResolution, opt_smooth, opt_maxExtent, opt_showFullExtent) {
-  return (
-    /**
-     * @param {number|undefined} resolution Resolution.
-     * @param {number} direction Direction.
-     * @param {import("./size.js").Size} size Viewport size.
-     * @param {boolean=} opt_isMoving True if an interaction or animation is in progress.
-     * @return {number|undefined} Resolution.
-     */
-    function (resolution, direction, size, opt_isMoving) {
-      if (resolution !== undefined) {
-        var cappedMaxRes = opt_maxExtent ? getViewportClampedResolution(maxResolution, opt_maxExtent, size, opt_showFullExtent) : maxResolution;
-        var minResolution = opt_minResolution !== undefined ? opt_minResolution : 0; // during interacting or animating, allow intermediary values
-
-        if (opt_isMoving) {
-          var smooth = opt_smooth !== undefined ? opt_smooth : true;
-
-          if (!smooth) {
-            return (0, _math.clamp)(resolution, minResolution, cappedMaxRes);
-          }
-
-          return getSmoothClampedResolution(resolution, cappedMaxRes, minResolution);
-        }
-
-        var tolerance = 1e-9;
-        var minZoomLevel = Math.ceil(Math.log(maxResolution / cappedMaxRes) / Math.log(power) - tolerance);
-        var offset = -direction * (0.5 - tolerance) + 0.5;
-        var capped = Math.min(cappedMaxRes, resolution);
-        var cappedZoomLevel = Math.floor(Math.log(maxResolution / capped) / Math.log(power) + offset);
-        var zoomLevel = Math.max(minZoomLevel, cappedZoomLevel);
-        var newResolution = maxResolution / Math.pow(power, zoomLevel);
-        return (0, _math.clamp)(newResolution, minResolution, cappedMaxRes);
-      } else {
-        return undefined;
-      }
-    }
-  );
-}
-/**
- * @param {number} maxResolution Max resolution.
- * @param {number} minResolution Min resolution.
- * @param {boolean=} opt_smooth If true, the view will be able to slightly exceed resolution limits. Default: true.
- * @param {import("./extent.js").Extent=} opt_maxExtent Maximum allowed extent.
- * @param {boolean=} opt_showFullExtent If true, allows us to show the full extent. Default: false.
- * @return {Type} Zoom function.
- */
-
-
-function createMinMaxResolution(maxResolution, minResolution, opt_smooth, opt_maxExtent, opt_showFullExtent) {
-  return (
-    /**
-     * @param {number|undefined} resolution Resolution.
-     * @param {number} direction Direction.
-     * @param {import("./size.js").Size} size Viewport size.
-     * @param {boolean=} opt_isMoving True if an interaction or animation is in progress.
-     * @return {number|undefined} Resolution.
-     */
-    function (resolution, direction, size, opt_isMoving) {
-      if (resolution !== undefined) {
-        var cappedMaxRes = opt_maxExtent ? getViewportClampedResolution(maxResolution, opt_maxExtent, size, opt_showFullExtent) : maxResolution;
-        var smooth = opt_smooth !== undefined ? opt_smooth : true;
-
-        if (!smooth || !opt_isMoving) {
-          return (0, _math.clamp)(resolution, minResolution, cappedMaxRes);
-        }
-
-        return getSmoothClampedResolution(resolution, cappedMaxRes, minResolution);
-      } else {
-        return undefined;
-      }
-    }
-  );
-}
-},{"./array.js":"node_modules/ol/array.js","./extent.js":"node_modules/ol/extent.js","./math.js":"node_modules/ol/math.js"}],"node_modules/ol/rotationconstraint.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.disable = disable;
-exports.none = none;
-exports.createSnapToN = createSnapToN;
-exports.createSnapToZero = createSnapToZero;
-
-var _math = require("./math.js");
-
-/**
- * @module ol/rotationconstraint
- */
-
-/**
- * @typedef {function((number|undefined), boolean=): (number|undefined)} Type
- */
-
-/**
- * @param {number|undefined} rotation Rotation.
- * @return {number|undefined} Rotation.
- */
-function disable(rotation) {
-  if (rotation !== undefined) {
-    return 0;
-  } else {
-    return undefined;
-  }
-}
-/**
- * @param {number|undefined} rotation Rotation.
- * @return {number|undefined} Rotation.
- */
-
-
-function none(rotation) {
-  if (rotation !== undefined) {
-    return rotation;
-  } else {
-    return undefined;
-  }
-}
-/**
- * @param {number} n N.
- * @return {Type} Rotation constraint.
- */
-
-
-function createSnapToN(n) {
-  var theta = 2 * Math.PI / n;
-  return (
-    /**
-     * @param {number|undefined} rotation Rotation.
-     * @param {boolean=} opt_isMoving True if an interaction or animation is in progress.
-     * @return {number|undefined} Rotation.
-     */
-    function (rotation, opt_isMoving) {
-      if (opt_isMoving) {
-        return rotation;
-      }
-
-      if (rotation !== undefined) {
-        rotation = Math.floor(rotation / theta + 0.5) * theta;
-        return rotation;
-      } else {
-        return undefined;
-      }
-    }
-  );
-}
-/**
- * @param {number=} opt_tolerance Tolerance.
- * @return {Type} Rotation constraint.
- */
-
-
-function createSnapToZero(opt_tolerance) {
-  var tolerance = opt_tolerance || (0, _math.toRadians)(5);
-  return (
-    /**
-     * @param {number|undefined} rotation Rotation.
-     * @param {boolean=} opt_isMoving True if an interaction or animation is in progress.
-     * @return {number|undefined} Rotation.
-     */
-    function (rotation, opt_isMoving) {
-      if (opt_isMoving) {
-        return rotation;
-      }
-
-      if (rotation !== undefined) {
-        if (Math.abs(rotation) <= tolerance) {
-          return 0;
-        } else {
-          return rotation;
-        }
-      } else {
-        return undefined;
-      }
-    }
-  );
-}
-},{"./math.js":"node_modules/ol/math.js"}],"node_modules/ol/ViewHint.js":[function(require,module,exports) {
+},{"./asserts.js":"node_modules/ol/asserts.js","./extent/Corner.js":"node_modules/ol/extent/Corner.js","./extent/Relationship.js":"node_modules/ol/extent/Relationship.js"}],"node_modules/ol/geom/GeometryLayout.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5502,609 +3236,22 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 
 /**
- * @module ol/ViewHint
+ * @module ol/geom/GeometryLayout
  */
 
 /**
- * @enum {number}
- */
-var _default = {
-  ANIMATING: 0,
-  INTERACTING: 1
-};
-exports.default = _default;
-},{}],"node_modules/ol/ViewProperty.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-/**
- * @module ol/ViewProperty
- */
-
-/**
+ * The coordinate layout for geometries, indicating whether a 3rd or 4th z ('Z')
+ * or measure ('M') coordinate is available. Supported values are `'XY'`,
+ * `'XYZ'`, `'XYM'`, `'XYZM'`.
  * @enum {string}
  */
 var _default = {
-  CENTER: 'center',
-  RESOLUTION: 'resolution',
-  ROTATION: 'rotation'
+  XY: 'XY',
+  XYZ: 'XYZ',
+  XYM: 'XYM',
+  XYZM: 'XYZM'
 };
 exports.default = _default;
-},{}],"node_modules/ol/string.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.padNumber = padNumber;
-exports.compareVersions = compareVersions;
-
-/**
- * @module ol/string
- */
-
-/**
- * @param {number} number Number to be formatted
- * @param {number} width The desired width
- * @param {number=} opt_precision Precision of the output string (i.e. number of decimal places)
- * @returns {string} Formatted string
- */
-function padNumber(number, width, opt_precision) {
-  var numberString = opt_precision !== undefined ? number.toFixed(opt_precision) : '' + number;
-  var decimal = numberString.indexOf('.');
-  decimal = decimal === -1 ? numberString.length : decimal;
-  return decimal > width ? numberString : new Array(1 + width - decimal).join('0') + numberString;
-}
-/**
- * Adapted from https://github.com/omichelsen/compare-versions/blob/master/index.js
- * @param {string|number} v1 First version
- * @param {string|number} v2 Second version
- * @returns {number} Value
- */
-
-
-function compareVersions(v1, v2) {
-  var s1 = ('' + v1).split('.');
-  var s2 = ('' + v2).split('.');
-
-  for (var i = 0; i < Math.max(s1.length, s2.length); i++) {
-    var n1 = parseInt(s1[i] || '0', 10);
-    var n2 = parseInt(s2[i] || '0', 10);
-
-    if (n1 > n2) {
-      return 1;
-    }
-
-    if (n2 > n1) {
-      return -1;
-    }
-  }
-
-  return 0;
-}
-},{}],"node_modules/ol/coordinate.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.add = add;
-exports.closestOnCircle = closestOnCircle;
-exports.closestOnSegment = closestOnSegment;
-exports.createStringXY = createStringXY;
-exports.degreesToStringHDMS = degreesToStringHDMS;
-exports.format = format;
-exports.equals = equals;
-exports.rotate = rotate;
-exports.scale = scale;
-exports.squaredDistance = squaredDistance;
-exports.distance = distance;
-exports.squaredDistanceToSegment = squaredDistanceToSegment;
-exports.toStringHDMS = toStringHDMS;
-exports.toStringXY = toStringXY;
-exports.wrapX = wrapX;
-
-var _math = require("./math.js");
-
-var _string = require("./string.js");
-
-var _extent = require("./extent.js");
-
-/**
- * @module ol/coordinate
- */
-
-/**
- * An array of numbers representing an xy coordinate. Example: `[16, 48]`.
- * @typedef {Array<number>} Coordinate
- * @api
- */
-
-/**
- * A function that takes a {@link module:ol/coordinate~Coordinate} and
- * transforms it into a `{string}`.
- *
- * @typedef {function((Coordinate|undefined)): string} CoordinateFormat
- * @api
- */
-
-/**
- * Add `delta` to `coordinate`. `coordinate` is modified in place and returned
- * by the function.
- *
- * Example:
- *
- *     import {add} from 'ol/coordinate';
- *
- *     var coord = [7.85, 47.983333];
- *     add(coord, [-2, 4]);
- *     // coord is now [5.85, 51.983333]
- *
- * @param {Coordinate} coordinate Coordinate.
- * @param {Coordinate} delta Delta.
- * @return {Coordinate} The input coordinate adjusted by
- * the given delta.
- * @api
- */
-function add(coordinate, delta) {
-  coordinate[0] += +delta[0];
-  coordinate[1] += +delta[1];
-  return coordinate;
-}
-/**
- * Calculates the point closest to the passed coordinate on the passed circle.
- *
- * @param {Coordinate} coordinate The coordinate.
- * @param {import("./geom/Circle.js").default} circle The circle.
- * @return {Coordinate} Closest point on the circumference.
- */
-
-
-function closestOnCircle(coordinate, circle) {
-  var r = circle.getRadius();
-  var center = circle.getCenter();
-  var x0 = center[0];
-  var y0 = center[1];
-  var x1 = coordinate[0];
-  var y1 = coordinate[1];
-  var dx = x1 - x0;
-  var dy = y1 - y0;
-
-  if (dx === 0 && dy === 0) {
-    dx = 1;
-  }
-
-  var d = Math.sqrt(dx * dx + dy * dy);
-  var x = x0 + r * dx / d;
-  var y = y0 + r * dy / d;
-  return [x, y];
-}
-/**
- * Calculates the point closest to the passed coordinate on the passed segment.
- * This is the foot of the perpendicular of the coordinate to the segment when
- * the foot is on the segment, or the closest segment coordinate when the foot
- * is outside the segment.
- *
- * @param {Coordinate} coordinate The coordinate.
- * @param {Array<Coordinate>} segment The two coordinates
- * of the segment.
- * @return {Coordinate} The foot of the perpendicular of
- * the coordinate to the segment.
- */
-
-
-function closestOnSegment(coordinate, segment) {
-  var x0 = coordinate[0];
-  var y0 = coordinate[1];
-  var start = segment[0];
-  var end = segment[1];
-  var x1 = start[0];
-  var y1 = start[1];
-  var x2 = end[0];
-  var y2 = end[1];
-  var dx = x2 - x1;
-  var dy = y2 - y1;
-  var along = dx === 0 && dy === 0 ? 0 : (dx * (x0 - x1) + dy * (y0 - y1)) / (dx * dx + dy * dy || 0);
-  var x, y;
-
-  if (along <= 0) {
-    x = x1;
-    y = y1;
-  } else if (along >= 1) {
-    x = x2;
-    y = y2;
-  } else {
-    x = x1 + along * dx;
-    y = y1 + along * dy;
-  }
-
-  return [x, y];
-}
-/**
- * Returns a {@link module:ol/coordinate~CoordinateFormat} function that can be
- * used to format
- * a {Coordinate} to a string.
- *
- * Example without specifying the fractional digits:
- *
- *     import {createStringXY} from 'ol/coordinate';
- *
- *     var coord = [7.85, 47.983333];
- *     var stringifyFunc = createStringXY();
- *     var out = stringifyFunc(coord);
- *     // out is now '8, 48'
- *
- * Example with explicitly specifying 2 fractional digits:
- *
- *     import {createStringXY} from 'ol/coordinate';
- *
- *     var coord = [7.85, 47.983333];
- *     var stringifyFunc = createStringXY(2);
- *     var out = stringifyFunc(coord);
- *     // out is now '7.85, 47.98'
- *
- * @param {number=} opt_fractionDigits The number of digits to include
- *    after the decimal point. Default is `0`.
- * @return {CoordinateFormat} Coordinate format.
- * @api
- */
-
-
-function createStringXY(opt_fractionDigits) {
-  return (
-    /**
-     * @param {Coordinate} coordinate Coordinate.
-     * @return {string} String XY.
-     */
-    function (coordinate) {
-      return toStringXY(coordinate, opt_fractionDigits);
-    }
-  );
-}
-/**
- * @param {string} hemispheres Hemispheres.
- * @param {number} degrees Degrees.
- * @param {number=} opt_fractionDigits The number of digits to include
- *    after the decimal point. Default is `0`.
- * @return {string} String.
- */
-
-
-function degreesToStringHDMS(hemispheres, degrees, opt_fractionDigits) {
-  var normalizedDegrees = (0, _math.modulo)(degrees + 180, 360) - 180;
-  var x = Math.abs(3600 * normalizedDegrees);
-  var dflPrecision = opt_fractionDigits || 0;
-  var precision = Math.pow(10, dflPrecision);
-  var deg = Math.floor(x / 3600);
-  var min = Math.floor((x - deg * 3600) / 60);
-  var sec = x - deg * 3600 - min * 60;
-  sec = Math.ceil(sec * precision) / precision;
-
-  if (sec >= 60) {
-    sec = 0;
-    min += 1;
-  }
-
-  if (min >= 60) {
-    min = 0;
-    deg += 1;
-  }
-
-  return deg + '\u00b0 ' + (0, _string.padNumber)(min, 2) + '\u2032 ' + (0, _string.padNumber)(sec, 2, dflPrecision) + '\u2033' + (normalizedDegrees == 0 ? '' : ' ' + hemispheres.charAt(normalizedDegrees < 0 ? 1 : 0));
-}
-/**
- * Transforms the given {@link module:ol/coordinate~Coordinate} to a string
- * using the given string template. The strings `{x}` and `{y}` in the template
- * will be replaced with the first and second coordinate values respectively.
- *
- * Example without specifying the fractional digits:
- *
- *     import {format} from 'ol/coordinate';
- *
- *     var coord = [7.85, 47.983333];
- *     var template = 'Coordinate is ({x}|{y}).';
- *     var out = format(coord, template);
- *     // out is now 'Coordinate is (8|48).'
- *
- * Example explicitly specifying the fractional digits:
- *
- *     import {format} from 'ol/coordinate';
- *
- *     var coord = [7.85, 47.983333];
- *     var template = 'Coordinate is ({x}|{y}).';
- *     var out = format(coord, template, 2);
- *     // out is now 'Coordinate is (7.85|47.98).'
- *
- * @param {Coordinate} coordinate Coordinate.
- * @param {string} template A template string with `{x}` and `{y}` placeholders
- *     that will be replaced by first and second coordinate values.
- * @param {number=} opt_fractionDigits The number of digits to include
- *    after the decimal point. Default is `0`.
- * @return {string} Formatted coordinate.
- * @api
- */
-
-
-function format(coordinate, template, opt_fractionDigits) {
-  if (coordinate) {
-    return template.replace('{x}', coordinate[0].toFixed(opt_fractionDigits)).replace('{y}', coordinate[1].toFixed(opt_fractionDigits));
-  } else {
-    return '';
-  }
-}
-/**
- * @param {Coordinate} coordinate1 First coordinate.
- * @param {Coordinate} coordinate2 Second coordinate.
- * @return {boolean} The two coordinates are equal.
- */
-
-
-function equals(coordinate1, coordinate2) {
-  var equals = true;
-
-  for (var i = coordinate1.length - 1; i >= 0; --i) {
-    if (coordinate1[i] != coordinate2[i]) {
-      equals = false;
-      break;
-    }
-  }
-
-  return equals;
-}
-/**
- * Rotate `coordinate` by `angle`. `coordinate` is modified in place and
- * returned by the function.
- *
- * Example:
- *
- *     import {rotate} from 'ol/coordinate';
- *
- *     var coord = [7.85, 47.983333];
- *     var rotateRadians = Math.PI / 2; // 90 degrees
- *     rotate(coord, rotateRadians);
- *     // coord is now [-47.983333, 7.85]
- *
- * @param {Coordinate} coordinate Coordinate.
- * @param {number} angle Angle in radian.
- * @return {Coordinate} Coordinate.
- * @api
- */
-
-
-function rotate(coordinate, angle) {
-  var cosAngle = Math.cos(angle);
-  var sinAngle = Math.sin(angle);
-  var x = coordinate[0] * cosAngle - coordinate[1] * sinAngle;
-  var y = coordinate[1] * cosAngle + coordinate[0] * sinAngle;
-  coordinate[0] = x;
-  coordinate[1] = y;
-  return coordinate;
-}
-/**
- * Scale `coordinate` by `scale`. `coordinate` is modified in place and returned
- * by the function.
- *
- * Example:
- *
- *     import {scale as scaleCoordinate} from 'ol/coordinate';
- *
- *     var coord = [7.85, 47.983333];
- *     var scale = 1.2;
- *     scaleCoordinate(coord, scale);
- *     // coord is now [9.42, 57.5799996]
- *
- * @param {Coordinate} coordinate Coordinate.
- * @param {number} scale Scale factor.
- * @return {Coordinate} Coordinate.
- */
-
-
-function scale(coordinate, scale) {
-  coordinate[0] *= scale;
-  coordinate[1] *= scale;
-  return coordinate;
-}
-/**
- * @param {Coordinate} coord1 First coordinate.
- * @param {Coordinate} coord2 Second coordinate.
- * @return {number} Squared distance between coord1 and coord2.
- */
-
-
-function squaredDistance(coord1, coord2) {
-  var dx = coord1[0] - coord2[0];
-  var dy = coord1[1] - coord2[1];
-  return dx * dx + dy * dy;
-}
-/**
- * @param {Coordinate} coord1 First coordinate.
- * @param {Coordinate} coord2 Second coordinate.
- * @return {number} Distance between coord1 and coord2.
- */
-
-
-function distance(coord1, coord2) {
-  return Math.sqrt(squaredDistance(coord1, coord2));
-}
-/**
- * Calculate the squared distance from a coordinate to a line segment.
- *
- * @param {Coordinate} coordinate Coordinate of the point.
- * @param {Array<Coordinate>} segment Line segment (2
- * coordinates).
- * @return {number} Squared distance from the point to the line segment.
- */
-
-
-function squaredDistanceToSegment(coordinate, segment) {
-  return squaredDistance(coordinate, closestOnSegment(coordinate, segment));
-}
-/**
- * Format a geographic coordinate with the hemisphere, degrees, minutes, and
- * seconds.
- *
- * Example without specifying fractional digits:
- *
- *     import {toStringHDMS} from 'ol/coordinate';
- *
- *     var coord = [7.85, 47.983333];
- *     var out = toStringHDMS(coord);
- *     // out is now '47° 58′ 60″ N 7° 50′ 60″ E'
- *
- * Example explicitly specifying 1 fractional digit:
- *
- *     import {toStringHDMS} from 'ol/coordinate';
- *
- *     var coord = [7.85, 47.983333];
- *     var out = toStringHDMS(coord, 1);
- *     // out is now '47° 58′ 60.0″ N 7° 50′ 60.0″ E'
- *
- * @param {Coordinate} coordinate Coordinate.
- * @param {number=} opt_fractionDigits The number of digits to include
- *    after the decimal point. Default is `0`.
- * @return {string} Hemisphere, degrees, minutes and seconds.
- * @api
- */
-
-
-function toStringHDMS(coordinate, opt_fractionDigits) {
-  if (coordinate) {
-    return degreesToStringHDMS('NS', coordinate[1], opt_fractionDigits) + ' ' + degreesToStringHDMS('EW', coordinate[0], opt_fractionDigits);
-  } else {
-    return '';
-  }
-}
-/**
- * Format a coordinate as a comma delimited string.
- *
- * Example without specifying fractional digits:
- *
- *     import {toStringXY} from 'ol/coordinate';
- *
- *     var coord = [7.85, 47.983333];
- *     var out = toStringXY(coord);
- *     // out is now '8, 48'
- *
- * Example explicitly specifying 1 fractional digit:
- *
- *     import {toStringXY} from 'ol/coordinate';
- *
- *     var coord = [7.85, 47.983333];
- *     var out = toStringXY(coord, 1);
- *     // out is now '7.8, 48.0'
- *
- * @param {Coordinate} coordinate Coordinate.
- * @param {number=} opt_fractionDigits The number of digits to include
- *    after the decimal point. Default is `0`.
- * @return {string} XY.
- * @api
- */
-
-
-function toStringXY(coordinate, opt_fractionDigits) {
-  return format(coordinate, '{x}, {y}', opt_fractionDigits);
-}
-/**
- * Modifies the provided coordinate in-place to be within the real world
- * extent. The lower projection extent boundary is inclusive, the upper one
- * exclusive.
- *
- * @param {Coordinate} coordinate Coordinate.
- * @param {import("./proj/Projection.js").default} projection Projection
- * @return {Coordinate} The coordinate within the real world extent.
- */
-
-
-function wrapX(coordinate, projection) {
-  var projectionExtent = projection.getExtent();
-
-  if (projection.canWrapX() && (coordinate[0] < projectionExtent[0] || coordinate[0] >= projectionExtent[2])) {
-    var worldWidth = (0, _extent.getWidth)(projectionExtent);
-    var worldsAway = Math.floor((coordinate[0] - projectionExtent[0]) / worldWidth);
-    coordinate[0] -= worldsAway * worldWidth;
-  }
-
-  return coordinate;
-}
-},{"./math.js":"node_modules/ol/math.js","./string.js":"node_modules/ol/string.js","./extent.js":"node_modules/ol/extent.js"}],"node_modules/ol/easing.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.easeIn = easeIn;
-exports.easeOut = easeOut;
-exports.inAndOut = inAndOut;
-exports.linear = linear;
-exports.upAndDown = upAndDown;
-
-/**
- * @module ol/easing
- */
-
-/**
- * Start slow and speed up.
- * @param {number} t Input between 0 and 1.
- * @return {number} Output between 0 and 1.
- * @api
- */
-function easeIn(t) {
-  return Math.pow(t, 3);
-}
-/**
- * Start fast and slow down.
- * @param {number} t Input between 0 and 1.
- * @return {number} Output between 0 and 1.
- * @api
- */
-
-
-function easeOut(t) {
-  return 1 - easeIn(1 - t);
-}
-/**
- * Start slow, speed up, and then slow down again.
- * @param {number} t Input between 0 and 1.
- * @return {number} Output between 0 and 1.
- * @api
- */
-
-
-function inAndOut(t) {
-  return 3 * t * t - 2 * t * t * t;
-}
-/**
- * Maintain a constant speed over time.
- * @param {number} t Input between 0 and 1.
- * @return {number} Output between 0 and 1.
- * @api
- */
-
-
-function linear(t) {
-  return t;
-}
-/**
- * Start slow, speed up, and at the very end slow down again.  This has the
- * same general behavior as {@link module:ol/easing~inAndOut}, but the final
- * slowdown is delayed.
- * @param {number} t Input between 0 and 1.
- * @return {number} Output between 0 and 1.
- * @api
- */
-
-
-function upAndDown(t) {
-  if (t < 0.5) {
-    return inAndOut(2 * t);
-  } else {
-    return 1 - inAndOut(2 * (t - 0.5));
-  }
-}
 },{}],"node_modules/ol/geom/GeometryType.js":[function(require,module,exports) {
 "use strict";
 
@@ -6133,31 +3280,6 @@ var _default = {
   MULTI_POLYGON: 'MultiPolygon',
   GEOMETRY_COLLECTION: 'GeometryCollection',
   CIRCLE: 'Circle'
-};
-exports.default = _default;
-},{}],"node_modules/ol/geom/GeometryLayout.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-/**
- * @module ol/geom/GeometryLayout
- */
-
-/**
- * The coordinate layout for geometries, indicating whether a 3rd or 4th z ('Z')
- * or measure ('M') coordinate is available. Supported values are `'XY'`,
- * `'XYZ'`, `'XYM'`, `'XYZM'`.
- * @enum {string}
- */
-var _default = {
-  XY: 'XY',
-  XYZ: 'XYZ',
-  XYM: 'XYM',
-  XYZM: 'XYZM'
 };
 exports.default = _default;
 },{}],"node_modules/ol/geom/flat/transform.js":[function(require,module,exports) {
@@ -6305,6 +3427,225 @@ function translate(flatCoordinates, offset, end, stride, deltaX, deltaY, opt_des
   }
 
   return dest;
+}
+},{}],"node_modules/ol/math.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.clamp = clamp;
+exports.squaredSegmentDistance = squaredSegmentDistance;
+exports.squaredDistance = squaredDistance;
+exports.solveLinearSystem = solveLinearSystem;
+exports.toDegrees = toDegrees;
+exports.toRadians = toRadians;
+exports.modulo = modulo;
+exports.lerp = lerp;
+exports.cosh = void 0;
+
+/**
+ * @module ol/math
+ */
+
+/**
+ * Takes a number and clamps it to within the provided bounds.
+ * @param {number} value The input number.
+ * @param {number} min The minimum value to return.
+ * @param {number} max The maximum value to return.
+ * @return {number} The input number if it is within bounds, or the nearest
+ *     number within the bounds.
+ */
+function clamp(value, min, max) {
+  return Math.min(Math.max(value, min), max);
+}
+/**
+ * Return the hyperbolic cosine of a given number. The method will use the
+ * native `Math.cosh` function if it is available, otherwise the hyperbolic
+ * cosine will be calculated via the reference implementation of the Mozilla
+ * developer network.
+ *
+ * @param {number} x X.
+ * @return {number} Hyperbolic cosine of x.
+ */
+
+
+var cosh = function () {
+  // Wrapped in a iife, to save the overhead of checking for the native
+  // implementation on every invocation.
+  var cosh;
+
+  if ('cosh' in Math) {
+    // The environment supports the native Math.cosh function, use it…
+    cosh = Math.cosh;
+  } else {
+    // … else, use the reference implementation of MDN:
+    cosh = function (x) {
+      var y =
+      /** @type {Math} */
+      Math.exp(x);
+      return (y + 1 / y) / 2;
+    };
+  }
+
+  return cosh;
+}();
+/**
+ * Returns the square of the closest distance between the point (x, y) and the
+ * line segment (x1, y1) to (x2, y2).
+ * @param {number} x X.
+ * @param {number} y Y.
+ * @param {number} x1 X1.
+ * @param {number} y1 Y1.
+ * @param {number} x2 X2.
+ * @param {number} y2 Y2.
+ * @return {number} Squared distance.
+ */
+
+
+exports.cosh = cosh;
+
+function squaredSegmentDistance(x, y, x1, y1, x2, y2) {
+  var dx = x2 - x1;
+  var dy = y2 - y1;
+
+  if (dx !== 0 || dy !== 0) {
+    var t = ((x - x1) * dx + (y - y1) * dy) / (dx * dx + dy * dy);
+
+    if (t > 1) {
+      x1 = x2;
+      y1 = y2;
+    } else if (t > 0) {
+      x1 += dx * t;
+      y1 += dy * t;
+    }
+  }
+
+  return squaredDistance(x, y, x1, y1);
+}
+/**
+ * Returns the square of the distance between the points (x1, y1) and (x2, y2).
+ * @param {number} x1 X1.
+ * @param {number} y1 Y1.
+ * @param {number} x2 X2.
+ * @param {number} y2 Y2.
+ * @return {number} Squared distance.
+ */
+
+
+function squaredDistance(x1, y1, x2, y2) {
+  var dx = x2 - x1;
+  var dy = y2 - y1;
+  return dx * dx + dy * dy;
+}
+/**
+ * Solves system of linear equations using Gaussian elimination method.
+ *
+ * @param {Array<Array<number>>} mat Augmented matrix (n x n + 1 column)
+ *                                     in row-major order.
+ * @return {Array<number>} The resulting vector.
+ */
+
+
+function solveLinearSystem(mat) {
+  var n = mat.length;
+
+  for (var i = 0; i < n; i++) {
+    // Find max in the i-th column (ignoring i - 1 first rows)
+    var maxRow = i;
+    var maxEl = Math.abs(mat[i][i]);
+
+    for (var r = i + 1; r < n; r++) {
+      var absValue = Math.abs(mat[r][i]);
+
+      if (absValue > maxEl) {
+        maxEl = absValue;
+        maxRow = r;
+      }
+    }
+
+    if (maxEl === 0) {
+      return null; // matrix is singular
+    } // Swap max row with i-th (current) row
+
+
+    var tmp = mat[maxRow];
+    mat[maxRow] = mat[i];
+    mat[i] = tmp; // Subtract the i-th row to make all the remaining rows 0 in the i-th column
+
+    for (var j = i + 1; j < n; j++) {
+      var coef = -mat[j][i] / mat[i][i];
+
+      for (var k = i; k < n + 1; k++) {
+        if (i == k) {
+          mat[j][k] = 0;
+        } else {
+          mat[j][k] += coef * mat[i][k];
+        }
+      }
+    }
+  } // Solve Ax=b for upper triangular matrix A (mat)
+
+
+  var x = new Array(n);
+
+  for (var l = n - 1; l >= 0; l--) {
+    x[l] = mat[l][n] / mat[l][l];
+
+    for (var m = l - 1; m >= 0; m--) {
+      mat[m][n] -= mat[m][l] * x[l];
+    }
+  }
+
+  return x;
+}
+/**
+ * Converts radians to to degrees.
+ *
+ * @param {number} angleInRadians Angle in radians.
+ * @return {number} Angle in degrees.
+ */
+
+
+function toDegrees(angleInRadians) {
+  return angleInRadians * 180 / Math.PI;
+}
+/**
+ * Converts degrees to radians.
+ *
+ * @param {number} angleInDegrees Angle in degrees.
+ * @return {number} Angle in radians.
+ */
+
+
+function toRadians(angleInDegrees) {
+  return angleInDegrees * Math.PI / 180;
+}
+/**
+ * Returns the modulo of a / b, depending on the sign of b.
+ *
+ * @param {number} a Dividend.
+ * @param {number} b Divisor.
+ * @return {number} Modulo.
+ */
+
+
+function modulo(a, b) {
+  var r = a % b;
+  return r * b < 0 ? r + b : r;
+}
+/**
+ * Calculates the linearly interpolated value of x between a and b.
+ *
+ * @param {number} a Number
+ * @param {number} b Number
+ * @param {number} x Value to be interpolated.
+ * @return {number} Interpolated value.
+ */
+
+
+function lerp(a, b, x) {
+  return a + x * (b - a);
 }
 },{}],"node_modules/ol/sphere.js":[function(require,module,exports) {
 "use strict";
@@ -11635,7 +8976,3052 @@ function makeRegular(polygon, center, radius, opt_angle) {
 
   polygon.changed();
 }
-},{"../array.js":"node_modules/ol/array.js","../extent.js":"node_modules/ol/extent.js","./GeometryLayout.js":"node_modules/ol/geom/GeometryLayout.js","./GeometryType.js":"node_modules/ol/geom/GeometryType.js","./LinearRing.js":"node_modules/ol/geom/LinearRing.js","./Point.js":"node_modules/ol/geom/Point.js","./SimpleGeometry.js":"node_modules/ol/geom/SimpleGeometry.js","../sphere.js":"node_modules/ol/sphere.js","./flat/area.js":"node_modules/ol/geom/flat/area.js","./flat/closest.js":"node_modules/ol/geom/flat/closest.js","./flat/contains.js":"node_modules/ol/geom/flat/contains.js","./flat/deflate.js":"node_modules/ol/geom/flat/deflate.js","./flat/inflate.js":"node_modules/ol/geom/flat/inflate.js","./flat/interiorpoint.js":"node_modules/ol/geom/flat/interiorpoint.js","./flat/intersectsextent.js":"node_modules/ol/geom/flat/intersectsextent.js","./flat/orient.js":"node_modules/ol/geom/flat/orient.js","./flat/simplify.js":"node_modules/ol/geom/flat/simplify.js","../math.js":"node_modules/ol/math.js"}],"node_modules/ol/View.js":[function(require,module,exports) {
+},{"../array.js":"node_modules/ol/array.js","../extent.js":"node_modules/ol/extent.js","./GeometryLayout.js":"node_modules/ol/geom/GeometryLayout.js","./GeometryType.js":"node_modules/ol/geom/GeometryType.js","./LinearRing.js":"node_modules/ol/geom/LinearRing.js","./Point.js":"node_modules/ol/geom/Point.js","./SimpleGeometry.js":"node_modules/ol/geom/SimpleGeometry.js","../sphere.js":"node_modules/ol/sphere.js","./flat/area.js":"node_modules/ol/geom/flat/area.js","./flat/closest.js":"node_modules/ol/geom/flat/closest.js","./flat/contains.js":"node_modules/ol/geom/flat/contains.js","./flat/deflate.js":"node_modules/ol/geom/flat/deflate.js","./flat/inflate.js":"node_modules/ol/geom/flat/inflate.js","./flat/interiorpoint.js":"node_modules/ol/geom/flat/interiorpoint.js","./flat/intersectsextent.js":"node_modules/ol/geom/flat/intersectsextent.js","./flat/orient.js":"node_modules/ol/geom/flat/orient.js","./flat/simplify.js":"node_modules/ol/geom/flat/simplify.js","../math.js":"node_modules/ol/math.js"}],"node_modules/ol/CollectionEventType.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+/**
+ * @module ol/CollectionEventType
+ */
+
+/**
+ * @enum {string}
+ */
+var _default = {
+  /**
+   * Triggered when an item is added to the collection.
+   * @event module:ol/Collection.CollectionEvent#add
+   * @api
+   */
+  ADD: 'add',
+
+  /**
+   * Triggered when an item is removed from the collection.
+   * @event module:ol/Collection.CollectionEvent#remove
+   * @api
+   */
+  REMOVE: 'remove'
+};
+exports.default = _default;
+},{}],"node_modules/ol/Collection.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = exports.CollectionEvent = void 0;
+
+var _AssertionError = _interopRequireDefault(require("./AssertionError.js"));
+
+var _CollectionEventType = _interopRequireDefault(require("./CollectionEventType.js"));
+
+var _Object = _interopRequireDefault(require("./Object.js"));
+
+var _Event = _interopRequireDefault(require("./events/Event.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var __extends = void 0 && (void 0).__extends || function () {
+  var extendStatics = function (d, b) {
+    extendStatics = Object.setPrototypeOf || {
+      __proto__: []
+    } instanceof Array && function (d, b) {
+      d.__proto__ = b;
+    } || function (d, b) {
+      for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    };
+
+    return extendStatics(d, b);
+  };
+
+  return function (d, b) {
+    extendStatics(d, b);
+
+    function __() {
+      this.constructor = d;
+    }
+
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  };
+}();
+/**
+ * @module ol/Collection
+ */
+
+
+/**
+ * @enum {string}
+ * @private
+ */
+var Property = {
+  LENGTH: 'length'
+};
+/**
+ * @classdesc
+ * Events emitted by {@link module:ol/Collection~Collection} instances are instances of this
+ * type.
+ */
+
+var CollectionEvent =
+/** @class */
+function (_super) {
+  __extends(CollectionEvent, _super);
+  /**
+   * @param {CollectionEventType} type Type.
+   * @param {*=} opt_element Element.
+   * @param {number=} opt_index The index of the added or removed element.
+   */
+
+
+  function CollectionEvent(type, opt_element, opt_index) {
+    var _this = _super.call(this, type) || this;
+    /**
+     * The element that is added to or removed from the collection.
+     * @type {*}
+     * @api
+     */
+
+
+    _this.element = opt_element;
+    /**
+     * The index of the added or removed element.
+     * @type {number}
+     * @api
+     */
+
+    _this.index = opt_index;
+    return _this;
+  }
+
+  return CollectionEvent;
+}(_Event.default);
+
+exports.CollectionEvent = CollectionEvent;
+
+/**
+ * @typedef {Object} Options
+ * @property {boolean} [unique=false] Disallow the same item from being added to
+ * the collection twice.
+ */
+
+/**
+ * @classdesc
+ * An expanded version of standard JS Array, adding convenience methods for
+ * manipulation. Add and remove changes to the Collection trigger a Collection
+ * event. Note that this does not cover changes to the objects _within_ the
+ * Collection; they trigger events on the appropriate object, not on the
+ * Collection as a whole.
+ *
+ * @fires CollectionEvent
+ *
+ * @template T
+ * @api
+ */
+var Collection =
+/** @class */
+function (_super) {
+  __extends(Collection, _super);
+  /**
+   * @param {Array<T>=} opt_array Array.
+   * @param {Options=} opt_options Collection options.
+   */
+
+
+  function Collection(opt_array, opt_options) {
+    var _this = _super.call(this) || this;
+
+    var options = opt_options || {};
+    /**
+     * @private
+     * @type {boolean}
+     */
+
+    _this.unique_ = !!options.unique;
+    /**
+     * @private
+     * @type {!Array<T>}
+     */
+
+    _this.array_ = opt_array ? opt_array : [];
+
+    if (_this.unique_) {
+      for (var i = 0, ii = _this.array_.length; i < ii; ++i) {
+        _this.assertUnique_(_this.array_[i], i);
+      }
+    }
+
+    _this.updateLength_();
+
+    return _this;
+  }
+  /**
+   * Remove all elements from the collection.
+   * @api
+   */
+
+
+  Collection.prototype.clear = function () {
+    while (this.getLength() > 0) {
+      this.pop();
+    }
+  };
+  /**
+   * Add elements to the collection.  This pushes each item in the provided array
+   * to the end of the collection.
+   * @param {!Array<T>} arr Array.
+   * @return {Collection<T>} This collection.
+   * @api
+   */
+
+
+  Collection.prototype.extend = function (arr) {
+    for (var i = 0, ii = arr.length; i < ii; ++i) {
+      this.push(arr[i]);
+    }
+
+    return this;
+  };
+  /**
+   * Iterate over each element, calling the provided callback.
+   * @param {function(T, number, Array<T>): *} f The function to call
+   *     for every element. This function takes 3 arguments (the element, the
+   *     index and the array). The return value is ignored.
+   * @api
+   */
+
+
+  Collection.prototype.forEach = function (f) {
+    var array = this.array_;
+
+    for (var i = 0, ii = array.length; i < ii; ++i) {
+      f(array[i], i, array);
+    }
+  };
+  /**
+   * Get a reference to the underlying Array object. Warning: if the array
+   * is mutated, no events will be dispatched by the collection, and the
+   * collection's "length" property won't be in sync with the actual length
+   * of the array.
+   * @return {!Array<T>} Array.
+   * @api
+   */
+
+
+  Collection.prototype.getArray = function () {
+    return this.array_;
+  };
+  /**
+   * Get the element at the provided index.
+   * @param {number} index Index.
+   * @return {T} Element.
+   * @api
+   */
+
+
+  Collection.prototype.item = function (index) {
+    return this.array_[index];
+  };
+  /**
+   * Get the length of this collection.
+   * @return {number} The length of the array.
+   * @observable
+   * @api
+   */
+
+
+  Collection.prototype.getLength = function () {
+    return this.get(Property.LENGTH);
+  };
+  /**
+   * Insert an element at the provided index.
+   * @param {number} index Index.
+   * @param {T} elem Element.
+   * @api
+   */
+
+
+  Collection.prototype.insertAt = function (index, elem) {
+    if (this.unique_) {
+      this.assertUnique_(elem);
+    }
+
+    this.array_.splice(index, 0, elem);
+    this.updateLength_();
+    this.dispatchEvent(new CollectionEvent(_CollectionEventType.default.ADD, elem, index));
+  };
+  /**
+   * Remove the last element of the collection and return it.
+   * Return `undefined` if the collection is empty.
+   * @return {T|undefined} Element.
+   * @api
+   */
+
+
+  Collection.prototype.pop = function () {
+    return this.removeAt(this.getLength() - 1);
+  };
+  /**
+   * Insert the provided element at the end of the collection.
+   * @param {T} elem Element.
+   * @return {number} New length of the collection.
+   * @api
+   */
+
+
+  Collection.prototype.push = function (elem) {
+    if (this.unique_) {
+      this.assertUnique_(elem);
+    }
+
+    var n = this.getLength();
+    this.insertAt(n, elem);
+    return this.getLength();
+  };
+  /**
+   * Remove the first occurrence of an element from the collection.
+   * @param {T} elem Element.
+   * @return {T|undefined} The removed element or undefined if none found.
+   * @api
+   */
+
+
+  Collection.prototype.remove = function (elem) {
+    var arr = this.array_;
+
+    for (var i = 0, ii = arr.length; i < ii; ++i) {
+      if (arr[i] === elem) {
+        return this.removeAt(i);
+      }
+    }
+
+    return undefined;
+  };
+  /**
+   * Remove the element at the provided index and return it.
+   * Return `undefined` if the collection does not contain this index.
+   * @param {number} index Index.
+   * @return {T|undefined} Value.
+   * @api
+   */
+
+
+  Collection.prototype.removeAt = function (index) {
+    var prev = this.array_[index];
+    this.array_.splice(index, 1);
+    this.updateLength_();
+    this.dispatchEvent(new CollectionEvent(_CollectionEventType.default.REMOVE, prev, index));
+    return prev;
+  };
+  /**
+   * Set the element at the provided index.
+   * @param {number} index Index.
+   * @param {T} elem Element.
+   * @api
+   */
+
+
+  Collection.prototype.setAt = function (index, elem) {
+    var n = this.getLength();
+
+    if (index < n) {
+      if (this.unique_) {
+        this.assertUnique_(elem, index);
+      }
+
+      var prev = this.array_[index];
+      this.array_[index] = elem;
+      this.dispatchEvent(new CollectionEvent(_CollectionEventType.default.REMOVE, prev, index));
+      this.dispatchEvent(new CollectionEvent(_CollectionEventType.default.ADD, elem, index));
+    } else {
+      for (var j = n; j < index; ++j) {
+        this.insertAt(j, undefined);
+      }
+
+      this.insertAt(index, elem);
+    }
+  };
+  /**
+   * @private
+   */
+
+
+  Collection.prototype.updateLength_ = function () {
+    this.set(Property.LENGTH, this.array_.length);
+  };
+  /**
+   * @private
+   * @param {T} elem Element.
+   * @param {number=} opt_except Optional index to ignore.
+   */
+
+
+  Collection.prototype.assertUnique_ = function (elem, opt_except) {
+    for (var i = 0, ii = this.array_.length; i < ii; ++i) {
+      if (this.array_[i] === elem && i !== opt_except) {
+        throw new _AssertionError.default(58);
+      }
+    }
+  };
+
+  return Collection;
+}(_Object.default);
+
+var _default = Collection;
+exports.default = _default;
+},{"./AssertionError.js":"node_modules/ol/AssertionError.js","./CollectionEventType.js":"node_modules/ol/CollectionEventType.js","./Object.js":"node_modules/ol/Object.js","./events/Event.js":"node_modules/ol/events/Event.js"}],"node_modules/ol/MapEvent.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _Event = _interopRequireDefault(require("./events/Event.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var __extends = void 0 && (void 0).__extends || function () {
+  var extendStatics = function (d, b) {
+    extendStatics = Object.setPrototypeOf || {
+      __proto__: []
+    } instanceof Array && function (d, b) {
+      d.__proto__ = b;
+    } || function (d, b) {
+      for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    };
+
+    return extendStatics(d, b);
+  };
+
+  return function (d, b) {
+    extendStatics(d, b);
+
+    function __() {
+      this.constructor = d;
+    }
+
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  };
+}();
+/**
+ * @module ol/MapEvent
+ */
+
+
+/**
+ * @classdesc
+ * Events emitted as map events are instances of this type.
+ * See {@link module:ol/PluggableMap~PluggableMap} for which events trigger a map event.
+ */
+var MapEvent =
+/** @class */
+function (_super) {
+  __extends(MapEvent, _super);
+  /**
+   * @param {string} type Event type.
+   * @param {import("./PluggableMap.js").default} map Map.
+   * @param {?import("./PluggableMap.js").FrameState=} opt_frameState Frame state.
+   */
+
+
+  function MapEvent(type, map, opt_frameState) {
+    var _this = _super.call(this, type) || this;
+    /**
+     * The map where the event occurred.
+     * @type {import("./PluggableMap.js").default}
+     * @api
+     */
+
+
+    _this.map = map;
+    /**
+     * The frame state at the time of the event.
+     * @type {?import("./PluggableMap.js").FrameState}
+     * @api
+     */
+
+    _this.frameState = opt_frameState !== undefined ? opt_frameState : null;
+    return _this;
+  }
+
+  return MapEvent;
+}(_Event.default);
+
+var _default = MapEvent;
+exports.default = _default;
+},{"./events/Event.js":"node_modules/ol/events/Event.js"}],"node_modules/ol/MapBrowserEvent.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _MapEvent = _interopRequireDefault(require("./MapEvent.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var __extends = void 0 && (void 0).__extends || function () {
+  var extendStatics = function (d, b) {
+    extendStatics = Object.setPrototypeOf || {
+      __proto__: []
+    } instanceof Array && function (d, b) {
+      d.__proto__ = b;
+    } || function (d, b) {
+      for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    };
+
+    return extendStatics(d, b);
+  };
+
+  return function (d, b) {
+    extendStatics(d, b);
+
+    function __() {
+      this.constructor = d;
+    }
+
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  };
+}();
+/**
+ * @module ol/MapBrowserEvent
+ */
+
+
+/**
+ * @classdesc
+ * Events emitted as map browser events are instances of this type.
+ * See {@link module:ol/PluggableMap~PluggableMap} for which events trigger a map browser event.
+ */
+var MapBrowserEvent =
+/** @class */
+function (_super) {
+  __extends(MapBrowserEvent, _super);
+  /**
+   * @param {string} type Event type.
+   * @param {import("./PluggableMap.js").default} map Map.
+   * @param {Event} browserEvent Browser event.
+   * @param {boolean=} opt_dragging Is the map currently being dragged?
+   * @param {?import("./PluggableMap.js").FrameState=} opt_frameState Frame state.
+   */
+
+
+  function MapBrowserEvent(type, map, browserEvent, opt_dragging, opt_frameState) {
+    var _this = _super.call(this, type, map, opt_frameState) || this;
+    /**
+     * The original browser event.
+     * @const
+     * @type {Event}
+     * @api
+     */
+
+
+    _this.originalEvent = browserEvent;
+    /**
+     * The map pixel relative to the viewport corresponding to the original browser event.
+     * @type {?import("./pixel.js").Pixel}
+     */
+
+    _this.pixel_ = null;
+    /**
+     * The coordinate in the user projection corresponding to the original browser event.
+     * @type {?import("./coordinate.js").Coordinate}
+     */
+
+    _this.coordinate_ = null;
+    /**
+     * Indicates if the map is currently being dragged. Only set for
+     * `POINTERDRAG` and `POINTERMOVE` events. Default is `false`.
+     *
+     * @type {boolean}
+     * @api
+     */
+
+    _this.dragging = opt_dragging !== undefined ? opt_dragging : false;
+    return _this;
+  }
+
+  Object.defineProperty(MapBrowserEvent.prototype, "pixel", {
+    /**
+     * The map pixel relative to the viewport corresponding to the original browser event.
+     * @type {import("./pixel.js").Pixel}
+     * @api
+     */
+    get: function () {
+      if (!this.pixel_) {
+        this.pixel_ = this.map.getEventPixel(this.originalEvent);
+      }
+
+      return this.pixel_;
+    },
+    set: function (pixel) {
+      this.pixel_ = pixel;
+    },
+    enumerable: true,
+    configurable: true
+  });
+  Object.defineProperty(MapBrowserEvent.prototype, "coordinate", {
+    /**
+     * The coordinate corresponding to the original browser event.  This will be in the user
+     * projection if one is set.  Otherwise it will be in the view projection.
+     * @type {import("./coordinate.js").Coordinate}
+     * @api
+     */
+    get: function () {
+      if (!this.coordinate_) {
+        this.coordinate_ = this.map.getCoordinateFromPixel(this.pixel);
+      }
+
+      return this.coordinate_;
+    },
+    set: function (coordinate) {
+      this.coordinate_ = coordinate;
+    },
+    enumerable: true,
+    configurable: true
+  });
+  /**
+   * Prevents the default browser action.
+   * See https://developer.mozilla.org/en-US/docs/Web/API/event.preventDefault.
+   * @override
+   * @api
+   */
+
+  MapBrowserEvent.prototype.preventDefault = function () {
+    _super.prototype.preventDefault.call(this);
+
+    this.originalEvent.preventDefault();
+  };
+  /**
+   * Prevents further propagation of the current event.
+   * See https://developer.mozilla.org/en-US/docs/Web/API/event.stopPropagation.
+   * @override
+   * @api
+   */
+
+
+  MapBrowserEvent.prototype.stopPropagation = function () {
+    _super.prototype.stopPropagation.call(this);
+
+    this.originalEvent.stopPropagation();
+  };
+
+  return MapBrowserEvent;
+}(_MapEvent.default);
+
+var _default = MapBrowserEvent;
+exports.default = _default;
+},{"./MapEvent.js":"node_modules/ol/MapEvent.js"}],"node_modules/elm-pep/dist/elm-pep.js":[function(require,module,exports) {
+// This Source Code Form is subject to the terms of the Mozilla Public
+// License, v. 2.0. If a copy of the MPL was not distributed with this
+// file, You can obtain one at http://mozilla.org/MPL/2.0/
+// Variable to hold current primary touch event identifier.
+// iOS needs this since it does not attribute
+// identifier 0 to primary touch event.
+var primaryTouchId = null;
+// Variable to hold mouse pointer captures.
+var mouseCaptureTarget = null;
+if (!("PointerEvent" in window)) {
+    // Define {set,release}PointerCapture
+    definePointerCapture();
+    // Create Pointer polyfill from mouse events only on non-touch device
+    if (!("TouchEvent" in window)) {
+        addMouseToPointerListener(document, "mousedown", "pointerdown");
+        addMouseToPointerListener(document, "mousemove", "pointermove");
+        addMouseToPointerListener(document, "mouseup", "pointerup");
+    }
+    // Define Pointer polyfill from touch events
+    addTouchToPointerListener(document, "touchstart", "pointerdown");
+    addTouchToPointerListener(document, "touchmove", "pointermove");
+    addTouchToPointerListener(document, "touchend", "pointerup");
+}
+// Function defining {set,release}PointerCapture from {set,releas}Capture
+function definePointerCapture() {
+    Element.prototype.setPointerCapture = Element.prototype.setCapture;
+    Element.prototype.releasePointerCapture = Element.prototype.releaseCapture;
+}
+// Function converting a Mouse event to a Pointer event.
+function addMouseToPointerListener(target, mouseType, pointerType) {
+    target.addEventListener(mouseType, function (mouseEvent) {
+        var pointerEvent = new MouseEvent(pointerType, mouseEvent);
+        pointerEvent.pointerId = 1;
+        pointerEvent.isPrimary = true;
+        pointerEvent.pointerType = "mouse";
+        pointerEvent.width = 1;
+        pointerEvent.height = 1;
+        pointerEvent.tiltX = 0;
+        pointerEvent.tiltY = 0;
+        // pressure is 0.5 if a button is holded
+        "buttons" in mouseEvent && mouseEvent.buttons !== 0
+            ? (pointerEvent.pressure = 0.5)
+            : (pointerEvent.pressure = 0);
+        // if already capturing mouse event, transfer target
+        // and don't forget implicit release on mouseup.
+        var target = mouseEvent.target;
+        if (mouseCaptureTarget !== null) {
+            target = mouseCaptureTarget;
+            if (mouseType === "mouseup") {
+                mouseCaptureTarget = null;
+            }
+        }
+        target.dispatchEvent(pointerEvent);
+        if (pointerEvent.defaultPrevented) {
+            mouseEvent.preventDefault();
+        }
+    });
+}
+// Function converting a Touch event to a Pointer event.
+function addTouchToPointerListener(target, touchType, pointerType) {
+    target.addEventListener(touchType, function (touchEvent) {
+        var changedTouches = touchEvent.changedTouches;
+        var nbTouches = changedTouches.length;
+        for (var t = 0; t < nbTouches; t++) {
+            var pointerEvent = new CustomEvent(pointerType, {
+                bubbles: true,
+                cancelable: true
+            });
+            pointerEvent.ctrlKey = touchEvent.ctrlKey;
+            pointerEvent.shiftKey = touchEvent.shiftKey;
+            pointerEvent.altKey = touchEvent.altKey;
+            pointerEvent.metaKey = touchEvent.metaKey;
+            var touch = changedTouches.item(t);
+            pointerEvent.clientX = touch.clientX;
+            pointerEvent.clientY = touch.clientY;
+            pointerEvent.screenX = touch.screenX;
+            pointerEvent.screenY = touch.screenY;
+            pointerEvent.pageX = touch.pageX;
+            pointerEvent.pageY = touch.pageY;
+            var rect = touch.target.getBoundingClientRect();
+            pointerEvent.offsetX = touch.clientX - rect.left;
+            pointerEvent.offsetY = touch.clientY - rect.top;
+            pointerEvent.pointerId = 1 + touch.identifier;
+            // Default values for standard MouseEvent fields.
+            pointerEvent.button = 0;
+            pointerEvent.buttons = 1;
+            pointerEvent.movementX = 0;
+            pointerEvent.movementY = 0;
+            pointerEvent.region = null;
+            pointerEvent.relatedTarget = null;
+            pointerEvent.x = pointerEvent.clientX;
+            pointerEvent.y = pointerEvent.clientY;
+            // Pointer event details
+            pointerEvent.pointerType = "touch";
+            pointerEvent.width = 1;
+            pointerEvent.height = 1;
+            pointerEvent.tiltX = 0;
+            pointerEvent.tiltY = 0;
+            pointerEvent.pressure = 1;
+            // First touch is the primary pointer event.
+            if (touchType === "touchstart" && primaryTouchId === null) {
+                primaryTouchId = touch.identifier;
+            }
+            pointerEvent.isPrimary = touch.identifier === primaryTouchId;
+            // If first touch ends, reset primary touch id.
+            if (touchType === "touchend" && pointerEvent.isPrimary) {
+                primaryTouchId = null;
+            }
+            touchEvent.target.dispatchEvent(pointerEvent);
+            if (pointerEvent.defaultPrevented) {
+                touchEvent.preventDefault();
+            }
+        }
+    });
+}
+
+},{}],"node_modules/ol/has.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.PASSIVE_EVENT_LISTENERS = exports.IMAGE_DECODE = exports.WORKER_OFFSCREEN_CANVAS = exports.DEVICE_PIXEL_RATIO = exports.MAC = exports.WEBKIT = exports.SAFARI = exports.FIREFOX = void 0;
+
+/**
+ * @module ol/has
+ */
+var ua = typeof navigator !== 'undefined' ? navigator.userAgent.toLowerCase() : '';
+/**
+ * User agent string says we are dealing with Firefox as browser.
+ * @type {boolean}
+ */
+
+var FIREFOX = ua.indexOf('firefox') !== -1;
+/**
+ * User agent string says we are dealing with Safari as browser.
+ * @type {boolean}
+ */
+
+exports.FIREFOX = FIREFOX;
+var SAFARI = ua.indexOf('safari') !== -1 && ua.indexOf('chrom') == -1;
+/**
+ * User agent string says we are dealing with a WebKit engine.
+ * @type {boolean}
+ */
+
+exports.SAFARI = SAFARI;
+var WEBKIT = ua.indexOf('webkit') !== -1 && ua.indexOf('edge') == -1;
+/**
+ * User agent string says we are dealing with a Mac as platform.
+ * @type {boolean}
+ */
+
+exports.WEBKIT = WEBKIT;
+var MAC = ua.indexOf('macintosh') !== -1;
+/**
+ * The ratio between physical pixels and device-independent pixels
+ * (dips) on the device (`window.devicePixelRatio`).
+ * @const
+ * @type {number}
+ * @api
+ */
+
+exports.MAC = MAC;
+var DEVICE_PIXEL_RATIO = typeof devicePixelRatio !== 'undefined' ? devicePixelRatio : 1;
+/**
+ * The execution context is a worker with OffscreenCanvas available.
+ * @const
+ * @type {boolean}
+ */
+
+exports.DEVICE_PIXEL_RATIO = DEVICE_PIXEL_RATIO;
+var WORKER_OFFSCREEN_CANVAS = typeof WorkerGlobalScope !== 'undefined' && typeof OffscreenCanvas !== 'undefined' && self instanceof WorkerGlobalScope; //eslint-disable-line
+
+/**
+ * Image.prototype.decode() is supported.
+ * @type {boolean}
+ */
+
+exports.WORKER_OFFSCREEN_CANVAS = WORKER_OFFSCREEN_CANVAS;
+var IMAGE_DECODE = typeof Image !== 'undefined' && Image.prototype.decode;
+/**
+ * @type {boolean}
+ */
+
+exports.IMAGE_DECODE = IMAGE_DECODE;
+
+var PASSIVE_EVENT_LISTENERS = function () {
+  var passive = false;
+
+  try {
+    var options = Object.defineProperty({}, 'passive', {
+      get: function () {
+        passive = true;
+      }
+    });
+    window.addEventListener('_', null, options);
+    window.removeEventListener('_', null, options);
+  } catch (error) {// passive not supported
+  }
+
+  return passive;
+}();
+
+exports.PASSIVE_EVENT_LISTENERS = PASSIVE_EVENT_LISTENERS;
+},{}],"node_modules/ol/MapBrowserEventType.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _EventType = _interopRequireDefault(require("./events/EventType.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/**
+ * @module ol/MapBrowserEventType
+ */
+
+/**
+ * Constants for event names.
+ * @enum {string}
+ */
+var _default = {
+  /**
+   * A true single click with no dragging and no double click. Note that this
+   * event is delayed by 250 ms to ensure that it is not a double click.
+   * @event module:ol/MapBrowserEvent~MapBrowserEvent#singleclick
+   * @api
+   */
+  SINGLECLICK: 'singleclick',
+
+  /**
+   * A click with no dragging. A double click will fire two of this.
+   * @event module:ol/MapBrowserEvent~MapBrowserEvent#click
+   * @api
+   */
+  CLICK: _EventType.default.CLICK,
+
+  /**
+   * A true double click, with no dragging.
+   * @event module:ol/MapBrowserEvent~MapBrowserEvent#dblclick
+   * @api
+   */
+  DBLCLICK: _EventType.default.DBLCLICK,
+
+  /**
+   * Triggered when a pointer is dragged.
+   * @event module:ol/MapBrowserEvent~MapBrowserEvent#pointerdrag
+   * @api
+   */
+  POINTERDRAG: 'pointerdrag',
+
+  /**
+   * Triggered when a pointer is moved. Note that on touch devices this is
+   * triggered when the map is panned, so is not the same as mousemove.
+   * @event module:ol/MapBrowserEvent~MapBrowserEvent#pointermove
+   * @api
+   */
+  POINTERMOVE: 'pointermove',
+  POINTERDOWN: 'pointerdown',
+  POINTERUP: 'pointerup',
+  POINTEROVER: 'pointerover',
+  POINTEROUT: 'pointerout',
+  POINTERENTER: 'pointerenter',
+  POINTERLEAVE: 'pointerleave',
+  POINTERCANCEL: 'pointercancel'
+};
+exports.default = _default;
+},{"./events/EventType.js":"node_modules/ol/events/EventType.js"}],"node_modules/ol/MapBrowserPointerEvent.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _MapBrowserEvent = _interopRequireDefault(require("./MapBrowserEvent.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var __extends = void 0 && (void 0).__extends || function () {
+  var extendStatics = function (d, b) {
+    extendStatics = Object.setPrototypeOf || {
+      __proto__: []
+    } instanceof Array && function (d, b) {
+      d.__proto__ = b;
+    } || function (d, b) {
+      for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    };
+
+    return extendStatics(d, b);
+  };
+
+  return function (d, b) {
+    extendStatics(d, b);
+
+    function __() {
+      this.constructor = d;
+    }
+
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  };
+}();
+/**
+ * @module ol/MapBrowserPointerEvent
+ */
+
+
+var MapBrowserPointerEvent =
+/** @class */
+function (_super) {
+  __extends(MapBrowserPointerEvent, _super);
+  /**
+   * @param {string} type Event type.
+   * @param {import("./PluggableMap.js").default} map Map.
+   * @param {PointerEvent} pointerEvent Pointer event.
+   * @param {boolean=} opt_dragging Is the map currently being dragged?
+   * @param {?import("./PluggableMap.js").FrameState=} opt_frameState Frame state.
+   */
+
+
+  function MapBrowserPointerEvent(type, map, pointerEvent, opt_dragging, opt_frameState) {
+    var _this = _super.call(this, type, map, pointerEvent, opt_dragging, opt_frameState) || this;
+    /**
+     * @const
+     * @type {PointerEvent}
+     */
+
+
+    _this.pointerEvent = pointerEvent;
+    return _this;
+  }
+
+  return MapBrowserPointerEvent;
+}(_MapBrowserEvent.default);
+
+var _default = MapBrowserPointerEvent;
+exports.default = _default;
+},{"./MapBrowserEvent.js":"node_modules/ol/MapBrowserEvent.js"}],"node_modules/ol/pointer/EventType.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+/**
+ * @module ol/pointer/EventType
+ */
+
+/**
+ * Constants for event names.
+ * @enum {string}
+ */
+var _default = {
+  POINTERMOVE: 'pointermove',
+  POINTERDOWN: 'pointerdown',
+  POINTERUP: 'pointerup',
+  POINTEROVER: 'pointerover',
+  POINTEROUT: 'pointerout',
+  POINTERENTER: 'pointerenter',
+  POINTERLEAVE: 'pointerleave',
+  POINTERCANCEL: 'pointercancel'
+};
+exports.default = _default;
+},{}],"node_modules/ol/MapBrowserEventHandler.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+require("elm-pep");
+
+var _has = require("./has.js");
+
+var _MapBrowserEventType = _interopRequireDefault(require("./MapBrowserEventType.js"));
+
+var _MapBrowserPointerEvent = _interopRequireDefault(require("./MapBrowserPointerEvent.js"));
+
+var _events = require("./events.js");
+
+var _Target = _interopRequireDefault(require("./events/Target.js"));
+
+var _EventType = _interopRequireDefault(require("./pointer/EventType.js"));
+
+var _EventType2 = _interopRequireDefault(require("./events/EventType.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/**
+ * @module ol/MapBrowserEventHandler
+ */
+var __extends = void 0 && (void 0).__extends || function () {
+  var extendStatics = function (d, b) {
+    extendStatics = Object.setPrototypeOf || {
+      __proto__: []
+    } instanceof Array && function (d, b) {
+      d.__proto__ = b;
+    } || function (d, b) {
+      for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    };
+
+    return extendStatics(d, b);
+  };
+
+  return function (d, b) {
+    extendStatics(d, b);
+
+    function __() {
+      this.constructor = d;
+    }
+
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  };
+}();
+
+var MapBrowserEventHandler =
+/** @class */
+function (_super) {
+  __extends(MapBrowserEventHandler, _super);
+  /**
+   * @param {import("./PluggableMap.js").default} map The map with the viewport to listen to events on.
+   * @param {number=} moveTolerance The minimal distance the pointer must travel to trigger a move.
+   */
+
+
+  function MapBrowserEventHandler(map, moveTolerance) {
+    var _this = _super.call(this, map) || this;
+    /**
+     * This is the element that we will listen to the real events on.
+     * @type {import("./PluggableMap.js").default}
+     * @private
+     */
+
+
+    _this.map_ = map;
+    /**
+     * @type {any}
+     * @private
+     */
+
+    _this.clickTimeoutId_;
+    /**
+     * @type {boolean}
+     * @private
+     */
+
+    _this.dragging_ = false;
+    /**
+     * @type {!Array<import("./events.js").EventsKey>}
+     * @private
+     */
+
+    _this.dragListenerKeys_ = [];
+    /**
+     * @type {number}
+     * @private
+     */
+
+    _this.moveTolerance_ = moveTolerance ? moveTolerance * _has.DEVICE_PIXEL_RATIO : _has.DEVICE_PIXEL_RATIO;
+    /**
+     * The most recent "down" type event (or null if none have occurred).
+     * Set on pointerdown.
+     * @type {PointerEvent}
+     * @private
+     */
+
+    _this.down_ = null;
+
+    var element = _this.map_.getViewport();
+    /**
+     * @type {number}
+     * @private
+     */
+
+
+    _this.activePointers_ = 0;
+    /**
+     * @type {!Object<number, boolean>}
+     * @private
+     */
+
+    _this.trackedTouches_ = {};
+    _this.element_ = element;
+    /**
+     * @type {?import("./events.js").EventsKey}
+     * @private
+     */
+
+    _this.pointerdownListenerKey_ = (0, _events.listen)(element, _EventType.default.POINTERDOWN, _this.handlePointerDown_, _this);
+    /**
+     * @type {PointerEvent}
+     * @private
+     */
+
+    _this.originalPointerMoveEvent_;
+    /**
+     * @type {?import("./events.js").EventsKey}
+     * @private
+     */
+
+    _this.relayedListenerKey_ = (0, _events.listen)(element, _EventType.default.POINTERMOVE, _this.relayEvent_, _this);
+    /**
+     * @private
+     */
+
+    _this.boundHandleTouchMove_ = _this.handleTouchMove_.bind(_this);
+
+    _this.element_.addEventListener(_EventType2.default.TOUCHMOVE, _this.boundHandleTouchMove_, _has.PASSIVE_EVENT_LISTENERS ? {
+      passive: false
+    } : false);
+
+    return _this;
+  }
+  /**
+   * @param {PointerEvent} pointerEvent Pointer
+   * event.
+   * @private
+   */
+
+
+  MapBrowserEventHandler.prototype.emulateClick_ = function (pointerEvent) {
+    var newEvent = new _MapBrowserPointerEvent.default(_MapBrowserEventType.default.CLICK, this.map_, pointerEvent);
+    this.dispatchEvent(newEvent);
+
+    if (this.clickTimeoutId_ !== undefined) {
+      // double-click
+      clearTimeout(this.clickTimeoutId_);
+      this.clickTimeoutId_ = undefined;
+      newEvent = new _MapBrowserPointerEvent.default(_MapBrowserEventType.default.DBLCLICK, this.map_, pointerEvent);
+      this.dispatchEvent(newEvent);
+    } else {
+      // click
+      this.clickTimeoutId_ = setTimeout(function () {
+        this.clickTimeoutId_ = undefined;
+        var newEvent = new _MapBrowserPointerEvent.default(_MapBrowserEventType.default.SINGLECLICK, this.map_, pointerEvent);
+        this.dispatchEvent(newEvent);
+      }.bind(this), 250);
+    }
+  };
+  /**
+   * Keeps track on how many pointers are currently active.
+   *
+   * @param {PointerEvent} pointerEvent Pointer
+   * event.
+   * @private
+   */
+
+
+  MapBrowserEventHandler.prototype.updateActivePointers_ = function (pointerEvent) {
+    var event = pointerEvent;
+
+    if (event.type == _MapBrowserEventType.default.POINTERUP || event.type == _MapBrowserEventType.default.POINTERCANCEL) {
+      delete this.trackedTouches_[event.pointerId];
+    } else if (event.type == _MapBrowserEventType.default.POINTERDOWN) {
+      this.trackedTouches_[event.pointerId] = true;
+    }
+
+    this.activePointers_ = Object.keys(this.trackedTouches_).length;
+  };
+  /**
+   * @param {PointerEvent} pointerEvent Pointer
+   * event.
+   * @private
+   */
+
+
+  MapBrowserEventHandler.prototype.handlePointerUp_ = function (pointerEvent) {
+    this.updateActivePointers_(pointerEvent);
+    var newEvent = new _MapBrowserPointerEvent.default(_MapBrowserEventType.default.POINTERUP, this.map_, pointerEvent);
+    this.dispatchEvent(newEvent); // We emulate click events on left mouse button click, touch contact, and pen
+    // contact. isMouseActionButton returns true in these cases (evt.button is set
+    // to 0).
+    // See http://www.w3.org/TR/pointerevents/#button-states
+    // We only fire click, singleclick, and doubleclick if nobody has called
+    // event.stopPropagation() or event.preventDefault().
+
+    if (!newEvent.propagationStopped && !this.dragging_ && this.isMouseActionButton_(pointerEvent)) {
+      this.emulateClick_(this.down_);
+    }
+
+    if (this.activePointers_ === 0) {
+      this.dragListenerKeys_.forEach(_events.unlistenByKey);
+      this.dragListenerKeys_.length = 0;
+      this.dragging_ = false;
+      this.down_ = null;
+    }
+  };
+  /**
+   * @param {PointerEvent} pointerEvent Pointer
+   * event.
+   * @return {boolean} If the left mouse button was pressed.
+   * @private
+   */
+
+
+  MapBrowserEventHandler.prototype.isMouseActionButton_ = function (pointerEvent) {
+    return pointerEvent.button === 0;
+  };
+  /**
+   * @param {PointerEvent} pointerEvent Pointer
+   * event.
+   * @private
+   */
+
+
+  MapBrowserEventHandler.prototype.handlePointerDown_ = function (pointerEvent) {
+    this.updateActivePointers_(pointerEvent);
+    var newEvent = new _MapBrowserPointerEvent.default(_MapBrowserEventType.default.POINTERDOWN, this.map_, pointerEvent);
+    this.dispatchEvent(newEvent);
+    this.down_ = pointerEvent;
+
+    if (this.dragListenerKeys_.length === 0) {
+      this.dragListenerKeys_.push((0, _events.listen)(document, _MapBrowserEventType.default.POINTERMOVE, this.handlePointerMove_, this), (0, _events.listen)(document, _MapBrowserEventType.default.POINTERUP, this.handlePointerUp_, this),
+      /* Note that the listener for `pointercancel is set up on
+       * `pointerEventHandler_` and not `documentPointerEventHandler_` like
+       * the `pointerup` and `pointermove` listeners.
+       *
+       * The reason for this is the following: `TouchSource.vacuumTouches_()`
+       * issues `pointercancel` events, when there was no `touchend` for a
+       * `touchstart`. Now, let's say a first `touchstart` is registered on
+       * `pointerEventHandler_`. The `documentPointerEventHandler_` is set up.
+       * But `documentPointerEventHandler_` doesn't know about the first
+       * `touchstart`. If there is no `touchend` for the `touchstart`, we can
+       * only receive a `touchcancel` from `pointerEventHandler_`, because it is
+       * only registered there.
+       */
+      (0, _events.listen)(this.element_, _MapBrowserEventType.default.POINTERCANCEL, this.handlePointerUp_, this));
+    }
+  };
+  /**
+   * @param {PointerEvent} pointerEvent Pointer
+   * event.
+   * @private
+   */
+
+
+  MapBrowserEventHandler.prototype.handlePointerMove_ = function (pointerEvent) {
+    // Between pointerdown and pointerup, pointermove events are triggered.
+    // To avoid a 'false' touchmove event to be dispatched, we test if the pointer
+    // moved a significant distance.
+    if (this.isMoving_(pointerEvent)) {
+      this.dragging_ = true;
+      var newEvent = new _MapBrowserPointerEvent.default(_MapBrowserEventType.default.POINTERDRAG, this.map_, pointerEvent, this.dragging_);
+      this.dispatchEvent(newEvent);
+    }
+  };
+  /**
+   * Wrap and relay a pointer event.  Note that this requires that the type
+   * string for the MapBrowserPointerEvent matches the PointerEvent type.
+   * @param {PointerEvent} pointerEvent Pointer
+   * event.
+   * @private
+   */
+
+
+  MapBrowserEventHandler.prototype.relayEvent_ = function (pointerEvent) {
+    this.originalPointerMoveEvent_ = pointerEvent;
+    var dragging = !!(this.down_ && this.isMoving_(pointerEvent));
+    this.dispatchEvent(new _MapBrowserPointerEvent.default(pointerEvent.type, this.map_, pointerEvent, dragging));
+  };
+  /**
+   * Flexible handling of a `touch-action: none` css equivalent: because calling
+   * `preventDefault()` on a `pointermove` event does not stop native page scrolling
+   * and zooming, we also listen for `touchmove` and call `preventDefault()` on it
+   * when an interaction (currently `DragPan` handles the event.
+   * @param {TouchEvent} event Event.
+   * @private
+   */
+
+
+  MapBrowserEventHandler.prototype.handleTouchMove_ = function (event) {
+    // Due to https://github.com/mpizenberg/elm-pep/issues/2, `this.originalPointerMoveEvent_`
+    // may not be initialized yet when we get here on a platform without native pointer events.
+    if (!this.originalPointerMoveEvent_ || this.originalPointerMoveEvent_.defaultPrevented) {
+      event.preventDefault();
+    }
+  };
+  /**
+   * @param {PointerEvent} pointerEvent Pointer
+   * event.
+   * @return {boolean} Is moving.
+   * @private
+   */
+
+
+  MapBrowserEventHandler.prototype.isMoving_ = function (pointerEvent) {
+    return this.dragging_ || Math.abs(pointerEvent.clientX - this.down_.clientX) > this.moveTolerance_ || Math.abs(pointerEvent.clientY - this.down_.clientY) > this.moveTolerance_;
+  };
+  /**
+   * @inheritDoc
+   */
+
+
+  MapBrowserEventHandler.prototype.disposeInternal = function () {
+    if (this.relayedListenerKey_) {
+      (0, _events.unlistenByKey)(this.relayedListenerKey_);
+      this.relayedListenerKey_ = null;
+    }
+
+    this.element_.removeEventListener(_EventType2.default.TOUCHMOVE, this.boundHandleTouchMove_);
+
+    if (this.pointerdownListenerKey_) {
+      (0, _events.unlistenByKey)(this.pointerdownListenerKey_);
+      this.pointerdownListenerKey_ = null;
+    }
+
+    this.dragListenerKeys_.forEach(_events.unlistenByKey);
+    this.dragListenerKeys_.length = 0;
+    this.element_ = null;
+
+    _super.prototype.disposeInternal.call(this);
+  };
+
+  return MapBrowserEventHandler;
+}(_Target.default);
+
+var _default = MapBrowserEventHandler;
+exports.default = _default;
+},{"elm-pep":"node_modules/elm-pep/dist/elm-pep.js","./has.js":"node_modules/ol/has.js","./MapBrowserEventType.js":"node_modules/ol/MapBrowserEventType.js","./MapBrowserPointerEvent.js":"node_modules/ol/MapBrowserPointerEvent.js","./events.js":"node_modules/ol/events.js","./events/Target.js":"node_modules/ol/events/Target.js","./pointer/EventType.js":"node_modules/ol/pointer/EventType.js","./events/EventType.js":"node_modules/ol/events/EventType.js"}],"node_modules/ol/MapEventType.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+/**
+ * @module ol/MapEventType
+ */
+
+/**
+ * @enum {string}
+ */
+var _default = {
+  /**
+   * Triggered after a map frame is rendered.
+   * @event module:ol/MapEvent~MapEvent#postrender
+   * @api
+   */
+  POSTRENDER: 'postrender',
+
+  /**
+   * Triggered when the map starts moving.
+   * @event module:ol/MapEvent~MapEvent#movestart
+   * @api
+   */
+  MOVESTART: 'movestart',
+
+  /**
+   * Triggered after the map is moved.
+   * @event module:ol/MapEvent~MapEvent#moveend
+   * @api
+   */
+  MOVEEND: 'moveend'
+};
+exports.default = _default;
+},{}],"node_modules/ol/MapProperty.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+/**
+ * @module ol/MapProperty
+ */
+
+/**
+ * @enum {string}
+ */
+var _default = {
+  LAYERGROUP: 'layergroup',
+  SIZE: 'size',
+  TARGET: 'target',
+  VIEW: 'view'
+};
+exports.default = _default;
+},{}],"node_modules/ol/render/EventType.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+/**
+ * @module ol/render/EventType
+ */
+
+/**
+ * @enum {string}
+ */
+var _default = {
+  /**
+   * Triggered before a layer is rendered.
+   * @event module:ol/render/Event~RenderEvent#prerender
+   * @api
+   */
+  PRERENDER: 'prerender',
+
+  /**
+   * Triggered after a layer is rendered.
+   * @event module:ol/render/Event~RenderEvent#postrender
+   * @api
+   */
+  POSTRENDER: 'postrender',
+
+  /**
+   * Triggered before layers are rendered.
+   * The event object will not have a `context` set.
+   * @event module:ol/render/Event~RenderEvent#precompose
+   * @api
+   */
+  PRECOMPOSE: 'precompose',
+
+  /**
+   * Triggered after all layers are rendered.
+   * The event object will not have a `context` set.
+   * @event module:ol/render/Event~RenderEvent#postcompose
+   * @api
+   */
+  POSTCOMPOSE: 'postcompose',
+
+  /**
+   * Triggered when rendering is complete, i.e. all sources and tiles have
+   * finished loading for the current viewport, and all tiles are faded in.
+   * The event object will not have a `context` set.
+   * @event module:ol/render/Event~RenderEvent#rendercomplete
+   * @api
+   */
+  RENDERCOMPLETE: 'rendercomplete'
+};
+exports.default = _default;
+},{}],"node_modules/ol/TileState.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+/**
+ * @module ol/TileState
+ */
+
+/**
+ * @enum {number}
+ */
+var _default = {
+  IDLE: 0,
+  LOADING: 1,
+  LOADED: 2,
+
+  /**
+   * Indicates that tile loading failed
+   * @type {number}
+   */
+  ERROR: 3,
+  EMPTY: 4
+};
+exports.default = _default;
+},{}],"node_modules/ol/structs/PriorityQueue.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = exports.DROP = void 0;
+
+var _asserts = require("../asserts.js");
+
+var _obj = require("../obj.js");
+
+/**
+ * @module ol/structs/PriorityQueue
+ */
+
+/**
+ * @type {number}
+ */
+var DROP = Infinity;
+/**
+ * @classdesc
+ * Priority queue.
+ *
+ * The implementation is inspired from the Closure Library's Heap class and
+ * Python's heapq module.
+ *
+ * See http://closure-library.googlecode.com/svn/docs/closure_goog_structs_heap.js.source.html
+ * and http://hg.python.org/cpython/file/2.7/Lib/heapq.py.
+ *
+ * @template T
+ */
+
+exports.DROP = DROP;
+
+var PriorityQueue =
+/** @class */
+function () {
+  /**
+   * @param {function(T): number} priorityFunction Priority function.
+   * @param {function(T): string} keyFunction Key function.
+   */
+  function PriorityQueue(priorityFunction, keyFunction) {
+    /**
+     * @type {function(T): number}
+     * @private
+     */
+    this.priorityFunction_ = priorityFunction;
+    /**
+     * @type {function(T): string}
+     * @private
+     */
+
+    this.keyFunction_ = keyFunction;
+    /**
+     * @type {Array<T>}
+     * @private
+     */
+
+    this.elements_ = [];
+    /**
+     * @type {Array<number>}
+     * @private
+     */
+
+    this.priorities_ = [];
+    /**
+     * @type {!Object<string, boolean>}
+     * @private
+     */
+
+    this.queuedElements_ = {};
+  }
+  /**
+   * FIXME empty description for jsdoc
+   */
+
+
+  PriorityQueue.prototype.clear = function () {
+    this.elements_.length = 0;
+    this.priorities_.length = 0;
+    (0, _obj.clear)(this.queuedElements_);
+  };
+  /**
+   * Remove and return the highest-priority element. O(log N).
+   * @return {T} Element.
+   */
+
+
+  PriorityQueue.prototype.dequeue = function () {
+    var elements = this.elements_;
+    var priorities = this.priorities_;
+    var element = elements[0];
+
+    if (elements.length == 1) {
+      elements.length = 0;
+      priorities.length = 0;
+    } else {
+      elements[0] = elements.pop();
+      priorities[0] = priorities.pop();
+      this.siftUp_(0);
+    }
+
+    var elementKey = this.keyFunction_(element);
+    delete this.queuedElements_[elementKey];
+    return element;
+  };
+  /**
+   * Enqueue an element. O(log N).
+   * @param {T} element Element.
+   * @return {boolean} The element was added to the queue.
+   */
+
+
+  PriorityQueue.prototype.enqueue = function (element) {
+    (0, _asserts.assert)(!(this.keyFunction_(element) in this.queuedElements_), 31); // Tried to enqueue an `element` that was already added to the queue
+
+    var priority = this.priorityFunction_(element);
+
+    if (priority != DROP) {
+      this.elements_.push(element);
+      this.priorities_.push(priority);
+      this.queuedElements_[this.keyFunction_(element)] = true;
+      this.siftDown_(0, this.elements_.length - 1);
+      return true;
+    }
+
+    return false;
+  };
+  /**
+   * @return {number} Count.
+   */
+
+
+  PriorityQueue.prototype.getCount = function () {
+    return this.elements_.length;
+  };
+  /**
+   * Gets the index of the left child of the node at the given index.
+   * @param {number} index The index of the node to get the left child for.
+   * @return {number} The index of the left child.
+   * @private
+   */
+
+
+  PriorityQueue.prototype.getLeftChildIndex_ = function (index) {
+    return index * 2 + 1;
+  };
+  /**
+   * Gets the index of the right child of the node at the given index.
+   * @param {number} index The index of the node to get the right child for.
+   * @return {number} The index of the right child.
+   * @private
+   */
+
+
+  PriorityQueue.prototype.getRightChildIndex_ = function (index) {
+    return index * 2 + 2;
+  };
+  /**
+   * Gets the index of the parent of the node at the given index.
+   * @param {number} index The index of the node to get the parent for.
+   * @return {number} The index of the parent.
+   * @private
+   */
+
+
+  PriorityQueue.prototype.getParentIndex_ = function (index) {
+    return index - 1 >> 1;
+  };
+  /**
+   * Make this a heap. O(N).
+   * @private
+   */
+
+
+  PriorityQueue.prototype.heapify_ = function () {
+    var i;
+
+    for (i = (this.elements_.length >> 1) - 1; i >= 0; i--) {
+      this.siftUp_(i);
+    }
+  };
+  /**
+   * @return {boolean} Is empty.
+   */
+
+
+  PriorityQueue.prototype.isEmpty = function () {
+    return this.elements_.length === 0;
+  };
+  /**
+   * @param {string} key Key.
+   * @return {boolean} Is key queued.
+   */
+
+
+  PriorityQueue.prototype.isKeyQueued = function (key) {
+    return key in this.queuedElements_;
+  };
+  /**
+   * @param {T} element Element.
+   * @return {boolean} Is queued.
+   */
+
+
+  PriorityQueue.prototype.isQueued = function (element) {
+    return this.isKeyQueued(this.keyFunction_(element));
+  };
+  /**
+   * @param {number} index The index of the node to move down.
+   * @private
+   */
+
+
+  PriorityQueue.prototype.siftUp_ = function (index) {
+    var elements = this.elements_;
+    var priorities = this.priorities_;
+    var count = elements.length;
+    var element = elements[index];
+    var priority = priorities[index];
+    var startIndex = index;
+
+    while (index < count >> 1) {
+      var lIndex = this.getLeftChildIndex_(index);
+      var rIndex = this.getRightChildIndex_(index);
+      var smallerChildIndex = rIndex < count && priorities[rIndex] < priorities[lIndex] ? rIndex : lIndex;
+      elements[index] = elements[smallerChildIndex];
+      priorities[index] = priorities[smallerChildIndex];
+      index = smallerChildIndex;
+    }
+
+    elements[index] = element;
+    priorities[index] = priority;
+    this.siftDown_(startIndex, index);
+  };
+  /**
+   * @param {number} startIndex The index of the root.
+   * @param {number} index The index of the node to move up.
+   * @private
+   */
+
+
+  PriorityQueue.prototype.siftDown_ = function (startIndex, index) {
+    var elements = this.elements_;
+    var priorities = this.priorities_;
+    var element = elements[index];
+    var priority = priorities[index];
+
+    while (index > startIndex) {
+      var parentIndex = this.getParentIndex_(index);
+
+      if (priorities[parentIndex] > priority) {
+        elements[index] = elements[parentIndex];
+        priorities[index] = priorities[parentIndex];
+        index = parentIndex;
+      } else {
+        break;
+      }
+    }
+
+    elements[index] = element;
+    priorities[index] = priority;
+  };
+  /**
+   * FIXME empty description for jsdoc
+   */
+
+
+  PriorityQueue.prototype.reprioritize = function () {
+    var priorityFunction = this.priorityFunction_;
+    var elements = this.elements_;
+    var priorities = this.priorities_;
+    var index = 0;
+    var n = elements.length;
+    var element, i, priority;
+
+    for (i = 0; i < n; ++i) {
+      element = elements[i];
+      priority = priorityFunction(element);
+
+      if (priority == DROP) {
+        delete this.queuedElements_[this.keyFunction_(element)];
+      } else {
+        priorities[index] = priority;
+        elements[index++] = element;
+      }
+    }
+
+    elements.length = index;
+    priorities.length = index;
+    this.heapify_();
+  };
+
+  return PriorityQueue;
+}();
+
+var _default = PriorityQueue;
+exports.default = _default;
+},{"../asserts.js":"node_modules/ol/asserts.js","../obj.js":"node_modules/ol/obj.js"}],"node_modules/ol/TileQueue.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getTilePriority = getTilePriority;
+exports.default = void 0;
+
+var _TileState = _interopRequireDefault(require("./TileState.js"));
+
+var _EventType = _interopRequireDefault(require("./events/EventType.js"));
+
+var _PriorityQueue = _interopRequireWildcard(require("./structs/PriorityQueue.js"));
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var __extends = void 0 && (void 0).__extends || function () {
+  var extendStatics = function (d, b) {
+    extendStatics = Object.setPrototypeOf || {
+      __proto__: []
+    } instanceof Array && function (d, b) {
+      d.__proto__ = b;
+    } || function (d, b) {
+      for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    };
+
+    return extendStatics(d, b);
+  };
+
+  return function (d, b) {
+    extendStatics(d, b);
+
+    function __() {
+      this.constructor = d;
+    }
+
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  };
+}();
+/**
+ * @module ol/TileQueue
+ */
+
+
+/**
+ * @typedef {function(import("./Tile.js").default, string, import("./coordinate.js").Coordinate, number): number} PriorityFunction
+ */
+var TileQueue =
+/** @class */
+function (_super) {
+  __extends(TileQueue, _super);
+  /**
+   * @param {PriorityFunction} tilePriorityFunction Tile priority function.
+   * @param {function(): ?} tileChangeCallback Function called on each tile change event.
+   */
+
+
+  function TileQueue(tilePriorityFunction, tileChangeCallback) {
+    var _this = _super.call(this,
+    /**
+     * @param {Array} element Element.
+     * @return {number} Priority.
+     */
+    function (element) {
+      return tilePriorityFunction.apply(null, element);
+    },
+    /**
+     * @param {Array} element Element.
+     * @return {string} Key.
+     */
+    function (element) {
+      return (
+        /** @type {import("./Tile.js").default} */
+        element[0].getKey()
+      );
+    }) || this;
+    /** @private */
+
+
+    _this.boundHandleTileChange_ = _this.handleTileChange.bind(_this);
+    /**
+     * @private
+     * @type {function(): ?}
+     */
+
+    _this.tileChangeCallback_ = tileChangeCallback;
+    /**
+     * @private
+     * @type {number}
+     */
+
+    _this.tilesLoading_ = 0;
+    /**
+     * @private
+     * @type {!Object<string,boolean>}
+     */
+
+    _this.tilesLoadingKeys_ = {};
+    return _this;
+  }
+  /**
+   * @inheritDoc
+   */
+
+
+  TileQueue.prototype.enqueue = function (element) {
+    var added = _super.prototype.enqueue.call(this, element);
+
+    if (added) {
+      var tile = element[0];
+      tile.addEventListener(_EventType.default.CHANGE, this.boundHandleTileChange_);
+    }
+
+    return added;
+  };
+  /**
+   * @return {number} Number of tiles loading.
+   */
+
+
+  TileQueue.prototype.getTilesLoading = function () {
+    return this.tilesLoading_;
+  };
+  /**
+   * @param {import("./events/Event.js").default} event Event.
+   * @protected
+   */
+
+
+  TileQueue.prototype.handleTileChange = function (event) {
+    var tile =
+    /** @type {import("./Tile.js").default} */
+    event.target;
+    var state = tile.getState();
+
+    if (tile.hifi && state === _TileState.default.LOADED || state === _TileState.default.ERROR || state === _TileState.default.EMPTY) {
+      tile.removeEventListener(_EventType.default.CHANGE, this.boundHandleTileChange_);
+      var tileKey = tile.getKey();
+
+      if (tileKey in this.tilesLoadingKeys_) {
+        delete this.tilesLoadingKeys_[tileKey];
+        --this.tilesLoading_;
+      }
+
+      this.tileChangeCallback_();
+    }
+  };
+  /**
+   * @param {number} maxTotalLoading Maximum number tiles to load simultaneously.
+   * @param {number} maxNewLoads Maximum number of new tiles to load.
+   */
+
+
+  TileQueue.prototype.loadMoreTiles = function (maxTotalLoading, maxNewLoads) {
+    var newLoads = 0;
+    var state, tile, tileKey;
+
+    while (this.tilesLoading_ < maxTotalLoading && newLoads < maxNewLoads && this.getCount() > 0) {
+      tile =
+      /** @type {import("./Tile.js").default} */
+      this.dequeue()[0];
+      tileKey = tile.getKey();
+      state = tile.getState();
+
+      if (state === _TileState.default.IDLE && !(tileKey in this.tilesLoadingKeys_)) {
+        this.tilesLoadingKeys_[tileKey] = true;
+        ++this.tilesLoading_;
+        ++newLoads;
+        tile.load();
+      }
+    }
+  };
+
+  return TileQueue;
+}(_PriorityQueue.default);
+
+var _default = TileQueue;
+/**
+ * @param {import('./PluggableMap.js').FrameState} frameState Frame state.
+ * @param {import("./Tile.js").default} tile Tile.
+ * @param {string} tileSourceKey Tile source key.
+ * @param {import("./coordinate.js").Coordinate} tileCenter Tile center.
+ * @param {number} tileResolution Tile resolution.
+ * @return {number} Tile priority.
+ */
+
+exports.default = _default;
+
+function getTilePriority(frameState, tile, tileSourceKey, tileCenter, tileResolution) {
+  // Filter out tiles at higher zoom levels than the current zoom level, or that
+  // are outside the visible extent.
+  if (!frameState || !(tileSourceKey in frameState.wantedTiles)) {
+    return _PriorityQueue.DROP;
+  }
+
+  if (!frameState.wantedTiles[tileSourceKey][tile.getKey()]) {
+    return _PriorityQueue.DROP;
+  } // Prioritize the highest zoom level tiles closest to the focus.
+  // Tiles at higher zoom levels are prioritized using Math.log(tileResolution).
+  // Within a zoom level, tiles are prioritized by the distance in pixels between
+  // the center of the tile and the center of the viewport.  The factor of 65536
+  // means that the prioritization should behave as desired for tiles up to
+  // 65536 * Math.log(2) = 45426 pixels from the focus.
+
+
+  var center = frameState.viewState.center;
+  var deltaX = tileCenter[0] - center[0];
+  var deltaY = tileCenter[1] - center[1];
+  return 65536 * Math.log(tileResolution) + Math.sqrt(deltaX * deltaX + deltaY * deltaY) / tileResolution;
+}
+},{"./TileState.js":"node_modules/ol/TileState.js","./events/EventType.js":"node_modules/ol/events/EventType.js","./structs/PriorityQueue.js":"node_modules/ol/structs/PriorityQueue.js"}],"node_modules/ol/tilegrid/common.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.DEFAULT_TILE_SIZE = exports.DEFAULT_MAX_ZOOM = void 0;
+
+/**
+ * @module ol/tilegrid/common
+ */
+
+/**
+ * Default maximum zoom for default tile grids.
+ * @type {number}
+ */
+var DEFAULT_MAX_ZOOM = 42;
+/**
+ * Default tile size.
+ * @type {number}
+ */
+
+exports.DEFAULT_MAX_ZOOM = DEFAULT_MAX_ZOOM;
+var DEFAULT_TILE_SIZE = 256;
+exports.DEFAULT_TILE_SIZE = DEFAULT_TILE_SIZE;
+},{}],"node_modules/ol/centerconstraint.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.createExtent = createExtent;
+exports.none = none;
+
+var _math = require("./math.js");
+
+/**
+ * @module ol/centerconstraint
+ */
+
+/**
+ * @typedef {function((import("./coordinate.js").Coordinate|undefined), number, import("./size.js").Size, boolean=): (import("./coordinate.js").Coordinate|undefined)} Type
+ */
+
+/**
+ * @param {import("./extent.js").Extent} extent Extent.
+ * @param {boolean} onlyCenter If true, the constraint will only apply to the view center.
+ * @param {boolean} smooth If true, the view will be able to go slightly out of the given extent
+ * (only during interaction and animation).
+ * @return {Type} The constraint.
+ */
+function createExtent(extent, onlyCenter, smooth) {
+  return (
+    /**
+     * @param {import("./coordinate.js").Coordinate|undefined} center Center.
+     * @param {number} resolution Resolution.
+     * @param {import("./size.js").Size} size Viewport size; unused if `onlyCenter` was specified.
+     * @param {boolean=} opt_isMoving True if an interaction or animation is in progress.
+     * @return {import("./coordinate.js").Coordinate|undefined} Center.
+     */
+    function (center, resolution, size, opt_isMoving) {
+      if (center) {
+        var viewWidth = onlyCenter ? 0 : size[0] * resolution;
+        var viewHeight = onlyCenter ? 0 : size[1] * resolution;
+        var minX = extent[0] + viewWidth / 2;
+        var maxX = extent[2] - viewWidth / 2;
+        var minY = extent[1] + viewHeight / 2;
+        var maxY = extent[3] - viewHeight / 2; // note: when zooming out of bounds, min and max values for x and y may
+        // end up inverted (min > max); this has to be accounted for
+
+        if (minX > maxX) {
+          minX = (maxX + minX) / 2;
+          maxX = minX;
+        }
+
+        if (minY > maxY) {
+          minY = (maxY + minY) / 2;
+          maxY = minY;
+        }
+
+        var x = (0, _math.clamp)(center[0], minX, maxX);
+        var y = (0, _math.clamp)(center[1], minY, maxY);
+        var ratio = 30 * resolution; // during an interaction, allow some overscroll
+
+        if (opt_isMoving && smooth) {
+          x += -ratio * Math.log(1 + Math.max(0, minX - center[0]) / ratio) + ratio * Math.log(1 + Math.max(0, center[0] - maxX) / ratio);
+          y += -ratio * Math.log(1 + Math.max(0, minY - center[1]) / ratio) + ratio * Math.log(1 + Math.max(0, center[1] - maxY) / ratio);
+        }
+
+        return [x, y];
+      } else {
+        return undefined;
+      }
+    }
+  );
+}
+/**
+ * @param {import("./coordinate.js").Coordinate=} center Center.
+ * @return {import("./coordinate.js").Coordinate|undefined} Center.
+ */
+
+
+function none(center) {
+  return center;
+}
+},{"./math.js":"node_modules/ol/math.js"}],"node_modules/ol/resolutionconstraint.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.createSnapToResolutions = createSnapToResolutions;
+exports.createSnapToPower = createSnapToPower;
+exports.createMinMaxResolution = createMinMaxResolution;
+
+var _array = require("./array.js");
+
+var _extent = require("./extent.js");
+
+var _math = require("./math.js");
+
+/**
+ * @module ol/resolutionconstraint
+ */
+
+/**
+ * @typedef {function((number|undefined), number, import("./size.js").Size, boolean=): (number|undefined)} Type
+ */
+
+/**
+ * Returns a modified resolution taking into account the viewport size and maximum
+ * allowed extent.
+ * @param {number} resolution Resolution
+ * @param {import("./extent.js").Extent=} maxExtent Maximum allowed extent.
+ * @param {import("./size.js").Size} viewportSize Viewport size.
+ * @param {boolean} showFullExtent Whether to show the full extent.
+ * @return {number} Capped resolution.
+ */
+function getViewportClampedResolution(resolution, maxExtent, viewportSize, showFullExtent) {
+  var xResolution = (0, _extent.getWidth)(maxExtent) / viewportSize[0];
+  var yResolution = (0, _extent.getHeight)(maxExtent) / viewportSize[1];
+
+  if (showFullExtent) {
+    return Math.min(resolution, Math.max(xResolution, yResolution));
+  }
+
+  return Math.min(resolution, Math.min(xResolution, yResolution));
+}
+/**
+ * Returns a modified resolution to be between maxResolution and minResolution while
+ * still allowing the value to be slightly out of bounds.
+ * Note: the computation is based on the logarithm function (ln):
+ *  - at 1, ln(x) is 0
+ *  - above 1, ln(x) keeps increasing but at a much slower pace than x
+ * The final result is clamped to prevent getting too far away from bounds.
+ * @param {number} resolution Resolution.
+ * @param {number} maxResolution Max resolution.
+ * @param {number} minResolution Min resolution.
+ * @return {number} Smoothed resolution.
+ */
+
+
+function getSmoothClampedResolution(resolution, maxResolution, minResolution) {
+  var result = Math.min(resolution, maxResolution);
+  var ratio = 50;
+  result *= Math.log(1 + ratio * Math.max(0, resolution / maxResolution - 1)) / ratio + 1;
+
+  if (minResolution) {
+    result = Math.max(result, minResolution);
+    result /= Math.log(1 + ratio * Math.max(0, minResolution / resolution - 1)) / ratio + 1;
+  }
+
+  return (0, _math.clamp)(result, minResolution / 2, maxResolution * 2);
+}
+/**
+ * @param {Array<number>} resolutions Resolutions.
+ * @param {boolean=} opt_smooth If true, the view will be able to slightly exceed resolution limits. Default: true.
+ * @param {import("./extent.js").Extent=} opt_maxExtent Maximum allowed extent.
+ * @param {boolean=} opt_showFullExtent If true, allows us to show the full extent. Default: false.
+ * @return {Type} Zoom function.
+ */
+
+
+function createSnapToResolutions(resolutions, opt_smooth, opt_maxExtent, opt_showFullExtent) {
+  return (
+    /**
+     * @param {number|undefined} resolution Resolution.
+     * @param {number} direction Direction.
+     * @param {import("./size.js").Size} size Viewport size.
+     * @param {boolean=} opt_isMoving True if an interaction or animation is in progress.
+     * @return {number|undefined} Resolution.
+     */
+    function (resolution, direction, size, opt_isMoving) {
+      if (resolution !== undefined) {
+        var maxResolution = resolutions[0];
+        var minResolution = resolutions[resolutions.length - 1];
+        var cappedMaxRes = opt_maxExtent ? getViewportClampedResolution(maxResolution, opt_maxExtent, size, opt_showFullExtent) : maxResolution; // during interacting or animating, allow intermediary values
+
+        if (opt_isMoving) {
+          var smooth = opt_smooth !== undefined ? opt_smooth : true;
+
+          if (!smooth) {
+            return (0, _math.clamp)(resolution, minResolution, cappedMaxRes);
+          }
+
+          return getSmoothClampedResolution(resolution, cappedMaxRes, minResolution);
+        }
+
+        var capped = Math.min(cappedMaxRes, resolution);
+        var z = Math.floor((0, _array.linearFindNearest)(resolutions, capped, direction));
+
+        if (resolutions[z] > cappedMaxRes && z < resolutions.length - 1) {
+          return resolutions[z + 1];
+        }
+
+        return resolutions[z];
+      } else {
+        return undefined;
+      }
+    }
+  );
+}
+/**
+ * @param {number} power Power.
+ * @param {number} maxResolution Maximum resolution.
+ * @param {number=} opt_minResolution Minimum resolution.
+ * @param {boolean=} opt_smooth If true, the view will be able to slightly exceed resolution limits. Default: true.
+ * @param {import("./extent.js").Extent=} opt_maxExtent Maximum allowed extent.
+ * @param {boolean=} opt_showFullExtent If true, allows us to show the full extent. Default: false.
+ * @return {Type} Zoom function.
+ */
+
+
+function createSnapToPower(power, maxResolution, opt_minResolution, opt_smooth, opt_maxExtent, opt_showFullExtent) {
+  return (
+    /**
+     * @param {number|undefined} resolution Resolution.
+     * @param {number} direction Direction.
+     * @param {import("./size.js").Size} size Viewport size.
+     * @param {boolean=} opt_isMoving True if an interaction or animation is in progress.
+     * @return {number|undefined} Resolution.
+     */
+    function (resolution, direction, size, opt_isMoving) {
+      if (resolution !== undefined) {
+        var cappedMaxRes = opt_maxExtent ? getViewportClampedResolution(maxResolution, opt_maxExtent, size, opt_showFullExtent) : maxResolution;
+        var minResolution = opt_minResolution !== undefined ? opt_minResolution : 0; // during interacting or animating, allow intermediary values
+
+        if (opt_isMoving) {
+          var smooth = opt_smooth !== undefined ? opt_smooth : true;
+
+          if (!smooth) {
+            return (0, _math.clamp)(resolution, minResolution, cappedMaxRes);
+          }
+
+          return getSmoothClampedResolution(resolution, cappedMaxRes, minResolution);
+        }
+
+        var tolerance = 1e-9;
+        var minZoomLevel = Math.ceil(Math.log(maxResolution / cappedMaxRes) / Math.log(power) - tolerance);
+        var offset = -direction * (0.5 - tolerance) + 0.5;
+        var capped = Math.min(cappedMaxRes, resolution);
+        var cappedZoomLevel = Math.floor(Math.log(maxResolution / capped) / Math.log(power) + offset);
+        var zoomLevel = Math.max(minZoomLevel, cappedZoomLevel);
+        var newResolution = maxResolution / Math.pow(power, zoomLevel);
+        return (0, _math.clamp)(newResolution, minResolution, cappedMaxRes);
+      } else {
+        return undefined;
+      }
+    }
+  );
+}
+/**
+ * @param {number} maxResolution Max resolution.
+ * @param {number} minResolution Min resolution.
+ * @param {boolean=} opt_smooth If true, the view will be able to slightly exceed resolution limits. Default: true.
+ * @param {import("./extent.js").Extent=} opt_maxExtent Maximum allowed extent.
+ * @param {boolean=} opt_showFullExtent If true, allows us to show the full extent. Default: false.
+ * @return {Type} Zoom function.
+ */
+
+
+function createMinMaxResolution(maxResolution, minResolution, opt_smooth, opt_maxExtent, opt_showFullExtent) {
+  return (
+    /**
+     * @param {number|undefined} resolution Resolution.
+     * @param {number} direction Direction.
+     * @param {import("./size.js").Size} size Viewport size.
+     * @param {boolean=} opt_isMoving True if an interaction or animation is in progress.
+     * @return {number|undefined} Resolution.
+     */
+    function (resolution, direction, size, opt_isMoving) {
+      if (resolution !== undefined) {
+        var cappedMaxRes = opt_maxExtent ? getViewportClampedResolution(maxResolution, opt_maxExtent, size, opt_showFullExtent) : maxResolution;
+        var smooth = opt_smooth !== undefined ? opt_smooth : true;
+
+        if (!smooth || !opt_isMoving) {
+          return (0, _math.clamp)(resolution, minResolution, cappedMaxRes);
+        }
+
+        return getSmoothClampedResolution(resolution, cappedMaxRes, minResolution);
+      } else {
+        return undefined;
+      }
+    }
+  );
+}
+},{"./array.js":"node_modules/ol/array.js","./extent.js":"node_modules/ol/extent.js","./math.js":"node_modules/ol/math.js"}],"node_modules/ol/rotationconstraint.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.disable = disable;
+exports.none = none;
+exports.createSnapToN = createSnapToN;
+exports.createSnapToZero = createSnapToZero;
+
+var _math = require("./math.js");
+
+/**
+ * @module ol/rotationconstraint
+ */
+
+/**
+ * @typedef {function((number|undefined), boolean=): (number|undefined)} Type
+ */
+
+/**
+ * @param {number|undefined} rotation Rotation.
+ * @return {number|undefined} Rotation.
+ */
+function disable(rotation) {
+  if (rotation !== undefined) {
+    return 0;
+  } else {
+    return undefined;
+  }
+}
+/**
+ * @param {number|undefined} rotation Rotation.
+ * @return {number|undefined} Rotation.
+ */
+
+
+function none(rotation) {
+  if (rotation !== undefined) {
+    return rotation;
+  } else {
+    return undefined;
+  }
+}
+/**
+ * @param {number} n N.
+ * @return {Type} Rotation constraint.
+ */
+
+
+function createSnapToN(n) {
+  var theta = 2 * Math.PI / n;
+  return (
+    /**
+     * @param {number|undefined} rotation Rotation.
+     * @param {boolean=} opt_isMoving True if an interaction or animation is in progress.
+     * @return {number|undefined} Rotation.
+     */
+    function (rotation, opt_isMoving) {
+      if (opt_isMoving) {
+        return rotation;
+      }
+
+      if (rotation !== undefined) {
+        rotation = Math.floor(rotation / theta + 0.5) * theta;
+        return rotation;
+      } else {
+        return undefined;
+      }
+    }
+  );
+}
+/**
+ * @param {number=} opt_tolerance Tolerance.
+ * @return {Type} Rotation constraint.
+ */
+
+
+function createSnapToZero(opt_tolerance) {
+  var tolerance = opt_tolerance || (0, _math.toRadians)(5);
+  return (
+    /**
+     * @param {number|undefined} rotation Rotation.
+     * @param {boolean=} opt_isMoving True if an interaction or animation is in progress.
+     * @return {number|undefined} Rotation.
+     */
+    function (rotation, opt_isMoving) {
+      if (opt_isMoving) {
+        return rotation;
+      }
+
+      if (rotation !== undefined) {
+        if (Math.abs(rotation) <= tolerance) {
+          return 0;
+        } else {
+          return rotation;
+        }
+      } else {
+        return undefined;
+      }
+    }
+  );
+}
+},{"./math.js":"node_modules/ol/math.js"}],"node_modules/ol/ViewHint.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+/**
+ * @module ol/ViewHint
+ */
+
+/**
+ * @enum {number}
+ */
+var _default = {
+  ANIMATING: 0,
+  INTERACTING: 1
+};
+exports.default = _default;
+},{}],"node_modules/ol/ViewProperty.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+/**
+ * @module ol/ViewProperty
+ */
+
+/**
+ * @enum {string}
+ */
+var _default = {
+  CENTER: 'center',
+  RESOLUTION: 'resolution',
+  ROTATION: 'rotation'
+};
+exports.default = _default;
+},{}],"node_modules/ol/string.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.padNumber = padNumber;
+exports.compareVersions = compareVersions;
+
+/**
+ * @module ol/string
+ */
+
+/**
+ * @param {number} number Number to be formatted
+ * @param {number} width The desired width
+ * @param {number=} opt_precision Precision of the output string (i.e. number of decimal places)
+ * @returns {string} Formatted string
+ */
+function padNumber(number, width, opt_precision) {
+  var numberString = opt_precision !== undefined ? number.toFixed(opt_precision) : '' + number;
+  var decimal = numberString.indexOf('.');
+  decimal = decimal === -1 ? numberString.length : decimal;
+  return decimal > width ? numberString : new Array(1 + width - decimal).join('0') + numberString;
+}
+/**
+ * Adapted from https://github.com/omichelsen/compare-versions/blob/master/index.js
+ * @param {string|number} v1 First version
+ * @param {string|number} v2 Second version
+ * @returns {number} Value
+ */
+
+
+function compareVersions(v1, v2) {
+  var s1 = ('' + v1).split('.');
+  var s2 = ('' + v2).split('.');
+
+  for (var i = 0; i < Math.max(s1.length, s2.length); i++) {
+    var n1 = parseInt(s1[i] || '0', 10);
+    var n2 = parseInt(s2[i] || '0', 10);
+
+    if (n1 > n2) {
+      return 1;
+    }
+
+    if (n2 > n1) {
+      return -1;
+    }
+  }
+
+  return 0;
+}
+},{}],"node_modules/ol/coordinate.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.add = add;
+exports.closestOnCircle = closestOnCircle;
+exports.closestOnSegment = closestOnSegment;
+exports.createStringXY = createStringXY;
+exports.degreesToStringHDMS = degreesToStringHDMS;
+exports.format = format;
+exports.equals = equals;
+exports.rotate = rotate;
+exports.scale = scale;
+exports.squaredDistance = squaredDistance;
+exports.distance = distance;
+exports.squaredDistanceToSegment = squaredDistanceToSegment;
+exports.toStringHDMS = toStringHDMS;
+exports.toStringXY = toStringXY;
+exports.wrapX = wrapX;
+
+var _math = require("./math.js");
+
+var _string = require("./string.js");
+
+var _extent = require("./extent.js");
+
+/**
+ * @module ol/coordinate
+ */
+
+/**
+ * An array of numbers representing an xy coordinate. Example: `[16, 48]`.
+ * @typedef {Array<number>} Coordinate
+ * @api
+ */
+
+/**
+ * A function that takes a {@link module:ol/coordinate~Coordinate} and
+ * transforms it into a `{string}`.
+ *
+ * @typedef {function((Coordinate|undefined)): string} CoordinateFormat
+ * @api
+ */
+
+/**
+ * Add `delta` to `coordinate`. `coordinate` is modified in place and returned
+ * by the function.
+ *
+ * Example:
+ *
+ *     import {add} from 'ol/coordinate';
+ *
+ *     var coord = [7.85, 47.983333];
+ *     add(coord, [-2, 4]);
+ *     // coord is now [5.85, 51.983333]
+ *
+ * @param {Coordinate} coordinate Coordinate.
+ * @param {Coordinate} delta Delta.
+ * @return {Coordinate} The input coordinate adjusted by
+ * the given delta.
+ * @api
+ */
+function add(coordinate, delta) {
+  coordinate[0] += +delta[0];
+  coordinate[1] += +delta[1];
+  return coordinate;
+}
+/**
+ * Calculates the point closest to the passed coordinate on the passed circle.
+ *
+ * @param {Coordinate} coordinate The coordinate.
+ * @param {import("./geom/Circle.js").default} circle The circle.
+ * @return {Coordinate} Closest point on the circumference.
+ */
+
+
+function closestOnCircle(coordinate, circle) {
+  var r = circle.getRadius();
+  var center = circle.getCenter();
+  var x0 = center[0];
+  var y0 = center[1];
+  var x1 = coordinate[0];
+  var y1 = coordinate[1];
+  var dx = x1 - x0;
+  var dy = y1 - y0;
+
+  if (dx === 0 && dy === 0) {
+    dx = 1;
+  }
+
+  var d = Math.sqrt(dx * dx + dy * dy);
+  var x = x0 + r * dx / d;
+  var y = y0 + r * dy / d;
+  return [x, y];
+}
+/**
+ * Calculates the point closest to the passed coordinate on the passed segment.
+ * This is the foot of the perpendicular of the coordinate to the segment when
+ * the foot is on the segment, or the closest segment coordinate when the foot
+ * is outside the segment.
+ *
+ * @param {Coordinate} coordinate The coordinate.
+ * @param {Array<Coordinate>} segment The two coordinates
+ * of the segment.
+ * @return {Coordinate} The foot of the perpendicular of
+ * the coordinate to the segment.
+ */
+
+
+function closestOnSegment(coordinate, segment) {
+  var x0 = coordinate[0];
+  var y0 = coordinate[1];
+  var start = segment[0];
+  var end = segment[1];
+  var x1 = start[0];
+  var y1 = start[1];
+  var x2 = end[0];
+  var y2 = end[1];
+  var dx = x2 - x1;
+  var dy = y2 - y1;
+  var along = dx === 0 && dy === 0 ? 0 : (dx * (x0 - x1) + dy * (y0 - y1)) / (dx * dx + dy * dy || 0);
+  var x, y;
+
+  if (along <= 0) {
+    x = x1;
+    y = y1;
+  } else if (along >= 1) {
+    x = x2;
+    y = y2;
+  } else {
+    x = x1 + along * dx;
+    y = y1 + along * dy;
+  }
+
+  return [x, y];
+}
+/**
+ * Returns a {@link module:ol/coordinate~CoordinateFormat} function that can be
+ * used to format
+ * a {Coordinate} to a string.
+ *
+ * Example without specifying the fractional digits:
+ *
+ *     import {createStringXY} from 'ol/coordinate';
+ *
+ *     var coord = [7.85, 47.983333];
+ *     var stringifyFunc = createStringXY();
+ *     var out = stringifyFunc(coord);
+ *     // out is now '8, 48'
+ *
+ * Example with explicitly specifying 2 fractional digits:
+ *
+ *     import {createStringXY} from 'ol/coordinate';
+ *
+ *     var coord = [7.85, 47.983333];
+ *     var stringifyFunc = createStringXY(2);
+ *     var out = stringifyFunc(coord);
+ *     // out is now '7.85, 47.98'
+ *
+ * @param {number=} opt_fractionDigits The number of digits to include
+ *    after the decimal point. Default is `0`.
+ * @return {CoordinateFormat} Coordinate format.
+ * @api
+ */
+
+
+function createStringXY(opt_fractionDigits) {
+  return (
+    /**
+     * @param {Coordinate} coordinate Coordinate.
+     * @return {string} String XY.
+     */
+    function (coordinate) {
+      return toStringXY(coordinate, opt_fractionDigits);
+    }
+  );
+}
+/**
+ * @param {string} hemispheres Hemispheres.
+ * @param {number} degrees Degrees.
+ * @param {number=} opt_fractionDigits The number of digits to include
+ *    after the decimal point. Default is `0`.
+ * @return {string} String.
+ */
+
+
+function degreesToStringHDMS(hemispheres, degrees, opt_fractionDigits) {
+  var normalizedDegrees = (0, _math.modulo)(degrees + 180, 360) - 180;
+  var x = Math.abs(3600 * normalizedDegrees);
+  var dflPrecision = opt_fractionDigits || 0;
+  var precision = Math.pow(10, dflPrecision);
+  var deg = Math.floor(x / 3600);
+  var min = Math.floor((x - deg * 3600) / 60);
+  var sec = x - deg * 3600 - min * 60;
+  sec = Math.ceil(sec * precision) / precision;
+
+  if (sec >= 60) {
+    sec = 0;
+    min += 1;
+  }
+
+  if (min >= 60) {
+    min = 0;
+    deg += 1;
+  }
+
+  return deg + '\u00b0 ' + (0, _string.padNumber)(min, 2) + '\u2032 ' + (0, _string.padNumber)(sec, 2, dflPrecision) + '\u2033' + (normalizedDegrees == 0 ? '' : ' ' + hemispheres.charAt(normalizedDegrees < 0 ? 1 : 0));
+}
+/**
+ * Transforms the given {@link module:ol/coordinate~Coordinate} to a string
+ * using the given string template. The strings `{x}` and `{y}` in the template
+ * will be replaced with the first and second coordinate values respectively.
+ *
+ * Example without specifying the fractional digits:
+ *
+ *     import {format} from 'ol/coordinate';
+ *
+ *     var coord = [7.85, 47.983333];
+ *     var template = 'Coordinate is ({x}|{y}).';
+ *     var out = format(coord, template);
+ *     // out is now 'Coordinate is (8|48).'
+ *
+ * Example explicitly specifying the fractional digits:
+ *
+ *     import {format} from 'ol/coordinate';
+ *
+ *     var coord = [7.85, 47.983333];
+ *     var template = 'Coordinate is ({x}|{y}).';
+ *     var out = format(coord, template, 2);
+ *     // out is now 'Coordinate is (7.85|47.98).'
+ *
+ * @param {Coordinate} coordinate Coordinate.
+ * @param {string} template A template string with `{x}` and `{y}` placeholders
+ *     that will be replaced by first and second coordinate values.
+ * @param {number=} opt_fractionDigits The number of digits to include
+ *    after the decimal point. Default is `0`.
+ * @return {string} Formatted coordinate.
+ * @api
+ */
+
+
+function format(coordinate, template, opt_fractionDigits) {
+  if (coordinate) {
+    return template.replace('{x}', coordinate[0].toFixed(opt_fractionDigits)).replace('{y}', coordinate[1].toFixed(opt_fractionDigits));
+  } else {
+    return '';
+  }
+}
+/**
+ * @param {Coordinate} coordinate1 First coordinate.
+ * @param {Coordinate} coordinate2 Second coordinate.
+ * @return {boolean} The two coordinates are equal.
+ */
+
+
+function equals(coordinate1, coordinate2) {
+  var equals = true;
+
+  for (var i = coordinate1.length - 1; i >= 0; --i) {
+    if (coordinate1[i] != coordinate2[i]) {
+      equals = false;
+      break;
+    }
+  }
+
+  return equals;
+}
+/**
+ * Rotate `coordinate` by `angle`. `coordinate` is modified in place and
+ * returned by the function.
+ *
+ * Example:
+ *
+ *     import {rotate} from 'ol/coordinate';
+ *
+ *     var coord = [7.85, 47.983333];
+ *     var rotateRadians = Math.PI / 2; // 90 degrees
+ *     rotate(coord, rotateRadians);
+ *     // coord is now [-47.983333, 7.85]
+ *
+ * @param {Coordinate} coordinate Coordinate.
+ * @param {number} angle Angle in radian.
+ * @return {Coordinate} Coordinate.
+ * @api
+ */
+
+
+function rotate(coordinate, angle) {
+  var cosAngle = Math.cos(angle);
+  var sinAngle = Math.sin(angle);
+  var x = coordinate[0] * cosAngle - coordinate[1] * sinAngle;
+  var y = coordinate[1] * cosAngle + coordinate[0] * sinAngle;
+  coordinate[0] = x;
+  coordinate[1] = y;
+  return coordinate;
+}
+/**
+ * Scale `coordinate` by `scale`. `coordinate` is modified in place and returned
+ * by the function.
+ *
+ * Example:
+ *
+ *     import {scale as scaleCoordinate} from 'ol/coordinate';
+ *
+ *     var coord = [7.85, 47.983333];
+ *     var scale = 1.2;
+ *     scaleCoordinate(coord, scale);
+ *     // coord is now [9.42, 57.5799996]
+ *
+ * @param {Coordinate} coordinate Coordinate.
+ * @param {number} scale Scale factor.
+ * @return {Coordinate} Coordinate.
+ */
+
+
+function scale(coordinate, scale) {
+  coordinate[0] *= scale;
+  coordinate[1] *= scale;
+  return coordinate;
+}
+/**
+ * @param {Coordinate} coord1 First coordinate.
+ * @param {Coordinate} coord2 Second coordinate.
+ * @return {number} Squared distance between coord1 and coord2.
+ */
+
+
+function squaredDistance(coord1, coord2) {
+  var dx = coord1[0] - coord2[0];
+  var dy = coord1[1] - coord2[1];
+  return dx * dx + dy * dy;
+}
+/**
+ * @param {Coordinate} coord1 First coordinate.
+ * @param {Coordinate} coord2 Second coordinate.
+ * @return {number} Distance between coord1 and coord2.
+ */
+
+
+function distance(coord1, coord2) {
+  return Math.sqrt(squaredDistance(coord1, coord2));
+}
+/**
+ * Calculate the squared distance from a coordinate to a line segment.
+ *
+ * @param {Coordinate} coordinate Coordinate of the point.
+ * @param {Array<Coordinate>} segment Line segment (2
+ * coordinates).
+ * @return {number} Squared distance from the point to the line segment.
+ */
+
+
+function squaredDistanceToSegment(coordinate, segment) {
+  return squaredDistance(coordinate, closestOnSegment(coordinate, segment));
+}
+/**
+ * Format a geographic coordinate with the hemisphere, degrees, minutes, and
+ * seconds.
+ *
+ * Example without specifying fractional digits:
+ *
+ *     import {toStringHDMS} from 'ol/coordinate';
+ *
+ *     var coord = [7.85, 47.983333];
+ *     var out = toStringHDMS(coord);
+ *     // out is now '47° 58′ 60″ N 7° 50′ 60″ E'
+ *
+ * Example explicitly specifying 1 fractional digit:
+ *
+ *     import {toStringHDMS} from 'ol/coordinate';
+ *
+ *     var coord = [7.85, 47.983333];
+ *     var out = toStringHDMS(coord, 1);
+ *     // out is now '47° 58′ 60.0″ N 7° 50′ 60.0″ E'
+ *
+ * @param {Coordinate} coordinate Coordinate.
+ * @param {number=} opt_fractionDigits The number of digits to include
+ *    after the decimal point. Default is `0`.
+ * @return {string} Hemisphere, degrees, minutes and seconds.
+ * @api
+ */
+
+
+function toStringHDMS(coordinate, opt_fractionDigits) {
+  if (coordinate) {
+    return degreesToStringHDMS('NS', coordinate[1], opt_fractionDigits) + ' ' + degreesToStringHDMS('EW', coordinate[0], opt_fractionDigits);
+  } else {
+    return '';
+  }
+}
+/**
+ * Format a coordinate as a comma delimited string.
+ *
+ * Example without specifying fractional digits:
+ *
+ *     import {toStringXY} from 'ol/coordinate';
+ *
+ *     var coord = [7.85, 47.983333];
+ *     var out = toStringXY(coord);
+ *     // out is now '8, 48'
+ *
+ * Example explicitly specifying 1 fractional digit:
+ *
+ *     import {toStringXY} from 'ol/coordinate';
+ *
+ *     var coord = [7.85, 47.983333];
+ *     var out = toStringXY(coord, 1);
+ *     // out is now '7.8, 48.0'
+ *
+ * @param {Coordinate} coordinate Coordinate.
+ * @param {number=} opt_fractionDigits The number of digits to include
+ *    after the decimal point. Default is `0`.
+ * @return {string} XY.
+ * @api
+ */
+
+
+function toStringXY(coordinate, opt_fractionDigits) {
+  return format(coordinate, '{x}, {y}', opt_fractionDigits);
+}
+/**
+ * Modifies the provided coordinate in-place to be within the real world
+ * extent. The lower projection extent boundary is inclusive, the upper one
+ * exclusive.
+ *
+ * @param {Coordinate} coordinate Coordinate.
+ * @param {import("./proj/Projection.js").default} projection Projection
+ * @return {Coordinate} The coordinate within the real world extent.
+ */
+
+
+function wrapX(coordinate, projection) {
+  var projectionExtent = projection.getExtent();
+
+  if (projection.canWrapX() && (coordinate[0] < projectionExtent[0] || coordinate[0] >= projectionExtent[2])) {
+    var worldWidth = (0, _extent.getWidth)(projectionExtent);
+    var worldsAway = Math.floor((coordinate[0] - projectionExtent[0]) / worldWidth);
+    coordinate[0] -= worldsAway * worldWidth;
+  }
+
+  return coordinate;
+}
+},{"./math.js":"node_modules/ol/math.js","./string.js":"node_modules/ol/string.js","./extent.js":"node_modules/ol/extent.js"}],"node_modules/ol/easing.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.easeIn = easeIn;
+exports.easeOut = easeOut;
+exports.inAndOut = inAndOut;
+exports.linear = linear;
+exports.upAndDown = upAndDown;
+
+/**
+ * @module ol/easing
+ */
+
+/**
+ * Start slow and speed up.
+ * @param {number} t Input between 0 and 1.
+ * @return {number} Output between 0 and 1.
+ * @api
+ */
+function easeIn(t) {
+  return Math.pow(t, 3);
+}
+/**
+ * Start fast and slow down.
+ * @param {number} t Input between 0 and 1.
+ * @return {number} Output between 0 and 1.
+ * @api
+ */
+
+
+function easeOut(t) {
+  return 1 - easeIn(1 - t);
+}
+/**
+ * Start slow, speed up, and then slow down again.
+ * @param {number} t Input between 0 and 1.
+ * @return {number} Output between 0 and 1.
+ * @api
+ */
+
+
+function inAndOut(t) {
+  return 3 * t * t - 2 * t * t * t;
+}
+/**
+ * Maintain a constant speed over time.
+ * @param {number} t Input between 0 and 1.
+ * @return {number} Output between 0 and 1.
+ * @api
+ */
+
+
+function linear(t) {
+  return t;
+}
+/**
+ * Start slow, speed up, and at the very end slow down again.  This has the
+ * same general behavior as {@link module:ol/easing~inAndOut}, but the final
+ * slowdown is delayed.
+ * @param {number} t Input between 0 and 1.
+ * @return {number} Output between 0 and 1.
+ * @api
+ */
+
+
+function upAndDown(t) {
+  if (t < 0.5) {
+    return inAndOut(2 * t);
+  } else {
+    return 1 - inAndOut(2 * (t - 0.5));
+  }
+}
+},{}],"node_modules/ol/View.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -28058,393 +28444,7 @@ function (_super) {
 
 var _default = DragRotateAndZoom;
 exports.default = _default;
-},{"../events/condition.js":"node_modules/ol/events/condition.js","./Pointer.js":"node_modules/ol/interaction/Pointer.js"}],"node_modules/ol/Feature.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.createStyleFunction = createStyleFunction;
-exports.default = void 0;
-
-var _asserts = require("./asserts.js");
-
-var _events = require("./events.js");
-
-var _EventType = _interopRequireDefault(require("./events/EventType.js"));
-
-var _Object = _interopRequireWildcard(require("./Object.js"));
-
-function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var __extends = void 0 && (void 0).__extends || function () {
-  var extendStatics = function (d, b) {
-    extendStatics = Object.setPrototypeOf || {
-      __proto__: []
-    } instanceof Array && function (d, b) {
-      d.__proto__ = b;
-    } || function (d, b) {
-      for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    };
-
-    return extendStatics(d, b);
-  };
-
-  return function (d, b) {
-    extendStatics(d, b);
-
-    function __() {
-      this.constructor = d;
-    }
-
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-  };
-}();
-/**
- * @module ol/Feature
- */
-
-
-/**
- * @typedef {typeof Feature|typeof import("./render/Feature.js").default} FeatureClass
- */
-
-/**
- * @typedef {Feature|import("./render/Feature.js").default} FeatureLike
- */
-
-/**
- * @classdesc
- * A vector object for geographic features with a geometry and other
- * attribute properties, similar to the features in vector file formats like
- * GeoJSON.
- *
- * Features can be styled individually with `setStyle`; otherwise they use the
- * style of their vector layer.
- *
- * Note that attribute properties are set as {@link module:ol/Object} properties on
- * the feature object, so they are observable, and have get/set accessors.
- *
- * Typically, a feature has a single geometry property. You can set the
- * geometry using the `setGeometry` method and get it with `getGeometry`.
- * It is possible to store more than one geometry on a feature using attribute
- * properties. By default, the geometry used for rendering is identified by
- * the property name `geometry`. If you want to use another geometry property
- * for rendering, use the `setGeometryName` method to change the attribute
- * property associated with the geometry for the feature.  For example:
- *
- * ```js
- *
- * import Feature from 'ol/Feature';
- * import Polygon from 'ol/geom/Polygon';
- * import Point from 'ol/geom/Point';
- *
- * var feature = new Feature({
- *   geometry: new Polygon(polyCoords),
- *   labelPoint: new Point(labelCoords),
- *   name: 'My Polygon'
- * });
- *
- * // get the polygon geometry
- * var poly = feature.getGeometry();
- *
- * // Render the feature as a point using the coordinates from labelPoint
- * feature.setGeometryName('labelPoint');
- *
- * // get the point geometry
- * var point = feature.getGeometry();
- * ```
- *
- * @api
- * @template {import("./geom/Geometry.js").default} Geometry
- */
-var Feature =
-/** @class */
-function (_super) {
-  __extends(Feature, _super);
-  /**
-   * @param {Geometry|Object<string, *>=} opt_geometryOrProperties
-   *     You may pass a Geometry object directly, or an object literal containing
-   *     properties. If you pass an object literal, you may include a Geometry
-   *     associated with a `geometry` key.
-   */
-
-
-  function Feature(opt_geometryOrProperties) {
-    var _this = _super.call(this) || this;
-    /**
-     * @private
-     * @type {number|string|undefined}
-     */
-
-
-    _this.id_ = undefined;
-    /**
-     * @type {string}
-     * @private
-     */
-
-    _this.geometryName_ = 'geometry';
-    /**
-     * User provided style.
-     * @private
-     * @type {import("./style/Style.js").StyleLike}
-     */
-
-    _this.style_ = null;
-    /**
-     * @private
-     * @type {import("./style/Style.js").StyleFunction|undefined}
-     */
-
-    _this.styleFunction_ = undefined;
-    /**
-     * @private
-     * @type {?import("./events.js").EventsKey}
-     */
-
-    _this.geometryChangeKey_ = null;
-
-    _this.addEventListener((0, _Object.getChangeEventType)(_this.geometryName_), _this.handleGeometryChanged_);
-
-    if (opt_geometryOrProperties) {
-      if (typeof
-      /** @type {?} */
-      opt_geometryOrProperties.getSimplifiedGeometry === 'function') {
-        var geometry =
-        /** @type {Geometry} */
-        opt_geometryOrProperties;
-
-        _this.setGeometry(geometry);
-      } else {
-        /** @type {Object<string, *>} */
-        var properties = opt_geometryOrProperties;
-
-        _this.setProperties(properties);
-      }
-    }
-
-    return _this;
-  }
-  /**
-   * Clone this feature. If the original feature has a geometry it
-   * is also cloned. The feature id is not set in the clone.
-   * @return {Feature} The clone.
-   * @api
-   */
-
-
-  Feature.prototype.clone = function () {
-    var clone = new Feature(this.getProperties());
-    clone.setGeometryName(this.getGeometryName());
-    var geometry = this.getGeometry();
-
-    if (geometry) {
-      clone.setGeometry(geometry.clone());
-    }
-
-    var style = this.getStyle();
-
-    if (style) {
-      clone.setStyle(style);
-    }
-
-    return clone;
-  };
-  /**
-   * Get the feature's default geometry.  A feature may have any number of named
-   * geometries.  The "default" geometry (the one that is rendered by default) is
-   * set when calling {@link module:ol/Feature~Feature#setGeometry}.
-   * @return {Geometry|undefined} The default geometry for the feature.
-   * @api
-   * @observable
-   */
-
-
-  Feature.prototype.getGeometry = function () {
-    return (
-      /** @type {Geometry|undefined} */
-      this.get(this.geometryName_)
-    );
-  };
-  /**
-   * Get the feature identifier.  This is a stable identifier for the feature and
-   * is either set when reading data from a remote source or set explicitly by
-   * calling {@link module:ol/Feature~Feature#setId}.
-   * @return {number|string|undefined} Id.
-   * @api
-   */
-
-
-  Feature.prototype.getId = function () {
-    return this.id_;
-  };
-  /**
-   * Get the name of the feature's default geometry.  By default, the default
-   * geometry is named `geometry`.
-   * @return {string} Get the property name associated with the default geometry
-   *     for this feature.
-   * @api
-   */
-
-
-  Feature.prototype.getGeometryName = function () {
-    return this.geometryName_;
-  };
-  /**
-   * Get the feature's style. Will return what was provided to the
-   * {@link module:ol/Feature~Feature#setStyle} method.
-   * @return {import("./style/Style.js").StyleLike} The feature style.
-   * @api
-   */
-
-
-  Feature.prototype.getStyle = function () {
-    return this.style_;
-  };
-  /**
-   * Get the feature's style function.
-   * @return {import("./style/Style.js").StyleFunction|undefined} Return a function
-   * representing the current style of this feature.
-   * @api
-   */
-
-
-  Feature.prototype.getStyleFunction = function () {
-    return this.styleFunction_;
-  };
-  /**
-   * @private
-   */
-
-
-  Feature.prototype.handleGeometryChange_ = function () {
-    this.changed();
-  };
-  /**
-   * @private
-   */
-
-
-  Feature.prototype.handleGeometryChanged_ = function () {
-    if (this.geometryChangeKey_) {
-      (0, _events.unlistenByKey)(this.geometryChangeKey_);
-      this.geometryChangeKey_ = null;
-    }
-
-    var geometry = this.getGeometry();
-
-    if (geometry) {
-      this.geometryChangeKey_ = (0, _events.listen)(geometry, _EventType.default.CHANGE, this.handleGeometryChange_, this);
-    }
-
-    this.changed();
-  };
-  /**
-   * Set the default geometry for the feature.  This will update the property
-   * with the name returned by {@link module:ol/Feature~Feature#getGeometryName}.
-   * @param {Geometry|undefined} geometry The new geometry.
-   * @api
-   * @observable
-   */
-
-
-  Feature.prototype.setGeometry = function (geometry) {
-    this.set(this.geometryName_, geometry);
-  };
-  /**
-   * Set the style for the feature.  This can be a single style object, an array
-   * of styles, or a function that takes a resolution and returns an array of
-   * styles. If it is `null` the feature has no style (a `null` style).
-   * @param {import("./style/Style.js").StyleLike} style Style for this feature.
-   * @api
-   * @fires module:ol/events/Event~BaseEvent#event:change
-   */
-
-
-  Feature.prototype.setStyle = function (style) {
-    this.style_ = style;
-    this.styleFunction_ = !style ? undefined : createStyleFunction(style);
-    this.changed();
-  };
-  /**
-   * Set the feature id.  The feature id is considered stable and may be used when
-   * requesting features or comparing identifiers returned from a remote source.
-   * The feature id can be used with the
-   * {@link module:ol/source/Vector~VectorSource#getFeatureById} method.
-   * @param {number|string|undefined} id The feature id.
-   * @api
-   * @fires module:ol/events/Event~BaseEvent#event:change
-   */
-
-
-  Feature.prototype.setId = function (id) {
-    this.id_ = id;
-    this.changed();
-  };
-  /**
-   * Set the property name to be used when getting the feature's default geometry.
-   * When calling {@link module:ol/Feature~Feature#getGeometry}, the value of the property with
-   * this name will be returned.
-   * @param {string} name The property name of the default geometry.
-   * @api
-   */
-
-
-  Feature.prototype.setGeometryName = function (name) {
-    this.removeEventListener((0, _Object.getChangeEventType)(this.geometryName_), this.handleGeometryChanged_);
-    this.geometryName_ = name;
-    this.addEventListener((0, _Object.getChangeEventType)(this.geometryName_), this.handleGeometryChanged_);
-    this.handleGeometryChanged_();
-  };
-
-  return Feature;
-}(_Object.default);
-/**
- * Convert the provided object into a feature style function.  Functions passed
- * through unchanged.  Arrays of Style or single style objects wrapped
- * in a new feature style function.
- * @param {!import("./style/Style.js").StyleFunction|!Array<import("./style/Style.js").default>|!import("./style/Style.js").default} obj
- *     A feature style function, a single style, or an array of styles.
- * @return {import("./style/Style.js").StyleFunction} A style function.
- */
-
-
-function createStyleFunction(obj) {
-  if (typeof obj === 'function') {
-    return obj;
-  } else {
-    /**
-     * @type {Array<import("./style/Style.js").default>}
-     */
-    var styles_1;
-
-    if (Array.isArray(obj)) {
-      styles_1 = obj;
-    } else {
-      (0, _asserts.assert)(typeof
-      /** @type {?} */
-      obj.getZIndex === 'function', 41); // Expected an `import("./style/Style.js").Style` or an array of `import("./style/Style.js").Style`
-
-      var style =
-      /** @type {import("./style/Style.js").default} */
-      obj;
-      styles_1 = [style];
-    }
-
-    return function () {
-      return styles_1;
-    };
-  }
-}
-
-var _default = Feature;
-exports.default = _default;
-},{"./asserts.js":"node_modules/ol/asserts.js","./events.js":"node_modules/ol/events.js","./events/EventType.js":"node_modules/ol/events/EventType.js","./Object.js":"node_modules/ol/Object.js"}],"node_modules/ol/geom/Circle.js":[function(require,module,exports) {
+},{"../events/condition.js":"node_modules/ol/events/condition.js","./Pointer.js":"node_modules/ol/interaction/Pointer.js"}],"node_modules/ol/geom/Circle.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -69144,25 +69144,125 @@ var _Zoomify = _interopRequireDefault(require("./source/Zoomify.js"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 },{"./source/BingMaps.js":"node_modules/ol/source/BingMaps.js","./source/CartoDB.js":"node_modules/ol/source/CartoDB.js","./source/Cluster.js":"node_modules/ol/source/Cluster.js","./source/IIIF.js":"node_modules/ol/source/IIIF.js","./source/Image.js":"node_modules/ol/source/Image.js","./source/ImageArcGISRest.js":"node_modules/ol/source/ImageArcGISRest.js","./source/ImageCanvas.js":"node_modules/ol/source/ImageCanvas.js","./source/ImageMapGuide.js":"node_modules/ol/source/ImageMapGuide.js","./source/ImageStatic.js":"node_modules/ol/source/ImageStatic.js","./source/ImageWMS.js":"node_modules/ol/source/ImageWMS.js","./source/OSM.js":"node_modules/ol/source/OSM.js","./source/Raster.js":"node_modules/ol/source/Raster.js","./source/Source.js":"node_modules/ol/source/Source.js","./source/Stamen.js":"node_modules/ol/source/Stamen.js","./source/Tile.js":"node_modules/ol/source/Tile.js","./source/TileArcGISRest.js":"node_modules/ol/source/TileArcGISRest.js","./source/TileDebug.js":"node_modules/ol/source/TileDebug.js","./source/TileImage.js":"node_modules/ol/source/TileImage.js","./source/TileJSON.js":"node_modules/ol/source/TileJSON.js","./source/TileWMS.js":"node_modules/ol/source/TileWMS.js","./source/UrlTile.js":"node_modules/ol/source/UrlTile.js","./source/UTFGrid.js":"node_modules/ol/source/UTFGrid.js","./source/Vector.js":"node_modules/ol/source/Vector.js","./source/VectorTile.js":"node_modules/ol/source/VectorTile.js","./source/WMTS.js":"node_modules/ol/source/WMTS.js","./source/XYZ.js":"node_modules/ol/source/XYZ.js","./source/Zoomify.js":"node_modules/ol/source/Zoomify.js"}],"node_modules/parcel-bundler/src/builtins/_empty.js":[function(require,module,exports) {
 
-},{}],"district_plans/arizona.geojson":[function(require,module,exports) {
-module.exports = "/arizona.bf1a91f7.geojson";
-},{}],"district_plans/texas.geojson":[function(require,module,exports) {
-module.exports = "/texas.32ecb3b9.geojson";
+},{}],"district_plans/AL.geojson":[function(require,module,exports) {
+module.exports = "/AL.62e51d2b.geojson";
+},{}],"district_plans/AR.geojson":[function(require,module,exports) {
+module.exports = "/AR.bc640f15.geojson";
+},{}],"district_plans/AZ.geojson":[function(require,module,exports) {
+module.exports = "/AZ.0640909d.geojson";
+},{}],"district_plans/CA.geojson":[function(require,module,exports) {
+module.exports = "/CA.8dd299fc.geojson";
+},{}],"district_plans/CO.geojson":[function(require,module,exports) {
+module.exports = "/CO.ca7f0eb4.geojson";
+},{}],"district_plans/CT.geojson":[function(require,module,exports) {
+module.exports = "/CT.134a36c3.geojson";
+},{}],"district_plans/FL.geojson":[function(require,module,exports) {
+module.exports = "/FL.0760b915.geojson";
+},{}],"district_plans/GA.geojson":[function(require,module,exports) {
+module.exports = "/GA.1cd8e52b.geojson";
+},{}],"district_plans/HI.geojson":[function(require,module,exports) {
+module.exports = "/HI.0aa927e7.geojson";
+},{}],"district_plans/IA.geojson":[function(require,module,exports) {
+module.exports = "/IA.600e4d1d.geojson";
+},{}],"district_plans/ID.geojson":[function(require,module,exports) {
+module.exports = "/ID.bc469ec6.geojson";
+},{}],"district_plans/IL.geojson":[function(require,module,exports) {
+module.exports = "/IL.f7bcd26b.geojson";
+},{}],"district_plans/IN.geojson":[function(require,module,exports) {
+module.exports = "/IN.c1ff15e0.geojson";
+},{}],"district_plans/KS.geojson":[function(require,module,exports) {
+module.exports = "/KS.d7ad133b.geojson";
+},{}],"district_plans/KY.geojson":[function(require,module,exports) {
+module.exports = "/KY.af4fe69f.geojson";
+},{}],"district_plans/LA.geojson":[function(require,module,exports) {
+module.exports = "/LA.e3b2144c.geojson";
+},{}],"district_plans/MA.geojson":[function(require,module,exports) {
+module.exports = "/MA.a31dafd4.geojson";
+},{}],"district_plans/MD.geojson":[function(require,module,exports) {
+module.exports = "/MD.9cde345a.geojson";
+},{}],"district_plans/ME.geojson":[function(require,module,exports) {
+module.exports = "/ME.377667e9.geojson";
+},{}],"district_plans/MI.geojson":[function(require,module,exports) {
+module.exports = "/MI.049cd2af.geojson";
+},{}],"district_plans/MN.geojson":[function(require,module,exports) {
+module.exports = "/MN.615b8921.geojson";
+},{}],"district_plans/MO.geojson":[function(require,module,exports) {
+module.exports = "/MO.ae62ffb3.geojson";
+},{}],"district_plans/MS.geojson":[function(require,module,exports) {
+module.exports = "/MS.e1ed611d.geojson";
+},{}],"district_plans/NC.geojson":[function(require,module,exports) {
+module.exports = "/NC.1ee686be.geojson";
+},{}],"district_plans/NE.geojson":[function(require,module,exports) {
+module.exports = "/NE.ac1e8a95.geojson";
+},{}],"district_plans/NH.geojson":[function(require,module,exports) {
+module.exports = "/NH.531d9986.geojson";
+},{}],"district_plans/NY.geojson":[function(require,module,exports) {
+module.exports = "/NY.d8c96d6f.geojson";
+},{}],"district_plans/OK.geojson":[function(require,module,exports) {
+module.exports = "/OK.3b1d5b9d.geojson";
+},{}],"district_plans/PA.geojson":[function(require,module,exports) {
+module.exports = "/PA.f304bfd4.geojson";
+},{}],"district_plans/RI.geojson":[function(require,module,exports) {
+module.exports = "/RI.c8c6182c.geojson";
+},{}],"district_plans/SC.geojson":[function(require,module,exports) {
+module.exports = "/SC.99396c64.geojson";
+},{}],"district_plans/TN.geojson":[function(require,module,exports) {
+module.exports = "/TN.97b536b6.geojson";
+},{}],"district_plans/TX.geojson":[function(require,module,exports) {
+module.exports = "/TX.8e61e19f.geojson";
+},{}],"district_plans/UT.geojson":[function(require,module,exports) {
+module.exports = "/UT.da4cb985.geojson";
+},{}],"district_plans/WA.geojson":[function(require,module,exports) {
+module.exports = "/WA.b5d472e5.geojson";
+},{}],"district_plans/WI.geojson":[function(require,module,exports) {
+module.exports = "/WI.6141874b.geojson";
 },{}],"district_plans/*.geojson":[function(require,module,exports) {
 module.exports = {
-  "arizona": require("./arizona.geojson"),
-  "texas": require("./texas.geojson")
+  "AL": require("./AL.geojson"),
+  "AR": require("./AR.geojson"),
+  "AZ": require("./AZ.geojson"),
+  "CA": require("./CA.geojson"),
+  "CO": require("./CO.geojson"),
+  "CT": require("./CT.geojson"),
+  "FL": require("./FL.geojson"),
+  "GA": require("./GA.geojson"),
+  "HI": require("./HI.geojson"),
+  "IA": require("./IA.geojson"),
+  "ID": require("./ID.geojson"),
+  "IL": require("./IL.geojson"),
+  "IN": require("./IN.geojson"),
+  "KS": require("./KS.geojson"),
+  "KY": require("./KY.geojson"),
+  "LA": require("./LA.geojson"),
+  "MA": require("./MA.geojson"),
+  "MD": require("./MD.geojson"),
+  "ME": require("./ME.geojson"),
+  "MI": require("./MI.geojson"),
+  "MN": require("./MN.geojson"),
+  "MO": require("./MO.geojson"),
+  "MS": require("./MS.geojson"),
+  "NC": require("./NC.geojson"),
+  "NE": require("./NE.geojson"),
+  "NH": require("./NH.geojson"),
+  "NY": require("./NY.geojson"),
+  "OK": require("./OK.geojson"),
+  "PA": require("./PA.geojson"),
+  "RI": require("./RI.geojson"),
+  "SC": require("./SC.geojson"),
+  "TN": require("./TN.geojson"),
+  "TX": require("./TX.geojson"),
+  "UT": require("./UT.geojson"),
+  "WA": require("./WA.geojson"),
+  "WI": require("./WI.geojson")
 };
-},{"./arizona.geojson":"district_plans/arizona.geojson","./texas.geojson":"district_plans/texas.geojson"}],"state_plans/texas.geojson":[function(require,module,exports) {
-module.exports = "/texas.492be67b.geojson";
-},{}],"state_plans/*.geojson":[function(require,module,exports) {
-module.exports = {
-  "texas": require("./texas.geojson")
-};
-},{"./texas.geojson":"state_plans/texas.geojson"}],"index.js":[function(require,module,exports) {
+},{"./AL.geojson":"district_plans/AL.geojson","./AR.geojson":"district_plans/AR.geojson","./AZ.geojson":"district_plans/AZ.geojson","./CA.geojson":"district_plans/CA.geojson","./CO.geojson":"district_plans/CO.geojson","./CT.geojson":"district_plans/CT.geojson","./FL.geojson":"district_plans/FL.geojson","./GA.geojson":"district_plans/GA.geojson","./HI.geojson":"district_plans/HI.geojson","./IA.geojson":"district_plans/IA.geojson","./ID.geojson":"district_plans/ID.geojson","./IL.geojson":"district_plans/IL.geojson","./IN.geojson":"district_plans/IN.geojson","./KS.geojson":"district_plans/KS.geojson","./KY.geojson":"district_plans/KY.geojson","./LA.geojson":"district_plans/LA.geojson","./MA.geojson":"district_plans/MA.geojson","./MD.geojson":"district_plans/MD.geojson","./ME.geojson":"district_plans/ME.geojson","./MI.geojson":"district_plans/MI.geojson","./MN.geojson":"district_plans/MN.geojson","./MO.geojson":"district_plans/MO.geojson","./MS.geojson":"district_plans/MS.geojson","./NC.geojson":"district_plans/NC.geojson","./NE.geojson":"district_plans/NE.geojson","./NH.geojson":"district_plans/NH.geojson","./NY.geojson":"district_plans/NY.geojson","./OK.geojson":"district_plans/OK.geojson","./PA.geojson":"district_plans/PA.geojson","./RI.geojson":"district_plans/RI.geojson","./SC.geojson":"district_plans/SC.geojson","./TN.geojson":"district_plans/TN.geojson","./TX.geojson":"district_plans/TX.geojson","./UT.geojson":"district_plans/UT.geojson","./WA.geojson":"district_plans/WA.geojson","./WI.geojson":"district_plans/WI.geojson"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 require("ol/ol.css");
+
+var _Feature = _interopRequireDefault(require("ol/Feature"));
+
+var _Polygon = _interopRequireDefault(require("ol/geom/Polygon"));
 
 var _Map = _interopRequireDefault(require("ol/Map"));
 
@@ -69176,27 +69276,31 @@ var _source = require("ol/source");
 
 var _style = require("ol/style");
 
+var olExtent = _interopRequireWildcard(require("ol/extent"));
+
 require("fs");
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var districtPlans = require('./district_plans/*.geojson');
-
-var statePlans = require('./state_plans/*.geojson'); // Hacky global vars to update / delete layers from the open layer map app
+var districtPlans = require('./district_plans/*.geojson'); // Hacky global var to update / delete layers from the open layer map app
 
 
-var currentDistrictLayer = null;
-var currentStateLayer = null;
+var currentLayer = null;
+var view = new _View.default({
+  projection: 'EPSG:4326',
+  center: [-97.260204, 38.582526],
+  zoom: 4.5
+});
 var map = new _Map.default({
   layers: [new _layer.Tile({
     source: new _source.OSM()
   })],
   target: 'map',
-  view: new _View.default({
-    projection: 'EPSG:4326',
-    center: [-97.260204, 38.582526],
-    zoom: 4.5
-  })
+  view: view
 });
 
 function hexToRGB(hex, alpha) {
@@ -69212,60 +69316,59 @@ function hexToRGB(hex, alpha) {
 }
 
 var urlHashPart = function urlHashPart() {
-  return window.location.hash.substr(1);
+  return document.getElementById('map-dropdown').value;
 };
 
 var updateMap = function updateMap(mapToDisplay) {
-  if (currentDistrictLayer != null) {
-    map.removeLayer(currentDistrictLayer);
-    map.removeLayer(currentStateLayer);
+  if (currentLayer != null) {
+    map.removeLayer(currentLayer);
   }
 
   if (mapToDisplay in districtPlans) {
     fetch(districtPlans[mapToDisplay]).then(function (response) {
       return response.json();
     }).then(function (data) {
-      var districtVectorLayer = new _layer.Vector({
+      var vectorLayer = new _layer.Vector({
         source: new _source.Vector({
           features: new _GeoJSON.default().readFeatures(data)
         }),
         style: function style(feature) {
-          return new _style.Style({
-            fill: new _style.Fill({
-              color: hexToRGB(feature.get('color'), 0.3)
-            })
+          if (feature.get('color') === 'None') {
+            return new _style.Style({
+              stroke: new _style.Stroke({
+                color: 'black',
+                width: 2
+              })
+            });
+          } else {
+            return new _style.Style({
+              fill: new _style.Fill({
+                color: hexToRGB(feature.get('color'), 0.3)
+              })
+            });
+          }
+        }
+      });
+      vectorLayer.getSource().forEachFeature(function (feature) {
+        if (feature.get('color') === 'None') {
+          var polygon = feature.getGeometry();
+          view.fit(polygon, {
+            padding: [50, 50, 50, 50]
           });
         }
       });
-      currentDistrictLayer = districtVectorLayer;
-      map.addLayer(districtVectorLayer);
-    });
-    fetch(statePlans[mapToDisplay]).then(function (response) {
-      return response.json();
-    }).then(function (data) {
-      var stateVectorLayer = new _layer.Vector({
-        source: new _source.Vector({
-          features: new _GeoJSON.default().readFeatures(data)
-        }),
-        style: new _style.Style({
-          stroke: new _style.Stroke({
-            color: 'black',
-            width: 2
-          })
-        })
-      });
-      currentStateLayer = stateVectorLayer;
-      map.addLayer(stateVectorLayer);
+      currentLayer = vectorLayer;
+      map.addLayer(vectorLayer);
     });
   }
 };
 
 updateMap(urlHashPart());
 
-window.onhashchange = function () {
+window.onchange = function () {
   updateMap(urlHashPart());
 };
-},{"ol/ol.css":"node_modules/ol/ol.css","ol/Map":"node_modules/ol/Map.js","ol/View":"node_modules/ol/View.js","ol/format/GeoJSON":"node_modules/ol/format/GeoJSON.js","ol/layer":"node_modules/ol/layer.js","ol/source":"node_modules/ol/source.js","ol/style":"node_modules/ol/style.js","fs":"node_modules/parcel-bundler/src/builtins/_empty.js","./district_plans/*.geojson":"district_plans/*.geojson","./state_plans/*.geojson":"state_plans/*.geojson"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"ol/ol.css":"node_modules/ol/ol.css","ol/Feature":"node_modules/ol/Feature.js","ol/geom/Polygon":"node_modules/ol/geom/Polygon.js","ol/Map":"node_modules/ol/Map.js","ol/View":"node_modules/ol/View.js","ol/format/GeoJSON":"node_modules/ol/format/GeoJSON.js","ol/layer":"node_modules/ol/layer.js","ol/source":"node_modules/ol/source.js","ol/style":"node_modules/ol/style.js","ol/extent":"node_modules/ol/extent.js","fs":"node_modules/parcel-bundler/src/builtins/_empty.js","./district_plans/*.geojson":"district_plans/*.geojson"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -69293,7 +69396,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57874" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53515" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

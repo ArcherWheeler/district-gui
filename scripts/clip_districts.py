@@ -1,17 +1,19 @@
+import sys
 import geojson
 from shapely.geometry import shape, mapping
 
-with open('../state_plans/texas.geojson', 'r') as texas_state_file:
-    texas_state = geojson.load(texas_state_file)
+with open('../state_plans/' + sys.argv[1] + '.geojson', 'r') as state_file:
+    state = geojson.load(state_file)
+    
+with open('../district_plans/' + sys.argv[1] + '.geojson', 'r') as districts_file:
+    districts = geojson.load(districts_file)
+    districts_file.close()
+    
+state_polygon = shape(state)
 
-with open('../district_plans/texas.geojson', 'r') as texas_districts_file:
-    texas_districts = geojson.load(texas_districts_file)
-    texas_districts_file.close()
-
-texas_polygon = shape(texas_state["features"][0]["geometry"])
-for feature in texas_districts["features"]:
+for feature in districts["features"]:
     district_polygon = shape(feature["geometry"])
-    feature["geometry"] = mapping(texas_polygon.intersection(district_polygon))
-
-with open('../district_plans/texas.geojson', 'w') as texas_districts_file:
-    geojson.dump(texas_districts, texas_districts_file)
+    feature["geometry"] = mapping(state_polygon.intersection(district_polygon))
+    
+with open('../district_plans/' + sys.argv[1] + '.geojson', 'w') as districts_file:
+    geojson.dump(districts, districts_file)
