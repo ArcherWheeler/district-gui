@@ -33,8 +33,9 @@
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Home</a></li>
             <li><a href="#Visualization">Visualization</a></li>
-            <li><a href="#Abstract">Abstract</a></li>
-            <li><a href="#Program">Program</a></li>
+            <li><a href="#PowerDiagrams">Balanced Power Diagrams</a></li>
+            <li><a href="#GeographicAdvantage">Inherent Geographic Advantage of Compactness</a></li>
+            <li><a href="#Code">Code</a></li>
             <li><a href="#Contact">Contact</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
@@ -124,9 +125,9 @@
       </div>
     </div>
 
-    <div class="container" id="Abstract">
+    <div class="container" id="PowerDiagrams">
       <div id="text">
-        <h3>Abstract:</h3>
+        <h3>Balanced Centroidal Power Diagrams:</h3>
         <p class="documentation">
   
           We consider the problem of political <em>redistricting</em>: given the
@@ -187,14 +188,50 @@
         <!-- ACM DL Bibliometrics: Balanced centroidal power diagrams for redistricting-->
         <div class="acmdlstat" id="stats3274979"><iframe src="https://dl.acm.org/authorizestats?N675893" width="100%"
             height="30" scrolling="no" frameborder="0">frames are not supported</iframe></div>
-  
-  
         <hr>
       </div>
     </div>
-    <div class="container" id="Program">
+
+    <div class="container" id="GeographicAdvantage">
       <div id="text">
-        <h3>Program</h3>
+        <h3>The impact of highly compact algorithmic redistricting on the rural-versus-urban balance:</h3>
+    <div class="col-md-8">
+      <p class="documentation">
+        It is commonly believed that, in congressional and state legislature
+        elections in the United States, rural voters have an inherent
+        political advantage over urban voters. We study this hypothesis
+        using an idealized redistricting method, balanced centroidal
+        power diagrams, that achieves essentially perfect population
+        balance while optimizing a principled measure of compactness.  We
+        find that, using this method, the degree to which rural or urban
+        voters have a political advantage depends on the number of districts
+        and the population density of urban areas.  Moreover, we find that the political
+        advantage in any case tends to be dramatically less than that
+        afforded by district plans used in the real world,
+        including district plans drawn by presumably neutral parties such
+        as the courts. One possible explanation is suggested by the
+        following discovery: modifying centroidal power diagrams to prefer placing
+        boundaries along city boundaries significantly increases the advantage
+        rural voters have over urban voters.
+        <a id="linktochange" onload="setlink()" href="">More</a>
+      </p>
+      A version of this paper will appear in In 28th International Conference on Advances in Geographic Information Systems (SIGSPATIAL ’20), November 3–6, 2020, Seattle, WA, USA. 
+    </div>
+    <div class="col-md-4" id="VA_img">
+      <figure class="figure">
+        <img id="fig1" src="" class="figure-img img-fluid rounded" alt="">
+        <figcaption class="figure-caption">Average election outcomes with a 50/50 popular vote split given the number of districts drawn. The parameter λ controls the population distribution with a higher λ representing a denser population.
+        </figcaption>
+      </figure>
+    </div>
+
+    </div>
+  </div>
+
+
+    <div class="container" id="Code">
+      <div id="text">
+        <h3>Code</h3>
         <p> The code for the first and second phases can be found at
           <a href="https://github.com/pnklein/district">https://github.com/pnklein/district</a>.
           The main branch contains only code for the first phase. The
@@ -219,6 +256,7 @@
           <div id="text">
             <h3> Contact </h3>
             <p> Philip Klein at klein@brown.edu</p>
+            <p> Archer Wheeler at archer_wheeler@brown.edu</p>
             <hr>
           </div>
         </div>

@@ -69156,16 +69156,16 @@ module.exports = "/CA.e0a6dfa7.geojson";
 module.exports = "/CO.ed9214e5.geojson";
 },{}],"district_plans/phase_1/CT.geojson":[function(require,module,exports) {
 module.exports = "/CT.e007c318.geojson";
+},{}],"district_plans/phase_1/FL.geojson":[function(require,module,exports) {
+module.exports = "/FL.688cc0c9.geojson";
 },{}],"district_plans/phase_1/GA.geojson":[function(require,module,exports) {
 module.exports = "/GA.3215a9dc.geojson";
 },{}],"district_plans/phase_1/HI.geojson":[function(require,module,exports) {
 module.exports = "/HI.bde7a53c.geojson";
-},{}],"district_plans/phase_1/FL.geojson":[function(require,module,exports) {
-module.exports = "/FL.688cc0c9.geojson";
-},{}],"district_plans/phase_1/ID.geojson":[function(require,module,exports) {
-module.exports = "/ID.c5e4b4b4.geojson";
 },{}],"district_plans/phase_1/IA.geojson":[function(require,module,exports) {
 module.exports = "/IA.25643ae4.geojson";
+},{}],"district_plans/phase_1/ID.geojson":[function(require,module,exports) {
+module.exports = "/ID.c5e4b4b4.geojson";
 },{}],"district_plans/phase_1/IL.geojson":[function(require,module,exports) {
 module.exports = "/IL.5bfa5b9e.geojson";
 },{}],"district_plans/phase_1/IN.geojson":[function(require,module,exports) {
@@ -69184,18 +69184,18 @@ module.exports = "/MD.b6987d62.geojson";
 module.exports = "/ME.e35a1b71.geojson";
 },{}],"district_plans/phase_1/MI.geojson":[function(require,module,exports) {
 module.exports = "/MI.20bd5ef6.geojson";
-},{}],"district_plans/phase_1/MO.geojson":[function(require,module,exports) {
-module.exports = "/MO.5c652c20.geojson";
 },{}],"district_plans/phase_1/MN.geojson":[function(require,module,exports) {
 module.exports = "/MN.8203102f.geojson";
-},{}],"district_plans/phase_1/NE.geojson":[function(require,module,exports) {
-module.exports = "/NE.d22aa498.geojson";
+},{}],"district_plans/phase_1/MO.geojson":[function(require,module,exports) {
+module.exports = "/MO.5c652c20.geojson";
 },{}],"district_plans/phase_1/MS.geojson":[function(require,module,exports) {
 module.exports = "/MS.377f66eb.geojson";
-},{}],"district_plans/phase_1/NH.geojson":[function(require,module,exports) {
-module.exports = "/NH.3b847770.geojson";
 },{}],"district_plans/phase_1/NC.geojson":[function(require,module,exports) {
 module.exports = "/NC.d9caff0b.geojson";
+},{}],"district_plans/phase_1/NE.geojson":[function(require,module,exports) {
+module.exports = "/NE.d22aa498.geojson";
+},{}],"district_plans/phase_1/NH.geojson":[function(require,module,exports) {
+module.exports = "/NH.3b847770.geojson";
 },{}],"district_plans/phase_1/NY.geojson":[function(require,module,exports) {
 module.exports = "/NY.902258c9.geojson";
 },{}],"district_plans/phase_1/OK.geojson":[function(require,module,exports) {
@@ -69224,11 +69224,11 @@ module.exports = {
   "CA": require("./CA.geojson"),
   "CO": require("./CO.geojson"),
   "CT": require("./CT.geojson"),
+  "FL": require("./FL.geojson"),
   "GA": require("./GA.geojson"),
   "HI": require("./HI.geojson"),
-  "FL": require("./FL.geojson"),
-  "ID": require("./ID.geojson"),
   "IA": require("./IA.geojson"),
+  "ID": require("./ID.geojson"),
   "IL": require("./IL.geojson"),
   "IN": require("./IN.geojson"),
   "KS": require("./KS.geojson"),
@@ -69238,12 +69238,12 @@ module.exports = {
   "MD": require("./MD.geojson"),
   "ME": require("./ME.geojson"),
   "MI": require("./MI.geojson"),
-  "MO": require("./MO.geojson"),
   "MN": require("./MN.geojson"),
-  "NE": require("./NE.geojson"),
+  "MO": require("./MO.geojson"),
   "MS": require("./MS.geojson"),
-  "NH": require("./NH.geojson"),
   "NC": require("./NC.geojson"),
+  "NE": require("./NE.geojson"),
+  "NH": require("./NH.geojson"),
   "NY": require("./NY.geojson"),
   "OK": require("./OK.geojson"),
   "PA": require("./PA.geojson"),
@@ -69255,7 +69255,7 @@ module.exports = {
   "WA": require("./WA.geojson"),
   "WI": require("./WI.geojson")
 };
-},{"./AL.geojson":"district_plans/phase_1/AL.geojson","./AR.geojson":"district_plans/phase_1/AR.geojson","./AZ.geojson":"district_plans/phase_1/AZ.geojson","./CA.geojson":"district_plans/phase_1/CA.geojson","./CO.geojson":"district_plans/phase_1/CO.geojson","./CT.geojson":"district_plans/phase_1/CT.geojson","./GA.geojson":"district_plans/phase_1/GA.geojson","./HI.geojson":"district_plans/phase_1/HI.geojson","./FL.geojson":"district_plans/phase_1/FL.geojson","./ID.geojson":"district_plans/phase_1/ID.geojson","./IA.geojson":"district_plans/phase_1/IA.geojson","./IL.geojson":"district_plans/phase_1/IL.geojson","./IN.geojson":"district_plans/phase_1/IN.geojson","./KS.geojson":"district_plans/phase_1/KS.geojson","./KY.geojson":"district_plans/phase_1/KY.geojson","./LA.geojson":"district_plans/phase_1/LA.geojson","./MA.geojson":"district_plans/phase_1/MA.geojson","./MD.geojson":"district_plans/phase_1/MD.geojson","./ME.geojson":"district_plans/phase_1/ME.geojson","./MI.geojson":"district_plans/phase_1/MI.geojson","./MO.geojson":"district_plans/phase_1/MO.geojson","./MN.geojson":"district_plans/phase_1/MN.geojson","./NE.geojson":"district_plans/phase_1/NE.geojson","./MS.geojson":"district_plans/phase_1/MS.geojson","./NH.geojson":"district_plans/phase_1/NH.geojson","./NC.geojson":"district_plans/phase_1/NC.geojson","./NY.geojson":"district_plans/phase_1/NY.geojson","./OK.geojson":"district_plans/phase_1/OK.geojson","./PA.geojson":"district_plans/phase_1/PA.geojson","./RI.geojson":"district_plans/phase_1/RI.geojson","./SC.geojson":"district_plans/phase_1/SC.geojson","./TN.geojson":"district_plans/phase_1/TN.geojson","./TX.geojson":"district_plans/phase_1/TX.geojson","./UT.geojson":"district_plans/phase_1/UT.geojson","./WA.geojson":"district_plans/phase_1/WA.geojson","./WI.geojson":"district_plans/phase_1/WI.geojson"}],"district_plans/phase_2/CT.geojson":[function(require,module,exports) {
+},{"./AL.geojson":"district_plans/phase_1/AL.geojson","./AR.geojson":"district_plans/phase_1/AR.geojson","./AZ.geojson":"district_plans/phase_1/AZ.geojson","./CA.geojson":"district_plans/phase_1/CA.geojson","./CO.geojson":"district_plans/phase_1/CO.geojson","./CT.geojson":"district_plans/phase_1/CT.geojson","./FL.geojson":"district_plans/phase_1/FL.geojson","./GA.geojson":"district_plans/phase_1/GA.geojson","./HI.geojson":"district_plans/phase_1/HI.geojson","./IA.geojson":"district_plans/phase_1/IA.geojson","./ID.geojson":"district_plans/phase_1/ID.geojson","./IL.geojson":"district_plans/phase_1/IL.geojson","./IN.geojson":"district_plans/phase_1/IN.geojson","./KS.geojson":"district_plans/phase_1/KS.geojson","./KY.geojson":"district_plans/phase_1/KY.geojson","./LA.geojson":"district_plans/phase_1/LA.geojson","./MA.geojson":"district_plans/phase_1/MA.geojson","./MD.geojson":"district_plans/phase_1/MD.geojson","./ME.geojson":"district_plans/phase_1/ME.geojson","./MI.geojson":"district_plans/phase_1/MI.geojson","./MN.geojson":"district_plans/phase_1/MN.geojson","./MO.geojson":"district_plans/phase_1/MO.geojson","./MS.geojson":"district_plans/phase_1/MS.geojson","./NC.geojson":"district_plans/phase_1/NC.geojson","./NE.geojson":"district_plans/phase_1/NE.geojson","./NH.geojson":"district_plans/phase_1/NH.geojson","./NY.geojson":"district_plans/phase_1/NY.geojson","./OK.geojson":"district_plans/phase_1/OK.geojson","./PA.geojson":"district_plans/phase_1/PA.geojson","./RI.geojson":"district_plans/phase_1/RI.geojson","./SC.geojson":"district_plans/phase_1/SC.geojson","./TN.geojson":"district_plans/phase_1/TN.geojson","./TX.geojson":"district_plans/phase_1/TX.geojson","./UT.geojson":"district_plans/phase_1/UT.geojson","./WA.geojson":"district_plans/phase_1/WA.geojson","./WI.geojson":"district_plans/phase_1/WI.geojson"}],"district_plans/phase_2/CT.geojson":[function(require,module,exports) {
 module.exports = "/CT.86a71577.geojson";
 },{}],"district_plans/phase_2/MA.geojson":[function(require,module,exports) {
 module.exports = "/MA.f17efa67.geojson";
@@ -69267,7 +69267,11 @@ module.exports = {
   "MA": require("./MA.geojson"),
   "RI": require("./RI.geojson")
 };
-},{"./CT.geojson":"district_plans/phase_2/CT.geojson","./MA.geojson":"district_plans/phase_2/MA.geojson","./RI.geojson":"district_plans/phase_2/RI.geojson"}],"index.js":[function(require,module,exports) {
+},{"./CT.geojson":"district_plans/phase_2/CT.geojson","./MA.geojson":"district_plans/phase_2/MA.geojson","./RI.geojson":"district_plans/phase_2/RI.geojson"}],"assets/district_trend.png":[function(require,module,exports) {
+module.exports = "/district_trend.55af2941.png";
+},{}],"assets/political_geography.pdf":[function(require,module,exports) {
+module.exports = "/political_geography.75b5d492.pdf";
+},{}],"index.js":[function(require,module,exports) {
 "use strict";
 
 require("ol/ol.css");
@@ -69288,8 +69292,6 @@ var _source = require("ol/source");
 
 var _style = require("ol/style");
 
-var _control = require("ol/control");
-
 var olExtent = _interopRequireWildcard(require("ol/extent"));
 
 require("fs");
@@ -69302,8 +69304,24 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var phase1DistrictPlans = require('./district_plans/phase_1/*.geojson');
 
-var phase2DistrictPlans = require('./district_plans/phase_2/*.geojson'); // Hacky global var to update / delete layers from the open layer map app
+var phase2DistrictPlans = require('./district_plans/phase_2/*.geojson');
 
+var fig = require('./assets/district_trend.png');
+
+var pdflink = require('./assets/political_geography.pdf'); // Very hacky work around to load images correct. The <right> solution if we start doing more 
+// is to use a framework like angular or react.
+
+
+var image = new Image();
+image.src = fig.substring(1);
+
+image.onload = function () {
+  document.getElementById('fig1').setAttribute('src', this.src);
+};
+
+document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("linktochange").setAttribute("href", pdflink);
+}); // Hacky global var to update / delete layers from the open layer map app
 
 var currentLayer = null;
 var view = new _View.default({
@@ -69416,7 +69434,7 @@ var updateMap = function updateMap(mapToDisplay) {
             } else {
               return new _style.Style({
                 fill: new _style.Fill({
-                  color: 'pink'
+                  color: hexToRGB(feature.get('color'), 0.3)
                 }),
                 stroke: new _style.Stroke({
                   color: 'black',
@@ -69446,7 +69464,7 @@ updateMap(urlHashPart());
 window.onchange = function () {
   updateMap(urlHashPart());
 };
-},{"ol/ol.css":"node_modules/ol/ol.css","ol/Feature":"node_modules/ol/Feature.js","ol/geom/Polygon":"node_modules/ol/geom/Polygon.js","ol/Map":"node_modules/ol/Map.js","ol/View":"node_modules/ol/View.js","ol/format/GeoJSON":"node_modules/ol/format/GeoJSON.js","ol/layer":"node_modules/ol/layer.js","ol/source":"node_modules/ol/source.js","ol/style":"node_modules/ol/style.js","ol/control":"node_modules/ol/control.js","ol/extent":"node_modules/ol/extent.js","fs":"node_modules/parcel-bundler/src/builtins/_empty.js","./district_plans/phase_1/*.geojson":"district_plans/phase_1/*.geojson","./district_plans/phase_2/*.geojson":"district_plans/phase_2/*.geojson"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"ol/ol.css":"node_modules/ol/ol.css","ol/Feature":"node_modules/ol/Feature.js","ol/geom/Polygon":"node_modules/ol/geom/Polygon.js","ol/Map":"node_modules/ol/Map.js","ol/View":"node_modules/ol/View.js","ol/format/GeoJSON":"node_modules/ol/format/GeoJSON.js","ol/layer":"node_modules/ol/layer.js","ol/source":"node_modules/ol/source.js","ol/style":"node_modules/ol/style.js","ol/extent":"node_modules/ol/extent.js","fs":"node_modules/parcel-bundler/src/builtins/_empty.js","./district_plans/phase_1/*.geojson":"district_plans/phase_1/*.geojson","./district_plans/phase_2/*.geojson":"district_plans/phase_2/*.geojson","./assets/district_trend.png":"assets/district_trend.png","./assets/political_geography.pdf":"assets/political_geography.pdf"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -69474,7 +69492,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52501" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63401" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
