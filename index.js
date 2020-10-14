@@ -1,18 +1,68 @@
 import 'ol/ol.css';
+import Feature from 'ol/Feature';
+import Polygon from 'ol/geom/Polygon';
 import Map from 'ol/Map';
 import View from 'ol/View';
 import GeoJSON from 'ol/format/GeoJSON';
 import {Tile as TileLayer, Vector as VectorLayer} from 'ol/layer';
 import {OSM, Vector as VectorSource} from 'ol/source';
 import {Circle as CircleStyle, Fill, Stroke, Style} from 'ol/style';
+import * as olExtent from 'ol/extent';
 import 'fs';
 
-const districtPlans = require('./district_plans/*.geojson');
-const statePlans = require('./state_plans/*.geojson');
+const phase1DistrictPlans = require('./district_plans/phase_1/*.geojson');
+const phase2DistrictPlans = require('./district_plans/phase_2/*.geojson');
 
-// Hacky global vars to update / delete layers from the open layer map app
-var currentDistrictLayer = null;
-var currentStateLayer = null;
+const fig = require('./assets/district_trend.png');
+const pdflink = require('./assets/political_geography.pdf');
+
+// Very hacky work around to load images correct. The <right> solution if we start doing more 
+// is to use a framework like angular or react.
+
+var image = new Image();
+image.src = fig.substring(1);
+image.onload = function () {
+    document.getElementById('fig1').setAttribute('src', this.src);
+};
+document.addEventListener("DOMContentLoaded", function() {
+  document.getElementById("linktochange").setAttribute("href", pdflink);
+});
+
+// Hacky global var to update / delete layers from the open layer map app
+var currentLayer = null;
+
+var view = new View({
+  projection: 'EPSG:4326',
+  center: [-97.260204, 38.582526],
+  zoom: 4.5
+});
+
+var phase1Button = true;
+var phase2Button = false;
+
+var phase1 = document.getElementById('phase_1_button');
+phase1.addEventListener(
+  'click',
+  function () {
+    phase1Button = true;
+    phase2Button = false;
+    document.getElementById('phase_1_button').className = 'btn btn-primary active';
+    document.getElementById('phase_2_button').className = 'btn btn-primary';
+    updateMap(mapChosen());
+  }
+);
+
+var phase2 = document.getElementById('phase_2_button');
+phase2.addEventListener(
+  'click',
+  function () {
+    phase2Button = true;
+    phase1Button = false;
+    document.getElementById('phase_2_button').className = 'btn btn-primary active';
+    document.getElementById('phase_1_button').className = 'btn btn-primary';
+    updateMap(mapChosen());
+  }
+);
 
 var map = new Map({
   layers: [
@@ -21,11 +71,7 @@ var map = new Map({
     })
   ],
   target: 'map',
-  view: new View({
-    projection: 'EPSG:4326',
-    center: [-97.260204, 38.582526],
-    zoom: 4.5
-  })
+  view: view
 });
 
 function hexToRGB(hex, alpha) {
@@ -40,56 +86,94 @@ function hexToRGB(hex, alpha) {
   }
 }
 
-const urlHashPart = () => window.location.hash.substr(1)
+const mapChosen = () => document.getElementById('map-dropdown').value;
 
 const updateMap = (mapToDisplay) => {
-  if (currentDistrictLayer != null) {
-    map.removeLayer(currentDistrictLayer);
-    map.removeLayer(currentStateLayer);
+  if (currentLayer != null) {
+    map.removeLayer(currentLayer);
   }
 
-  if (mapToDisplay in districtPlans) {
-    fetch(districtPlans[mapToDisplay])
-    .then(response => response.json())
-    .then(data => {
-      const districtVectorLayer = new VectorLayer({
-        source: new VectorSource({
-          features: (new GeoJSON()).readFeatures(data)
-        }),
-        style: function (feature) {
-          return new Style({
-            fill: new Fill({
-              color: hexToRGB(feature.get('color'), 0.3)
-            })
-          })
-        }
-      });
-      currentDistrictLayer = districtVectorLayer;
-      map.addLayer(districtVectorLayer);
-    })
-
-    fetch(statePlans[mapToDisplay])
-    .then(response => response.json())
-    .then(data => {
-      const stateVectorLayer = new VectorLayer({
-        source: new VectorSource({
-          features: (new GeoJSON()).readFeatures(data)
-        }),
-        style: new Style({
-          stroke: new Stroke({
-            color: 'black',
-            width: 2
-          })
-        })
-      });
-      currentStateLayer = stateVectorLayer;
-      map.addLayer(stateVectorLayer);
-    })
+  if (phase1Button) {
+    if (mapToDisplay in phase1DistrictPlans) {
+      fetch(phase1DistrictPlans[mapToDisplay])
+      .then(response => response.json())
+      .then(data => {
+        const vectorLayer = new VectorLayer({
+          source: new VectorSource({
+            features: (new GeoJSON()).readFeatures(data)
+          }),
+          style: function (feature) {
+            if (feature.get('color') === 'None') {
+              return new Style({
+                stroke: new Stroke({
+                  color: 'black',
+                  width: 2
+                })
+              })
+            } else {
+              return new Style({
+                fill: new Fill({
+                  color: hexToRGB(feature.get('color'), 0.3)
+                })
+              })
+            }
+          }
+        });
+        vectorLayer.getSource().forEachFeature(function(feature) {
+          if(feature.get('color') === 'None') {
+            var polygon = feature.getGeometry();
+            view.fit(polygon, {padding: [50, 50, 50, 50]});
+          }
+        });
+        currentLayer = vectorLayer;
+        map.addLayer(vectorLayer);
+      })
+    }
+  } else {
+    if (mapToDisplay in phase2DistrictPlans) {
+      fetch(phase2DistrictPlans[mapToDisplay])
+      .then(response => response.json())
+      .then(data => {
+        const vectorLayer = new VectorLayer({
+          source: new VectorSource({
+            features: (new GeoJSON()).readFeatures(data)
+          }),
+          style: function (feature) {
+            if (feature.get('color') === 'None') {
+              return new Style({
+                stroke: new Stroke({
+                  color: 'black',
+                  width: 2
+                })
+              })
+            } else {
+              return new Style({
+                fill: new Fill({
+                  color: hexToRGB(feature.get('color'), 0.3)
+                }),
+                stroke: new Stroke({
+                  color: 'black',
+                  width: 0.75
+                })
+              })
+            }
+          }
+        });
+        vectorLayer.getSource().forEachFeature(function(feature) {
+          if(feature.get('color') === 'None') {
+            var polygon = feature.getGeometry();
+            view.fit(polygon, {padding: [50, 50, 50, 50]});
+          }
+        });
+        currentLayer = vectorLayer;
+        map.addLayer(vectorLayer);
+      })
+    }
   }
 }
 
-updateMap(urlHashPart());
+updateMap("CA");
 
-window.onhashchange = function() {
-  updateMap(urlHashPart());
+window.onchange = function() {
+  updateMap(mapChosen());
 }

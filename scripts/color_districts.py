@@ -1,46 +1,76 @@
-import geojson
 import sys
 from shapely.geometry import shape, LineString, MultiLineString
+import geojson
 
-with open('../district_plans/texas.geojson', 'r') as texas_districts_file:
-    texas_districts = geojson.load(texas_districts_file)
-    texas_districts_file.close()
+def color_district():
+    with open('../district_plans/phase_2/' + sys.argv[1] + '.geojson', 'r') as districts_file:
+        state_districts = geojson.load(districts_file)
+        districts_file.close()
+        
+    districts = []
 
-districts = []
+    # Adds districts to list (as Shapely objects)
+    for feature in state_districts["features"]:
+        districts.append(shape(feature["geometry"]))
 
-for feature in texas_districts["features"]:
-    districts.append(shape(feature["geometry"]))
+    adjacencies = [set() for i in range(len(districts))]
 
-adjacencies = [set() for i in range(len(districts))]
+    # Creates adjacency list for each district
+    for i in range(len(districts)):
+        for j in range(i + 1, len(districts)):
+            if type(districts[i].intersection(districts[j])) is LineString or type(districts[i].intersection(districts[j])) is MultiLineString:
+                adjacencies[i].add(j)
+                adjacencies[j].add(i)
 
-for i in range(len(districts)):
-    for j in range(i + 1, len(districts)):
-        if type(districts[i].intersection(districts[j])) is LineString or type(districts[i].intersection(districts[j])) is MultiLineString:
-            adjacencies[i].add(j)
-            adjacencies[j].add(i)
+    # degree_list[0] is the list of all districts with degree 0, degree_list[1] is the list of all districts with degree 1, and so on
+    degree_list = [[]] * len(districts)
 
-coloring = [-1 for i in range(len(districts))]
+    # district_coloring_order mimics a stack where districts exist in the order in which they should be colored
+    district_coloring_order = []
 
-# Assign the first vertex with the lowest number.
-coloring[0] = 0
+    # available_colors[district_coloring[i]] is the hex color district i is assigned
+    district_coloring = [-1] * len(districts)
 
-for vertex in range(1, len(coloring)):
-    color = 0
-    adjacent_colors = set()
-    for adjacent in adjacencies[vertex]:
-        adjacent_colors.add(coloring[adjacent])
+    # Initializes degree_list: For each i between 0 and number of districts - 1, generates list of districts with degree i
+    for i in range(len(districts)):
+        degree_list[len(adjacencies[i])].append(i)
 
-    while color in adjacent_colors:
-        color += 1
+    # Establishes order in which districts should be colored to ensure 6-coloring (i.e. district_coloring_order)
+    for i in range(len(districts)):
+        minimum_degree = next(index for (index, lst) in enumerate(degree_list) if lst != [])
+        minimum_vertex = degree_list[minimum_degree].pop(0)
+        district_coloring_order.append(minimum_vertex)
 
-    coloring[vertex] = color
+        # Update the degrees of the neighbors of minimum_vertex in degree_list
+        for neighbor in adjacencies[minimum_vertex]:
+            for index in range(len(degree_list)):
+                if neighbor in degree_list[index]:
+                    degree_list[index].remove(neighbor)
+                    degree_list[index - 1].append(neighbor)
+                    break
 
-available_colors = ["#FF0000", "#FFFF00", "#00EAFF", "#AA00FF", "#4F8F23", "#BFFF00", 
-"#0095FF", "#FF00AA", "#FFD400", "#6AFF00", "#0040FF", "#EDB9B9", "#B9D7ED", "#E7E9B9", 
-"#DCB9ED", "#B9EDE0", "#8F2323", "#23628F", "#8F6A23", "#6B238F", "#FF7F00"]
+    # Assign the first district with the lowest number (i.e. color)
+    district_coloring[district_coloring_order.pop(0)] = 0
 
-for feature in texas_districts["features"]:
-    feature["properties"]["color"] = available_colors[coloring[districts.index(shape(feature["geometry"]))]]
+    # Assign the remaining districts with a number
+    while district_coloring_order:
+        next_district_to_color = district_coloring_order.pop(0)
+        color = 0
+        adjacent_colors = set()
+        for neighbor in adjacencies[next_district_to_color]:
+            adjacent_colors.add(district_coloring[neighbor])
 
-with open('../district_plans/texas.geojson', 'w') as texas_districts_file:
-    geojson.dump(texas_districts, texas_districts_file)
+        while color in adjacent_colors:
+            color += 1
+        
+        district_coloring[next_district_to_color] = color
+
+    available_colors = ["#23628F", "#FF00AA", "#FFD400", "#6AFF00", "#00EAFF", "#6B238F"]
+
+    for feature in state_districts["features"]:
+        feature["properties"]["color"] = available_colors[district_coloring[districts.index(shape(feature["geometry"]))]]
+
+    with open('../district_plans/phase_2/' + sys.argv[1] + '.geojson', 'w') as districts_file:
+        geojson.dump(state_districts, districts_file)
+
+color_district()
