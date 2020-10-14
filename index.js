@@ -48,7 +48,7 @@ phase1.addEventListener(
     phase2Button = false;
     document.getElementById('phase_1_button').className = 'btn btn-primary active';
     document.getElementById('phase_2_button').className = 'btn btn-primary';
-    updateMap(urlHashPart());
+    updateMap(mapChosen());
   }
 );
 
@@ -60,7 +60,7 @@ phase2.addEventListener(
     phase1Button = false;
     document.getElementById('phase_2_button').className = 'btn btn-primary active';
     document.getElementById('phase_1_button').className = 'btn btn-primary';
-    updateMap(urlHashPart());
+    updateMap(mapChosen());
   }
 );
 
@@ -86,7 +86,7 @@ function hexToRGB(hex, alpha) {
   }
 }
 
-const urlHashPart = () => document.getElementById('map-dropdown').value;
+const mapChosen = () => document.getElementById('map-dropdown').value;
 
 const updateMap = (mapToDisplay) => {
   if (currentLayer != null) {
@@ -172,8 +172,8 @@ const updateMap = (mapToDisplay) => {
   }
 }
 
-updateMap(urlHashPart());
+updateMap("CA");
 
 window.onchange = function() {
-  updateMap(urlHashPart());
+  updateMap(mapChosen());
 }
