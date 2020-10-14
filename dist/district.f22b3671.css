@@ -30,11 +30,9 @@ h3{
   color: black;
 }
 #map-dropdown{
-  background-color: white;
   color: black;
-  font: arial;
   font-size: medium;
-  height: 80vh;
+  height: 74vh;
 }
 pre{
   background-color: white;
@@ -49,7 +47,7 @@ img{
   margin: 1.66%;
 }
 #button_container{
-  margin-top: 10px;
+  margin-top: 1vh;
   text-align: center;
 }
 #button{
@@ -57,11 +55,19 @@ img{
   background-color: white;
   font-size: medium;
   width: 90px;
-  height: 40px;
+  height: 8vh;
+}
+
+.btn-default{
+  color: black;
+  background: #8ecbe1;
 }
 .map{
   height:80vh; 
   width: 100%;
+}
+select option:disabled {
+  color: rgba(0, 0, 0, 0.15);
 }
 
 

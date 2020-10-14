@@ -3,7 +3,7 @@ from shapely.geometry import shape, LineString, MultiLineString
 import geojson
 
 def color_district():
-    with open('../district_plans/' + sys.argv[1] + '.geojson', 'r') as districts_file:
+    with open('../district_plans/phase_2/' + sys.argv[1] + '.geojson', 'r') as districts_file:
         state_districts = geojson.load(districts_file)
         districts_file.close()
         
@@ -70,7 +70,7 @@ def color_district():
     for feature in state_districts["features"]:
         feature["properties"]["color"] = available_colors[district_coloring[districts.index(shape(feature["geometry"]))]]
 
-    with open('../district_plans/' + sys.argv[1] + '.geojson', 'w') as districts_file:
+    with open('../district_plans/phase_2/' + sys.argv[1] + '.geojson', 'w') as districts_file:
         geojson.dump(state_districts, districts_file)
 
 color_district()

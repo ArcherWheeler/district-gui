@@ -69144,79 +69144,79 @@ var _Zoomify = _interopRequireDefault(require("./source/Zoomify.js"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 },{"./source/BingMaps.js":"node_modules/ol/source/BingMaps.js","./source/CartoDB.js":"node_modules/ol/source/CartoDB.js","./source/Cluster.js":"node_modules/ol/source/Cluster.js","./source/IIIF.js":"node_modules/ol/source/IIIF.js","./source/Image.js":"node_modules/ol/source/Image.js","./source/ImageArcGISRest.js":"node_modules/ol/source/ImageArcGISRest.js","./source/ImageCanvas.js":"node_modules/ol/source/ImageCanvas.js","./source/ImageMapGuide.js":"node_modules/ol/source/ImageMapGuide.js","./source/ImageStatic.js":"node_modules/ol/source/ImageStatic.js","./source/ImageWMS.js":"node_modules/ol/source/ImageWMS.js","./source/OSM.js":"node_modules/ol/source/OSM.js","./source/Raster.js":"node_modules/ol/source/Raster.js","./source/Source.js":"node_modules/ol/source/Source.js","./source/Stamen.js":"node_modules/ol/source/Stamen.js","./source/Tile.js":"node_modules/ol/source/Tile.js","./source/TileArcGISRest.js":"node_modules/ol/source/TileArcGISRest.js","./source/TileDebug.js":"node_modules/ol/source/TileDebug.js","./source/TileImage.js":"node_modules/ol/source/TileImage.js","./source/TileJSON.js":"node_modules/ol/source/TileJSON.js","./source/TileWMS.js":"node_modules/ol/source/TileWMS.js","./source/UrlTile.js":"node_modules/ol/source/UrlTile.js","./source/UTFGrid.js":"node_modules/ol/source/UTFGrid.js","./source/Vector.js":"node_modules/ol/source/Vector.js","./source/VectorTile.js":"node_modules/ol/source/VectorTile.js","./source/WMTS.js":"node_modules/ol/source/WMTS.js","./source/XYZ.js":"node_modules/ol/source/XYZ.js","./source/Zoomify.js":"node_modules/ol/source/Zoomify.js"}],"node_modules/parcel-bundler/src/builtins/_empty.js":[function(require,module,exports) {
 
-},{}],"district_plans/AL.geojson":[function(require,module,exports) {
-module.exports = "/AL.62e51d2b.geojson";
-},{}],"district_plans/AR.geojson":[function(require,module,exports) {
-module.exports = "/AR.bc640f15.geojson";
-},{}],"district_plans/AZ.geojson":[function(require,module,exports) {
-module.exports = "/AZ.0640909d.geojson";
-},{}],"district_plans/CA.geojson":[function(require,module,exports) {
-module.exports = "/CA.8dd299fc.geojson";
-},{}],"district_plans/CO.geojson":[function(require,module,exports) {
-module.exports = "/CO.ca7f0eb4.geojson";
-},{}],"district_plans/CT.geojson":[function(require,module,exports) {
-module.exports = "/CT.134a36c3.geojson";
-},{}],"district_plans/FL.geojson":[function(require,module,exports) {
-module.exports = "/FL.0760b915.geojson";
-},{}],"district_plans/GA.geojson":[function(require,module,exports) {
-module.exports = "/GA.1cd8e52b.geojson";
-},{}],"district_plans/HI.geojson":[function(require,module,exports) {
-module.exports = "/HI.0aa927e7.geojson";
-},{}],"district_plans/IA.geojson":[function(require,module,exports) {
-module.exports = "/IA.600e4d1d.geojson";
-},{}],"district_plans/ID.geojson":[function(require,module,exports) {
-module.exports = "/ID.bc469ec6.geojson";
-},{}],"district_plans/IL.geojson":[function(require,module,exports) {
-module.exports = "/IL.f7bcd26b.geojson";
-},{}],"district_plans/IN.geojson":[function(require,module,exports) {
-module.exports = "/IN.c1ff15e0.geojson";
-},{}],"district_plans/KS.geojson":[function(require,module,exports) {
-module.exports = "/KS.d7ad133b.geojson";
-},{}],"district_plans/KY.geojson":[function(require,module,exports) {
-module.exports = "/KY.af4fe69f.geojson";
-},{}],"district_plans/LA.geojson":[function(require,module,exports) {
-module.exports = "/LA.e3b2144c.geojson";
-},{}],"district_plans/MA.geojson":[function(require,module,exports) {
-module.exports = "/MA.a31dafd4.geojson";
-},{}],"district_plans/MD.geojson":[function(require,module,exports) {
-module.exports = "/MD.9cde345a.geojson";
-},{}],"district_plans/ME.geojson":[function(require,module,exports) {
-module.exports = "/ME.377667e9.geojson";
-},{}],"district_plans/MI.geojson":[function(require,module,exports) {
-module.exports = "/MI.049cd2af.geojson";
-},{}],"district_plans/MN.geojson":[function(require,module,exports) {
-module.exports = "/MN.615b8921.geojson";
-},{}],"district_plans/MO.geojson":[function(require,module,exports) {
-module.exports = "/MO.ae62ffb3.geojson";
-},{}],"district_plans/MS.geojson":[function(require,module,exports) {
-module.exports = "/MS.e1ed611d.geojson";
-},{}],"district_plans/NC.geojson":[function(require,module,exports) {
-module.exports = "/NC.1ee686be.geojson";
-},{}],"district_plans/NE.geojson":[function(require,module,exports) {
-module.exports = "/NE.ac1e8a95.geojson";
-},{}],"district_plans/NH.geojson":[function(require,module,exports) {
-module.exports = "/NH.531d9986.geojson";
-},{}],"district_plans/NY.geojson":[function(require,module,exports) {
-module.exports = "/NY.d8c96d6f.geojson";
-},{}],"district_plans/OK.geojson":[function(require,module,exports) {
-module.exports = "/OK.3b1d5b9d.geojson";
-},{}],"district_plans/PA.geojson":[function(require,module,exports) {
-module.exports = "/PA.f304bfd4.geojson";
-},{}],"district_plans/RI.geojson":[function(require,module,exports) {
-module.exports = "/RI.c8c6182c.geojson";
-},{}],"district_plans/SC.geojson":[function(require,module,exports) {
-module.exports = "/SC.99396c64.geojson";
-},{}],"district_plans/TN.geojson":[function(require,module,exports) {
-module.exports = "/TN.97b536b6.geojson";
-},{}],"district_plans/TX.geojson":[function(require,module,exports) {
-module.exports = "/TX.8e61e19f.geojson";
-},{}],"district_plans/UT.geojson":[function(require,module,exports) {
-module.exports = "/UT.da4cb985.geojson";
-},{}],"district_plans/WA.geojson":[function(require,module,exports) {
-module.exports = "/WA.b5d472e5.geojson";
-},{}],"district_plans/WI.geojson":[function(require,module,exports) {
-module.exports = "/WI.6141874b.geojson";
-},{}],"district_plans/*.geojson":[function(require,module,exports) {
+},{}],"district_plans/phase_1/AL.geojson":[function(require,module,exports) {
+module.exports = "/AL.bdca714a.geojson";
+},{}],"district_plans/phase_1/AR.geojson":[function(require,module,exports) {
+module.exports = "/AR.b7253c68.geojson";
+},{}],"district_plans/phase_1/AZ.geojson":[function(require,module,exports) {
+module.exports = "/AZ.a21ab79c.geojson";
+},{}],"district_plans/phase_1/CA.geojson":[function(require,module,exports) {
+module.exports = "/CA.e0a6dfa7.geojson";
+},{}],"district_plans/phase_1/CO.geojson":[function(require,module,exports) {
+module.exports = "/CO.ed9214e5.geojson";
+},{}],"district_plans/phase_1/CT.geojson":[function(require,module,exports) {
+module.exports = "/CT.e007c318.geojson";
+},{}],"district_plans/phase_1/GA.geojson":[function(require,module,exports) {
+module.exports = "/GA.3215a9dc.geojson";
+},{}],"district_plans/phase_1/HI.geojson":[function(require,module,exports) {
+module.exports = "/HI.bde7a53c.geojson";
+},{}],"district_plans/phase_1/FL.geojson":[function(require,module,exports) {
+module.exports = "/FL.688cc0c9.geojson";
+},{}],"district_plans/phase_1/ID.geojson":[function(require,module,exports) {
+module.exports = "/ID.c5e4b4b4.geojson";
+},{}],"district_plans/phase_1/IA.geojson":[function(require,module,exports) {
+module.exports = "/IA.25643ae4.geojson";
+},{}],"district_plans/phase_1/IL.geojson":[function(require,module,exports) {
+module.exports = "/IL.5bfa5b9e.geojson";
+},{}],"district_plans/phase_1/IN.geojson":[function(require,module,exports) {
+module.exports = "/IN.db9a21e4.geojson";
+},{}],"district_plans/phase_1/KS.geojson":[function(require,module,exports) {
+module.exports = "/KS.7afc5ff2.geojson";
+},{}],"district_plans/phase_1/KY.geojson":[function(require,module,exports) {
+module.exports = "/KY.b8a9ff1a.geojson";
+},{}],"district_plans/phase_1/LA.geojson":[function(require,module,exports) {
+module.exports = "/LA.c445901b.geojson";
+},{}],"district_plans/phase_1/MA.geojson":[function(require,module,exports) {
+module.exports = "/MA.ed5de82c.geojson";
+},{}],"district_plans/phase_1/MD.geojson":[function(require,module,exports) {
+module.exports = "/MD.b6987d62.geojson";
+},{}],"district_plans/phase_1/ME.geojson":[function(require,module,exports) {
+module.exports = "/ME.e35a1b71.geojson";
+},{}],"district_plans/phase_1/MI.geojson":[function(require,module,exports) {
+module.exports = "/MI.20bd5ef6.geojson";
+},{}],"district_plans/phase_1/MO.geojson":[function(require,module,exports) {
+module.exports = "/MO.5c652c20.geojson";
+},{}],"district_plans/phase_1/MN.geojson":[function(require,module,exports) {
+module.exports = "/MN.8203102f.geojson";
+},{}],"district_plans/phase_1/NE.geojson":[function(require,module,exports) {
+module.exports = "/NE.d22aa498.geojson";
+},{}],"district_plans/phase_1/MS.geojson":[function(require,module,exports) {
+module.exports = "/MS.377f66eb.geojson";
+},{}],"district_plans/phase_1/NH.geojson":[function(require,module,exports) {
+module.exports = "/NH.3b847770.geojson";
+},{}],"district_plans/phase_1/NC.geojson":[function(require,module,exports) {
+module.exports = "/NC.d9caff0b.geojson";
+},{}],"district_plans/phase_1/NY.geojson":[function(require,module,exports) {
+module.exports = "/NY.902258c9.geojson";
+},{}],"district_plans/phase_1/OK.geojson":[function(require,module,exports) {
+module.exports = "/OK.743c8960.geojson";
+},{}],"district_plans/phase_1/PA.geojson":[function(require,module,exports) {
+module.exports = "/PA.4af407ed.geojson";
+},{}],"district_plans/phase_1/RI.geojson":[function(require,module,exports) {
+module.exports = "/RI.c79a2e2a.geojson";
+},{}],"district_plans/phase_1/SC.geojson":[function(require,module,exports) {
+module.exports = "/SC.1175a2bc.geojson";
+},{}],"district_plans/phase_1/TN.geojson":[function(require,module,exports) {
+module.exports = "/TN.cba9f06a.geojson";
+},{}],"district_plans/phase_1/TX.geojson":[function(require,module,exports) {
+module.exports = "/TX.1841ebb9.geojson";
+},{}],"district_plans/phase_1/UT.geojson":[function(require,module,exports) {
+module.exports = "/UT.2c10f497.geojson";
+},{}],"district_plans/phase_1/WA.geojson":[function(require,module,exports) {
+module.exports = "/WA.400e3100.geojson";
+},{}],"district_plans/phase_1/WI.geojson":[function(require,module,exports) {
+module.exports = "/WI.3f0797a8.geojson";
+},{}],"district_plans/phase_1/*.geojson":[function(require,module,exports) {
 module.exports = {
   "AL": require("./AL.geojson"),
   "AR": require("./AR.geojson"),
@@ -69224,11 +69224,11 @@ module.exports = {
   "CA": require("./CA.geojson"),
   "CO": require("./CO.geojson"),
   "CT": require("./CT.geojson"),
-  "FL": require("./FL.geojson"),
   "GA": require("./GA.geojson"),
   "HI": require("./HI.geojson"),
-  "IA": require("./IA.geojson"),
+  "FL": require("./FL.geojson"),
   "ID": require("./ID.geojson"),
+  "IA": require("./IA.geojson"),
   "IL": require("./IL.geojson"),
   "IN": require("./IN.geojson"),
   "KS": require("./KS.geojson"),
@@ -69238,12 +69238,12 @@ module.exports = {
   "MD": require("./MD.geojson"),
   "ME": require("./ME.geojson"),
   "MI": require("./MI.geojson"),
-  "MN": require("./MN.geojson"),
   "MO": require("./MO.geojson"),
-  "MS": require("./MS.geojson"),
-  "NC": require("./NC.geojson"),
+  "MN": require("./MN.geojson"),
   "NE": require("./NE.geojson"),
+  "MS": require("./MS.geojson"),
   "NH": require("./NH.geojson"),
+  "NC": require("./NC.geojson"),
   "NY": require("./NY.geojson"),
   "OK": require("./OK.geojson"),
   "PA": require("./PA.geojson"),
@@ -69255,7 +69255,19 @@ module.exports = {
   "WA": require("./WA.geojson"),
   "WI": require("./WI.geojson")
 };
-},{"./AL.geojson":"district_plans/AL.geojson","./AR.geojson":"district_plans/AR.geojson","./AZ.geojson":"district_plans/AZ.geojson","./CA.geojson":"district_plans/CA.geojson","./CO.geojson":"district_plans/CO.geojson","./CT.geojson":"district_plans/CT.geojson","./FL.geojson":"district_plans/FL.geojson","./GA.geojson":"district_plans/GA.geojson","./HI.geojson":"district_plans/HI.geojson","./IA.geojson":"district_plans/IA.geojson","./ID.geojson":"district_plans/ID.geojson","./IL.geojson":"district_plans/IL.geojson","./IN.geojson":"district_plans/IN.geojson","./KS.geojson":"district_plans/KS.geojson","./KY.geojson":"district_plans/KY.geojson","./LA.geojson":"district_plans/LA.geojson","./MA.geojson":"district_plans/MA.geojson","./MD.geojson":"district_plans/MD.geojson","./ME.geojson":"district_plans/ME.geojson","./MI.geojson":"district_plans/MI.geojson","./MN.geojson":"district_plans/MN.geojson","./MO.geojson":"district_plans/MO.geojson","./MS.geojson":"district_plans/MS.geojson","./NC.geojson":"district_plans/NC.geojson","./NE.geojson":"district_plans/NE.geojson","./NH.geojson":"district_plans/NH.geojson","./NY.geojson":"district_plans/NY.geojson","./OK.geojson":"district_plans/OK.geojson","./PA.geojson":"district_plans/PA.geojson","./RI.geojson":"district_plans/RI.geojson","./SC.geojson":"district_plans/SC.geojson","./TN.geojson":"district_plans/TN.geojson","./TX.geojson":"district_plans/TX.geojson","./UT.geojson":"district_plans/UT.geojson","./WA.geojson":"district_plans/WA.geojson","./WI.geojson":"district_plans/WI.geojson"}],"index.js":[function(require,module,exports) {
+},{"./AL.geojson":"district_plans/phase_1/AL.geojson","./AR.geojson":"district_plans/phase_1/AR.geojson","./AZ.geojson":"district_plans/phase_1/AZ.geojson","./CA.geojson":"district_plans/phase_1/CA.geojson","./CO.geojson":"district_plans/phase_1/CO.geojson","./CT.geojson":"district_plans/phase_1/CT.geojson","./GA.geojson":"district_plans/phase_1/GA.geojson","./HI.geojson":"district_plans/phase_1/HI.geojson","./FL.geojson":"district_plans/phase_1/FL.geojson","./ID.geojson":"district_plans/phase_1/ID.geojson","./IA.geojson":"district_plans/phase_1/IA.geojson","./IL.geojson":"district_plans/phase_1/IL.geojson","./IN.geojson":"district_plans/phase_1/IN.geojson","./KS.geojson":"district_plans/phase_1/KS.geojson","./KY.geojson":"district_plans/phase_1/KY.geojson","./LA.geojson":"district_plans/phase_1/LA.geojson","./MA.geojson":"district_plans/phase_1/MA.geojson","./MD.geojson":"district_plans/phase_1/MD.geojson","./ME.geojson":"district_plans/phase_1/ME.geojson","./MI.geojson":"district_plans/phase_1/MI.geojson","./MO.geojson":"district_plans/phase_1/MO.geojson","./MN.geojson":"district_plans/phase_1/MN.geojson","./NE.geojson":"district_plans/phase_1/NE.geojson","./MS.geojson":"district_plans/phase_1/MS.geojson","./NH.geojson":"district_plans/phase_1/NH.geojson","./NC.geojson":"district_plans/phase_1/NC.geojson","./NY.geojson":"district_plans/phase_1/NY.geojson","./OK.geojson":"district_plans/phase_1/OK.geojson","./PA.geojson":"district_plans/phase_1/PA.geojson","./RI.geojson":"district_plans/phase_1/RI.geojson","./SC.geojson":"district_plans/phase_1/SC.geojson","./TN.geojson":"district_plans/phase_1/TN.geojson","./TX.geojson":"district_plans/phase_1/TX.geojson","./UT.geojson":"district_plans/phase_1/UT.geojson","./WA.geojson":"district_plans/phase_1/WA.geojson","./WI.geojson":"district_plans/phase_1/WI.geojson"}],"district_plans/phase_2/CT.geojson":[function(require,module,exports) {
+module.exports = "/CT.86a71577.geojson";
+},{}],"district_plans/phase_2/MA.geojson":[function(require,module,exports) {
+module.exports = "/MA.f17efa67.geojson";
+},{}],"district_plans/phase_2/RI.geojson":[function(require,module,exports) {
+module.exports = "/RI.1612642c.geojson";
+},{}],"district_plans/phase_2/*.geojson":[function(require,module,exports) {
+module.exports = {
+  "CT": require("./CT.geojson"),
+  "MA": require("./MA.geojson"),
+  "RI": require("./RI.geojson")
+};
+},{"./CT.geojson":"district_plans/phase_2/CT.geojson","./MA.geojson":"district_plans/phase_2/MA.geojson","./RI.geojson":"district_plans/phase_2/RI.geojson"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 require("ol/ol.css");
@@ -69276,6 +69288,8 @@ var _source = require("ol/source");
 
 var _style = require("ol/style");
 
+var _control = require("ol/control");
+
 var olExtent = _interopRequireWildcard(require("ol/extent"));
 
 require("fs");
@@ -69286,7 +69300,9 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var districtPlans = require('./district_plans/*.geojson'); // Hacky global var to update / delete layers from the open layer map app
+var phase1DistrictPlans = require('./district_plans/phase_1/*.geojson');
+
+var phase2DistrictPlans = require('./district_plans/phase_2/*.geojson'); // Hacky global var to update / delete layers from the open layer map app
 
 
 var currentLayer = null;
@@ -69294,6 +69310,24 @@ var view = new _View.default({
   projection: 'EPSG:4326',
   center: [-97.260204, 38.582526],
   zoom: 4.5
+});
+var phase1Button = true;
+var phase2Button = false;
+var phase1 = document.getElementById('phase_1_button');
+phase1.addEventListener('click', function () {
+  phase1Button = true;
+  phase2Button = false;
+  document.getElementById('phase_1_button').className = 'btn btn-primary active';
+  document.getElementById('phase_2_button').className = 'btn btn-primary';
+  updateMap(urlHashPart());
+});
+var phase2 = document.getElementById('phase_2_button');
+phase2.addEventListener('click', function () {
+  phase2Button = true;
+  phase1Button = false;
+  document.getElementById('phase_2_button').className = 'btn btn-primary active';
+  document.getElementById('phase_1_button').className = 'btn btn-primary';
+  updateMap(urlHashPart());
 });
 var map = new _Map.default({
   layers: [new _layer.Tile({
@@ -69324,42 +69358,86 @@ var updateMap = function updateMap(mapToDisplay) {
     map.removeLayer(currentLayer);
   }
 
-  if (mapToDisplay in districtPlans) {
-    fetch(districtPlans[mapToDisplay]).then(function (response) {
-      return response.json();
-    }).then(function (data) {
-      var vectorLayer = new _layer.Vector({
-        source: new _source.Vector({
-          features: new _GeoJSON.default().readFeatures(data)
-        }),
-        style: function style(feature) {
+  if (phase1Button) {
+    if (mapToDisplay in phase1DistrictPlans) {
+      fetch(phase1DistrictPlans[mapToDisplay]).then(function (response) {
+        return response.json();
+      }).then(function (data) {
+        var vectorLayer = new _layer.Vector({
+          source: new _source.Vector({
+            features: new _GeoJSON.default().readFeatures(data)
+          }),
+          style: function style(feature) {
+            if (feature.get('color') === 'None') {
+              return new _style.Style({
+                stroke: new _style.Stroke({
+                  color: 'black',
+                  width: 2
+                })
+              });
+            } else {
+              return new _style.Style({
+                fill: new _style.Fill({
+                  color: hexToRGB(feature.get('color'), 0.3)
+                })
+              });
+            }
+          }
+        });
+        vectorLayer.getSource().forEachFeature(function (feature) {
           if (feature.get('color') === 'None') {
-            return new _style.Style({
-              stroke: new _style.Stroke({
-                color: 'black',
-                width: 2
-              })
-            });
-          } else {
-            return new _style.Style({
-              fill: new _style.Fill({
-                color: hexToRGB(feature.get('color'), 0.3)
-              })
+            var polygon = feature.getGeometry();
+            view.fit(polygon, {
+              padding: [50, 50, 50, 50]
             });
           }
-        }
+        });
+        currentLayer = vectorLayer;
+        map.addLayer(vectorLayer);
       });
-      vectorLayer.getSource().forEachFeature(function (feature) {
-        if (feature.get('color') === 'None') {
-          var polygon = feature.getGeometry();
-          view.fit(polygon, {
-            padding: [50, 50, 50, 50]
-          });
-        }
+    }
+  } else {
+    if (mapToDisplay in phase2DistrictPlans) {
+      fetch(phase2DistrictPlans[mapToDisplay]).then(function (response) {
+        return response.json();
+      }).then(function (data) {
+        var vectorLayer = new _layer.Vector({
+          source: new _source.Vector({
+            features: new _GeoJSON.default().readFeatures(data)
+          }),
+          style: function style(feature) {
+            if (feature.get('color') === 'None') {
+              return new _style.Style({
+                stroke: new _style.Stroke({
+                  color: 'black',
+                  width: 2
+                })
+              });
+            } else {
+              return new _style.Style({
+                fill: new _style.Fill({
+                  color: 'pink'
+                }),
+                stroke: new _style.Stroke({
+                  color: 'black',
+                  width: 0.75
+                })
+              });
+            }
+          }
+        });
+        vectorLayer.getSource().forEachFeature(function (feature) {
+          if (feature.get('color') === 'None') {
+            var polygon = feature.getGeometry();
+            view.fit(polygon, {
+              padding: [50, 50, 50, 50]
+            });
+          }
+        });
+        currentLayer = vectorLayer;
+        map.addLayer(vectorLayer);
       });
-      currentLayer = vectorLayer;
-      map.addLayer(vectorLayer);
-    });
+    }
   }
 };
 
@@ -69368,7 +69446,7 @@ updateMap(urlHashPart());
 window.onchange = function () {
   updateMap(urlHashPart());
 };
-},{"ol/ol.css":"node_modules/ol/ol.css","ol/Feature":"node_modules/ol/Feature.js","ol/geom/Polygon":"node_modules/ol/geom/Polygon.js","ol/Map":"node_modules/ol/Map.js","ol/View":"node_modules/ol/View.js","ol/format/GeoJSON":"node_modules/ol/format/GeoJSON.js","ol/layer":"node_modules/ol/layer.js","ol/source":"node_modules/ol/source.js","ol/style":"node_modules/ol/style.js","ol/extent":"node_modules/ol/extent.js","fs":"node_modules/parcel-bundler/src/builtins/_empty.js","./district_plans/*.geojson":"district_plans/*.geojson"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"ol/ol.css":"node_modules/ol/ol.css","ol/Feature":"node_modules/ol/Feature.js","ol/geom/Polygon":"node_modules/ol/geom/Polygon.js","ol/Map":"node_modules/ol/Map.js","ol/View":"node_modules/ol/View.js","ol/format/GeoJSON":"node_modules/ol/format/GeoJSON.js","ol/layer":"node_modules/ol/layer.js","ol/source":"node_modules/ol/source.js","ol/style":"node_modules/ol/style.js","ol/control":"node_modules/ol/control.js","ol/extent":"node_modules/ol/extent.js","fs":"node_modules/parcel-bundler/src/builtins/_empty.js","./district_plans/phase_1/*.geojson":"district_plans/phase_1/*.geojson","./district_plans/phase_2/*.geojson":"district_plans/phase_2/*.geojson"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -69396,7 +69474,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53515" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52501" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
