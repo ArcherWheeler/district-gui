@@ -78,83 +78,119 @@ const updateMap = (mapToDisplay) => {
     map.removeLayer(currentLayer);
   }
 
-  if (phase1Button) {
-    if (mapToDisplay in phase1DistrictPlans) {
-      fetch(phase1DistrictPlans[mapToDisplay])
-      .then(response => response.json())
-      .then(data => {
-        const vectorLayer = new VectorLayer({
-          source: new VectorSource({
-            features: (new GeoJSON()).readFeatures(data)
-          }),
-          style: function (feature) {
-            if (feature.get('color') === 'None') {
-              return new Style({
-                stroke: new Stroke({
-                  color: 'black',
-                  width: 2
+  // if (phase1Button) {
+  //   if (mapToDisplay in phase1DistrictPlans) {
+  //     fetch(phase1DistrictPlans[mapToDisplay])
+  //     .then(response => response.json())
+  //     .then(data => {
+  //       const vectorLayer = new VectorLayer({
+  //         source: new VectorSource({
+  //           features: (new GeoJSON()).readFeatures(data)
+  //         }),
+  //         style: function (feature) {
+  //           if (feature.get('color') === 'None') {
+  //             return new Style({
+  //               stroke: new Stroke({
+  //                 color: 'black',
+  //                 width: 2
+  //               })
+  //             })
+  //           } else {
+  //             return new Style({
+  //               fill: new Fill({
+  //                 color: hexToRGB(feature.get('color'), 0.3)
+  //               })
+  //             })
+  //           }
+  //         }
+  //       });
+  //       vectorLayer.getSource().forEachFeature(function(feature) {
+  //         if(feature.get('color') === 'None') {
+  //           var polygon = feature.getGeometry();
+  //           view.fit(polygon, {padding: [50, 50, 50, 50]});
+  //         }
+  //       });
+  //       currentLayer = vectorLayer;
+  //       map.addLayer(vectorLayer);
+  //     })
+  //   }
+  // } else {
+  //   if (mapToDisplay in phase2DistrictPlans) {
+  //     fetch(phase2DistrictPlans[mapToDisplay])
+  //     .then(response => response.json())
+  //     .then(data => {
+  //       const vectorLayer = new VectorLayer({
+  //         source: new VectorSource({
+  //           features: (new GeoJSON()).readFeatures(data)
+  //         }),
+  //         style: function (feature) {
+  //           if (feature.get('color') === 'None') {
+  //             return new Style({
+  //               stroke: new Stroke({
+  //                 color: 'black',
+  //                 width: 2
+  //               })
+  //             })
+  //           } else {
+  //             return new Style({
+  //               fill: new Fill({
+  //                 color: hexToRGB(feature.get('color'), 0.3)
+  //               }),
+  //               stroke: new Stroke({
+  //                 color: 'black',
+  //                 width: 0.75
+  //               })
+  //             })
+  //           }
+  //         }
+  //       });
+  //       vectorLayer.getSource().forEachFeature(function(feature) {
+  //         if(feature.get('color') === 'None') {
+  //           var polygon = feature.getGeometry();
+  //           view.fit(polygon, {padding: [50, 50, 50, 50]});
+  //         }
+  //       });
+  //       currentLayer = vectorLayer;
+  //       map.addLayer(vectorLayer);
+  //     })
+  //   }
+  // }
+
+  if (mapToDisplay in phase1DistrictPlans) {
+        fetch(phase1DistrictPlans[mapToDisplay])
+        .then(response => response.json())
+        .then(data => {
+          const vectorLayer = new VectorLayer({
+            source: new VectorSource({
+              features: (new GeoJSON()).readFeatures(data)
+            }),
+            style: function (feature) {
+              if (feature.get('color') === 'None') {
+                return new Style({
+                  stroke: new Stroke({
+                    color: 'black',
+                    width: 2
+                  })
                 })
-              })
-            } else {
-              return new Style({
-                fill: new Fill({
-                  color: hexToRGB(feature.get('color'), 0.3)
+              } else {
+                return new Style({
+                  fill: new Fill({
+                    color: hexToRGB(feature.get('color'), 0.3)
+                  })
                 })
-              })
+              }
             }
-          }
-        });
-        vectorLayer.getSource().forEachFeature(function(feature) {
-          if(feature.get('color') === 'None') {
-            var polygon = feature.getGeometry();
-            view.fit(polygon, {padding: [50, 50, 50, 50]});
-          }
-        });
-        currentLayer = vectorLayer;
-        map.addLayer(vectorLayer);
-      })
-    }
-  } else {
-    if (mapToDisplay in phase2DistrictPlans) {
-      fetch(phase2DistrictPlans[mapToDisplay])
-      .then(response => response.json())
-      .then(data => {
-        const vectorLayer = new VectorLayer({
-          source: new VectorSource({
-            features: (new GeoJSON()).readFeatures(data)
-          }),
-          style: function (feature) {
-            if (feature.get('color') === 'None') {
-              return new Style({
-                stroke: new Stroke({
-                  color: 'black',
-                  width: 2
-                })
-              })
-            } else {
-              return new Style({
-                fill: new Fill({
-                  color: hexToRGB(feature.get('color'), 0.3)
-                }),
-                stroke: new Stroke({
-                  color: 'black',
-                  width: 0.75
-                })
-              })
+          });
+          vectorLayer.getSource().forEachFeature(function(feature) {
+            if(feature.get('color') === 'None') {
+              var polygon = feature.getGeometry();
+              view.fit(polygon, {padding: [50, 50, 50, 50]});
             }
-          }
-        });
-        vectorLayer.getSource().forEachFeature(function(feature) {
-          if(feature.get('color') === 'None') {
-            var polygon = feature.getGeometry();
-            view.fit(polygon, {padding: [50, 50, 50, 50]});
-          }
-        });
-        currentLayer = vectorLayer;
-        map.addLayer(vectorLayer);
-      })
-    }
-  }
+          });
+          currentLayer = vectorLayer;
+          map.addLayer(vectorLayer);
+        })
+      }
 }
 
 updateMap(urlHashPart());

@@ -32,7 +32,7 @@ h3{
 #map-dropdown{
   color: black;
   font-size: medium;
-  height: 74vh;
+  height: 80vh;
 }
 pre{
   background-color: white;
@@ -46,10 +46,6 @@ img{
   float: left;
   margin: 1.66%;
 }
-#button_container{
-  margin-top: 1vh;
-  text-align: center;
-}
 #button{
   color: black;
   background-color: white;
@@ -57,7 +53,11 @@ img{
   width: 90px;
   height: 8vh;
 }
-
+#button_container{
+  display: none;
+  margin-top: 1vh;
+  text-align: center;
+}
 .btn-default{
   color: black;
   background: #8ecbe1;
