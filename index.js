@@ -19,13 +19,14 @@ const pdflink = require('./assets/political_geography.pdf');
 // Very hacky work around to load images correct. The <right> solution if we start doing more 
 // is to use a framework like angular or react.
 
-var image = new Image();
-image.src = fig.substring(1);
-image.onload = function () {
-    document.getElementById('fig1').setAttribute('src', this.src);
-};
+
 document.addEventListener("DOMContentLoaded", function() {
   document.getElementById("linktochange").setAttribute("href", pdflink);
+  var image = new Image();
+  image.src = fig.substring(1);
+  image.onload = function () {
+    document.getElementById('fig1').setAttribute('src', this.src);
+};
 });
 
 // Hacky global var to update / delete layers from the open layer map app
