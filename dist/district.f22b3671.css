@@ -32,7 +32,7 @@ h3{
 #map-dropdown{
   color: black;
   font-size: medium;
-  height: 80vh;
+  height: 74vh;
 }
 pre{
   background-color: white;
@@ -54,7 +54,6 @@ img{
   height: 8vh;
 }
 #button_container{
-  display: none;
   margin-top: 1vh;
   text-align: center;
 }
