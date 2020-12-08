@@ -44,13 +44,8 @@
 
     <div class="container" id="GeographicAdvantage">
         <h3>The impact of highly compact algorithmic redistricting on the rural-versus-urban balance:</h3>
-    <div class="row">
-        <div class="col-md-2">
-            <a href="assets/political_geography.pdf"> 
-                <img src="assets/paper_thumbnail_urban_rural.png" class="figure-img img-fluid rounded">
-            </a>
-        </div>    
-        <div class="col-md-10">
+    <div class="row">   
+        <div class="col-md-12">
           <p class="documentation">
             It is commonly believed that, in congressional and state legislature
             elections in the United States, rural voters have an inherent
@@ -73,6 +68,7 @@
           A version of this paper appeared in the 28th International Conference on Advances in Geographic Information Systems (SIGSPATIAL ’20), November 3–6, 2020, Seattle, WA, USA: <a href="https://dl.acm.org/doi/10.1145/3397536.3422249">https://dl.acm.org/doi/10.1145/3397536.3422249</a>
         </div>
     </div>
+    <br><br>
   
     <h3>State Results:</h3>
     <div class="row">
@@ -113,9 +109,9 @@
             <p>
                 We find that when we modify our algorithmic redistricting to penalize splitting counties and municipalities, the Republican party performs significantly better. The resulting map for Michigan is shown on the right.
                 <br> <br>
-                Many states require that district plans minimize the number of counties which are split. While this is desirable for simplicity and easy logistics, we suspect it is a significant source of "baked in" rural advantage. Our algorithmic district plans, on the other hand, tend to split up cites by building wedge shaped districts that cut across urban, suburban and rural areas. We do not design our algorithm to do this: it is simply a result of maximizing compactness.
+                Many states require that district plans minimize the number of counties which are split. While this is desirable for simplicity and easy logistics, we suspect it is a significant source of "baked in" rural bias. Our algorithmic district plans, on the other hand, tend to split up cites by building wedge shaped districts that cut across urban, suburban and rural areas. We do not design our algorithm to do this: it is simply a result of maximizing compactness.
                 <br> <br>
-                Our plans differ from most previous methods of algorithmic redistricting since many greedily optimize the compactness score of each district individually. Because cities are dense, this means such algorithms will lock in dense urban districts, before building the more nuanced suburban and rural districts. Our technique, however, iteratively minimizes the compactness of all districts simultaneously. It is because of this, we suspect, that our district plans tend to split up cities in a non intuitive way. We argue that preserving county lines as well as a lack of intuition about maximizing global compactness likely advantages rural voters.
+                Our plans differ from most previous methods of algorithmic redistricting since many greedily optimize the compactness score of each district individually. Because cities are dense, this means such algorithms will lock in dense urban districts first, before building the more nuanced suburban and rural districts. Our technique, however, iteratively minimizes the compactness of all districts simultaneously. It is because of this, we suspect, that our district plans tend to split up cities in a non intuitive way. We argue that preserving county lines as well as a lack of intuition about maximizing global compactness likely advantages rural voters.
             </p>
         </div>
         <div class="col-md-5">
