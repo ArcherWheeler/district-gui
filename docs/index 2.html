@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" type="text/css" href="/district.f22b3671.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script type="text/javascript" src="/pages.e31bb0bc.js"> </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>District Plans</title>
+    
+  <script src="/district.f22b3671.js"></script><link rel="stylesheet" href="/pages.e31bb0bc.css"><script src="/balanced_power_diagrams.js"></script></head>
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Redistricting Project</a>
+        </div>
+  
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="/index.html#maps">Maps</a></li>
+            <li><a href="/balanced_power_diagrams.html">Balanced Power Diagrams</a></li>
+            <li><a href="/urban_rural.html">Geographic Advantage</a></li>
+            <li><a href="/index.html#Code">Code</a></li>
+            <li><a href="/index.html#Contact">Contact</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">Compact Algorithmic Redistricting</h1>
+        <p class="lead">Unbiased competitive political district plans build on a principled measure of compactness. Built by science, not a lobbyist.</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Balanced Power Diagrams</h5>
+              <p class="card-text">Compact redistricting via balanced centroidal power diagrams.</p>
+              <a href="/balanced_power_diagrams.html" class="btn btn-primary">More Info</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Geographic Advantage</h5>
+              <p class="card-text">Is there a fundamental advantage in the rural-versus-urban balance under compact redistricting?</p>
+              <a href="/urban_rural.html" class="btn btn-primary">More Info</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-2"></div>
+      </div>
+      <!-- <div class="col d-flex justify-content-center">
+        <div class="card" style="width: 30rem;">
+          <div class="card-body">
+            <h5 class="card-title">Balanced Power Diagrams</h5>
+            <p class="card-text">Compact redistricting via balanced centroidal power diagrams.</p>
+            <a href="#" class="btn btn-primary">More</a>
+          </div>
+        </div>
+      </div> -->
+    </div>
+
+    <div class="container" id="maps">
+      <h2>District Maps</h2>
+      <p> Plans are built to minimize the real world distance between all residents within a district, while perfectly balancing the population of all districts. Compact districts mean all voters live in districts that best match their neighborhood. Phase one shows the idealized "power diagram" district plan while phase two shows a realizable plan based on the 2010 census with <em>perfect</em> population balance down to the person. </p>
+
+      <div class="row">
+        <div class="col-md-10">
+          <div id="map" class="map"></div>
+        </div>
+
+        <div class="col-md-2">
+          <select class="form-control" id="map-dropdown" size="10">
+            <option value="AL">Alabama</option>
+            <option value="AZ">Arizona</option>
+            <option value="AR">Arkansas</option>
+            <option disabled="">────────</option>
+            <option value="CA">California</option>
+            <option value="CO">Colorado</option>
+            <option value="CT">Connecticut</option>
+            <option disabled="">────────</option>
+            <option value="FL">Florida</option>
+            <option disabled="">────────</option>
+            <option value="GA">Georgia</option>
+            <option disabled="">────────</option>
+            <option value="HI">Hawaii</option>
+            <option disabled="">────────</option>
+            <option value="ID">Idaho</option>
+            <option value="IL">Illinois</option>
+            <option value="IN">Indiana</option>
+            <option value="IA">Iowa</option>
+            <option disabled="">────────</option>
+            <option value="KS">Kansas</option>
+            <option value="KY">Kentucky</option>
+            <option disabled="">────────</option>
+            <option value="LA">Louisiana</option>
+            <option disabled="">────────</option>
+            <option value="ME">Maine</option>
+            <option value="MD">Maryland</option>
+            <option value="MA">Massachusetts</option>
+            <option value="MI">Michigan</option>
+            <option value="MN">Minnesota</option>
+            <option value="MS">Mississippi</option>
+            <option value="MO">Missouri</option>
+            <option disabled="">────────</option>
+            <option value="NE">Nebraska</option>
+            <option value="NH">New Hampshire</option>
+            <option value="NY">New York</option>
+            <option value="NC">North Carolina</option>
+            <option disabled="">────────</option>
+            <option value="OK">Oklahoma</option>
+            <option disabled="">────────</option>
+            <option value="PA">Pennsylvania</option>
+            <option disabled="">────────</option>
+            <option value="RI">Rhode Island</option>
+            <option disabled="">────────</option>
+            <option value="SC">South Carolina</option>
+            <option disabled="">────────</option>
+            <option value="TN">Tennessee</option>
+            <option value="TX">Texas</option>
+            <option disabled="">────────</option>
+            <option value="UT">Utah</option>
+            <option disabled="">────────</option>
+            <option value="WA">Washington</option>
+            <option value="WI">Wisconsin</option>
+          </select>
+          <div id="button_container">
+            <button id="phase_1_button" type="button" class="btn btn-primary active">Phase 1</button>
+            <button id="phase_2_button" type="button" class="btn btn-primary">Phase 2</button>
+          </div>
+
+        </div>
+        <script src="/pages.e31bb0bc.js"></script>
+      </div>
+    </div>
+
+    <div class="container" id="Code">
+      <div id="text">
+        <h3>Code</h3>
+        <p> The code for the first and second phases can be found at
+          <a href="https://github.com/pnklein/district">https://github.com/pnklein/district</a>.
+          The main branch contains only code for the first phase. The
+          DP branch contains code for the first and second phases. It
+          includes a makefile for fetching the relevant data and
+          building the files. Note that the second phase currently
+          requires use of a commercial solver, Gurobi. You might be
+          able to get a free license to use Gurobi for research
+          purposes. We have also developed and implemented an algorithm
+          for the second phase. This implementation does not depend on
+          commercial tools. The dynamic program takes an existing
+          district plan that is not necessarily population-balanced, and
+          perturbs the districts at the boundary so as to minimize the
+          population disparities. Contact us if you are interested in
+          using this code.
+  
+  
+          <hr class="featurette-divider">
+  
+          <hr class="featurette-divider">
+        <div class="container" id="Contact">
+          <div id="text">
+            <h3> Contact </h3>
+            <p> Philip Klein at klein@brown.edu</p>
+            <p> Archer Wheeler at archer_wheeler@brown.edu</p>
+            <hr>
+          </div>
+        </div>
+        <hr class="featurette-divider">
+  
+  </p></div></div></body>
+</html>
+

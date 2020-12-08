@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" type="text/css" href="/district.f22b3671.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script type="text/javascript" src="/pages.e31bb0bc.js"> </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>District Plans</title>
+    
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/index.html">Redistricting Project</a>
+        </div>
+  
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/index.html">Home</a></li>
+            <li><a href="/index.html#maps">Maps</a></li>
+            <li><a href="/balanced_power_diagrams.html">Balanced Power Diagrams</a></li>
+            <li><a href="/urban_rural.html">Geographic Advantage</a></li>
+            <li><a href="/index.html#Code">Code</a></li>
+            <li><a href="/index.html#Contact">Contact</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    <div class="container" id="PowerDiagrams">
+        <div id="text">
+          <h3>Balanced Centroidal Power Diagrams:</h3>
+          <p class="documentation">
+    
+            We consider the problem of political <em>redistricting</em>: given the
+            locations of people in a geographical area (e.g.~a US~state), the
+            goal is to decompose the area into subareas, called <em>districts</em>, so
+            that the populations of the districts are as close as possible and
+            the districts are ``compact'' and ``contiguous,'' to use the terms
+            referred to in most US state constitutions and/or US Supreme Court
+            rulings.
+    
+            We study a method that outputs a solution in which each district is
+            the intersection of a convex polygon with the geographical area.
+            The average number of sides per polygon is less than six. The
+            polygons tend to be quite compact. Every two districts differ in
+            population by at most one (so we call the solution <em>balanced</em>).
+    
+            In fact,
+            the solution is a <em>centroidal power diagram</em>: each polygon has an
+            associated <em>center</em> in &#8477;&#179; such that
+          <ul>
+            <li> the projection of the center onto the plane <em>z</em> = 0 is the
+              centroid of the locations of people assigned to the polygon, and
+            </li><li> for each person assigned to that polygon, the polygon's center
+              is closest among all centers. The polygons are convex because they
+              are the intersections of 3D Voronoi cells with the plane.
+          </li></ul>
+          The solution is, in a well-defined sense, a locally optimal solution to the problem
+          of choosing centers in the plane and choosing an assignment of people
+          to those 2-d centers so as to minimize the sum of squared distances
+          subject to the assignment being balanced.
+    
+          A practical problem with this approach is that, in real-world redistricting,
+          exact locations of people are unknown. Instead, the input consists of
+          polygons (<em>census blocks</em>) and associated populations. A real
+          redistricting must not split census blocks. We therefore propose
+          a <em>second phase</em> that perturbs the solution slightly so it does not
+          split census blocks. In our experiments, the second phase
+          achieves this while preserving <em> perfect population balance</em>.
+          The district polygons are no longer convex at
+          the fine scale because their boundaries must follow the boundaries of
+          census blocks, but at a coarse scale they preserve the shape of the
+          original polygons. <br> <br>A conference version of this paper
+          appeared in <em> Proceedings of the 26th ACM SIGSPATIAL
+            International Conference on Advances in Geographic Information
+            Systems</em> (2018), pp. 389-396. The conference version can be
+          obtained here:
+          <!-- ACM DL Article: Balanced centroidal power diagrams for redistricting -->
+          <div class="acmdlitem" id="item3274979"><img src="http://dl.acm.org/images/oa.gif" style="width:25px;height:25px;border:0;vertical-align:middle;" alt="ACM DL Author-ize service"><a href="https://dl.acm.org/authorize?N675893" title="Balanced centroidal power diagrams for redistricting">Balanced centroidal power diagrams for
+              redistricting</a>
+            <div style="margin-left:25px"><a href="http://dl.acm.org/author_page.cfm?id=99658972501">Vincent
+                Cohen-Addad</a>, <a href="http://dl.acm.org/author_page.cfm?id=81331496042">Philip N. Klein</a>, <a href="http://dl.acm.org/author_page.cfm?id=99659322444">Neal E. Young</a><br>SIGSPATIAL '18 Proceedings of
+              the 26th ACM SIGSPATIAL International Conference on Advances in Geographic Information Systems, 2018</div>
+          </div>
+          <!-- ACM DL Bibliometrics: Balanced centroidal power diagrams for redistricting-->
+          <div class="acmdlstat" id="stats3274979"><iframe src="https://dl.acm.org/authorizestats?N675893" width="100%" height="30" scrolling="no" frameborder="0">frames are not supported</iframe></div>
+          <hr>
+        </p></div>
+      </div>
+      
+    
+
+  </body>
+</html>
+
