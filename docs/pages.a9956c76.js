@@ -533,30 +533,32 @@ var r=require("./processor");exports.Processor=r;
 module.exports="AL.b2db3094.geojson";
 },{}],"pwQJ":[function(require,module,exports) {
 module.exports="AR.e1be1b09.geojson";
+},{}],"cs7L":[function(require,module,exports) {
+module.exports="CA.9349705d.geojson";
 },{}],"ZmXr":[function(require,module,exports) {
 module.exports="AZ.c36c6e19.geojson";
 },{}],"eZ09":[function(require,module,exports) {
 module.exports="CO.1582cb37.geojson";
-},{}],"cs7L":[function(require,module,exports) {
-module.exports="CA.9349705d.geojson";
 },{}],"LqJY":[function(require,module,exports) {
 module.exports="CT.f67a7cc8.geojson";
 },{}],"kHgS":[function(require,module,exports) {
 module.exports="FL.56eb9a36.geojson";
-},{}],"JW3n":[function(require,module,exports) {
-module.exports="HI.17022c3e.geojson";
 },{}],"x4pr":[function(require,module,exports) {
 module.exports="GA.bef5e22c.geojson";
-},{}],"jdiA":[function(require,module,exports) {
-module.exports="ID.e028d4e1.geojson";
+},{}],"JW3n":[function(require,module,exports) {
+module.exports="HI.17022c3e.geojson";
 },{}],"HYcT":[function(require,module,exports) {
 module.exports="IA.1928bb3d.geojson";
-},{}],"MAUg":[function(require,module,exports) {
-module.exports="IN.2073c938.geojson";
+},{}],"jdiA":[function(require,module,exports) {
+module.exports="ID.e028d4e1.geojson";
 },{}],"EHii":[function(require,module,exports) {
 module.exports="IL.b36bdac8.geojson";
+},{}],"MAUg":[function(require,module,exports) {
+module.exports="IN.2073c938.geojson";
 },{}],"GICj":[function(require,module,exports) {
 module.exports="KS.2ecf091f.geojson";
+},{}],"UQeB":[function(require,module,exports) {
+module.exports="KY.8b21bb7a.geojson";
 },{}],"DM3G":[function(require,module,exports) {
 module.exports="LA.b687a224.geojson";
 },{}],"wvea":[function(require,module,exports) {
@@ -599,29 +601,27 @@ module.exports="UT.f800e2ca.geojson";
 module.exports="WA.e25627f8.geojson";
 },{}],"GI7i":[function(require,module,exports) {
 module.exports="WI.b28fb414.geojson";
-},{}],"UQeB":[function(require,module,exports) {
-module.exports="KY.8b21bb7a.geojson";
 },{}],"XyHp":[function(require,module,exports) {
-module.exports={AL:require("./AL.geojson"),AR:require("./AR.geojson"),AZ:require("./AZ.geojson"),CO:require("./CO.geojson"),CA:require("./CA.geojson"),CT:require("./CT.geojson"),FL:require("./FL.geojson"),HI:require("./HI.geojson"),GA:require("./GA.geojson"),ID:require("./ID.geojson"),IA:require("./IA.geojson"),IN:require("./IN.geojson"),IL:require("./IL.geojson"),KS:require("./KS.geojson"),LA:require("./LA.geojson"),MA:require("./MA.geojson"),MD:require("./MD.geojson"),ME:require("./ME.geojson"),MI:require("./MI.geojson"),MN:require("./MN.geojson"),MO:require("./MO.geojson"),MS:require("./MS.geojson"),NC:require("./NC.geojson"),NE:require("./NE.geojson"),NH:require("./NH.geojson"),NY:require("./NY.geojson"),OK:require("./OK.geojson"),PA:require("./PA.geojson"),RI:require("./RI.geojson"),SC:require("./SC.geojson"),TN:require("./TN.geojson"),TX:require("./TX.geojson"),UT:require("./UT.geojson"),WA:require("./WA.geojson"),WI:require("./WI.geojson"),KY:require("./KY.geojson")};
-},{"./AL.geojson":"aeqi","./AR.geojson":"pwQJ","./AZ.geojson":"ZmXr","./CO.geojson":"eZ09","./CA.geojson":"cs7L","./CT.geojson":"LqJY","./FL.geojson":"kHgS","./HI.geojson":"JW3n","./GA.geojson":"x4pr","./ID.geojson":"jdiA","./IA.geojson":"HYcT","./IN.geojson":"MAUg","./IL.geojson":"EHii","./KS.geojson":"GICj","./LA.geojson":"DM3G","./MA.geojson":"wvea","./MD.geojson":"atVq","./ME.geojson":"Y2Mx","./MI.geojson":"yiea","./MN.geojson":"RSON","./MO.geojson":"joDI","./MS.geojson":"qVne","./NC.geojson":"PUvS","./NE.geojson":"pwza","./NH.geojson":"vMmf","./NY.geojson":"sD2v","./OK.geojson":"Adjd","./PA.geojson":"wDbz","./RI.geojson":"zcaZ","./SC.geojson":"V9gt","./TN.geojson":"RViv","./TX.geojson":"y3Qd","./UT.geojson":"FEAW","./WA.geojson":"CDQy","./WI.geojson":"GI7i","./KY.geojson":"UQeB"}],"uMCE":[function(require,module,exports) {
+module.exports={AL:require("./AL.geojson"),AR:require("./AR.geojson"),CA:require("./CA.geojson"),AZ:require("./AZ.geojson"),CO:require("./CO.geojson"),CT:require("./CT.geojson"),FL:require("./FL.geojson"),GA:require("./GA.geojson"),HI:require("./HI.geojson"),IA:require("./IA.geojson"),ID:require("./ID.geojson"),IL:require("./IL.geojson"),IN:require("./IN.geojson"),KS:require("./KS.geojson"),KY:require("./KY.geojson"),LA:require("./LA.geojson"),MA:require("./MA.geojson"),MD:require("./MD.geojson"),ME:require("./ME.geojson"),MI:require("./MI.geojson"),MN:require("./MN.geojson"),MO:require("./MO.geojson"),MS:require("./MS.geojson"),NC:require("./NC.geojson"),NE:require("./NE.geojson"),NH:require("./NH.geojson"),NY:require("./NY.geojson"),OK:require("./OK.geojson"),PA:require("./PA.geojson"),RI:require("./RI.geojson"),SC:require("./SC.geojson"),TN:require("./TN.geojson"),TX:require("./TX.geojson"),UT:require("./UT.geojson"),WA:require("./WA.geojson"),WI:require("./WI.geojson")};
+},{"./AL.geojson":"aeqi","./AR.geojson":"pwQJ","./CA.geojson":"cs7L","./AZ.geojson":"ZmXr","./CO.geojson":"eZ09","./CT.geojson":"LqJY","./FL.geojson":"kHgS","./GA.geojson":"x4pr","./HI.geojson":"JW3n","./IA.geojson":"HYcT","./ID.geojson":"jdiA","./IL.geojson":"EHii","./IN.geojson":"MAUg","./KS.geojson":"GICj","./KY.geojson":"UQeB","./LA.geojson":"DM3G","./MA.geojson":"wvea","./MD.geojson":"atVq","./ME.geojson":"Y2Mx","./MI.geojson":"yiea","./MN.geojson":"RSON","./MO.geojson":"joDI","./MS.geojson":"qVne","./NC.geojson":"PUvS","./NE.geojson":"pwza","./NH.geojson":"vMmf","./NY.geojson":"sD2v","./OK.geojson":"Adjd","./PA.geojson":"wDbz","./RI.geojson":"zcaZ","./SC.geojson":"V9gt","./TN.geojson":"RViv","./TX.geojson":"y3Qd","./UT.geojson":"FEAW","./WA.geojson":"CDQy","./WI.geojson":"GI7i"}],"uMCE":[function(require,module,exports) {
 module.exports="CT.958c2474.geojson";
-},{}],"jRqK":[function(require,module,exports) {
-module.exports="KS.9887c132.geojson";
 },{}],"d92x":[function(require,module,exports) {
 module.exports="IA.30ceca5d.geojson";
+},{}],"jRqK":[function(require,module,exports) {
+module.exports="KS.9887c132.geojson";
 },{}],"S4Y6":[function(require,module,exports) {
 module.exports="MA.7853b4dd.geojson";
 },{}],"l0WN":[function(require,module,exports) {
 module.exports="NE.15781f06.geojson";
-},{}],"GFmB":[function(require,module,exports) {
-module.exports="RI.59d8ced9.geojson";
 },{}],"X47n":[function(require,module,exports) {
 module.exports="OK.c0697aab.geojson";
+},{}],"GFmB":[function(require,module,exports) {
+module.exports="RI.59d8ced9.geojson";
 },{}],"ZpTs":[function(require,module,exports) {
 module.exports="SC.77ab37a1.geojson";
 },{}],"rvET":[function(require,module,exports) {
-module.exports={CT:require("./CT.geojson"),KS:require("./KS.geojson"),IA:require("./IA.geojson"),MA:require("./MA.geojson"),NE:require("./NE.geojson"),RI:require("./RI.geojson"),OK:require("./OK.geojson"),SC:require("./SC.geojson")};
-},{"./CT.geojson":"uMCE","./KS.geojson":"jRqK","./IA.geojson":"d92x","./MA.geojson":"S4Y6","./NE.geojson":"l0WN","./RI.geojson":"GFmB","./OK.geojson":"X47n","./SC.geojson":"ZpTs"}],"Focm":[function(require,module,exports) {
+module.exports={CT:require("./CT.geojson"),IA:require("./IA.geojson"),KS:require("./KS.geojson"),MA:require("./MA.geojson"),NE:require("./NE.geojson"),OK:require("./OK.geojson"),RI:require("./RI.geojson"),SC:require("./SC.geojson")};
+},{"./CT.geojson":"uMCE","./IA.geojson":"d92x","./KS.geojson":"jRqK","./MA.geojson":"S4Y6","./NE.geojson":"l0WN","./OK.geojson":"X47n","./RI.geojson":"GFmB","./SC.geojson":"ZpTs"}],"Focm":[function(require,module,exports) {
 "use strict";require("ol/ol.css");var e=f(require("ol/Feature")),t=f(require("ol/geom/Polygon")),r=f(require("ol/Map")),n=f(require("ol/View")),o=f(require("ol/format/GeoJSON")),u=require("ol/layer"),a=require("ol/source"),c=require("ol/style"),l=s(require("ol/extent"));function i(){if("function"!=typeof WeakMap)return null;var e=new WeakMap;return i=function(){return e},e}function s(e){if(e&&e.__esModule)return e;if(null===e||"object"!=typeof e&&"function"!=typeof e)return{default:e};var t=i();if(t&&t.has(e))return t.get(e);var r={},n=Object.defineProperty&&Object.getOwnPropertyDescriptor;for(var o in e)if(Object.prototype.hasOwnProperty.call(e,o)){var u=n?Object.getOwnPropertyDescriptor(e,o):null;u&&(u.get||u.set)?Object.defineProperty(r,o,u):r[o]=e[o]}return r.default=e,t&&t.set(e,r),r}function f(e){return e&&e.__esModule?e:{default:e}}require("fs");var d=require("./district_plans/phase_1/*.geojson"),p=require("./district_plans/phase_2/*.geojson"),y=null,g=new n.default({projection:"EPSG:4326",center:[-97.260204,38.582526],zoom:4.5}),m=!0,w=!1,b=document.getElementById("phase_1_button");b.addEventListener("click",function(){m=!0,w=!1,document.getElementById("phase_1_button").className="btn btn-primary active",document.getElementById("phase_2_button").className="btn btn-primary",E(q())});var v=document.getElementById("phase_2_button");v.addEventListener("click",function(){w=!0,m=!1,document.getElementById("phase_2_button").className="btn btn-primary active",document.getElementById("phase_1_button").className="btn btn-primary",E(q())});var h=new r.default({layers:[new u.Tile({source:new a.OSM})],target:"map",view:g});function _(e,t){var r=parseInt(e.slice(1,3),16),n=parseInt(e.slice(3,5),16),o=parseInt(e.slice(5,7),16);return t?"rgba("+r+", "+n+", "+o+", "+t+")":"rgb("+r+", "+n+", "+o+")"}var q=function(){return document.getElementById("map-dropdown").value},E=function(e){null!=y&&h.removeLayer(y),m?e in d&&fetch(d[e]).then(function(e){return e.json()}).then(function(e){var t=new u.Vector({source:new a.Vector({features:(new o.default).readFeatures(e)}),style:function(e){return"None"===e.get("color")?new c.Style({stroke:new c.Stroke({color:"black",width:2})}):new c.Style({fill:new c.Fill({color:_(e.get("color"),.3)})})}});t.getSource().forEachFeature(function(e){if("None"===e.get("color")){var t=e.getGeometry();g.fit(t,{padding:[50,50,50,50]})}}),y=t,h.addLayer(t)}):e in p&&fetch(p[e]).then(function(e){return e.json()}).then(function(e){var t=new u.Vector({source:new a.Vector({features:(new o.default).readFeatures(e)}),style:function(e){return"None"===e.get("color")?new c.Style({stroke:new c.Stroke({color:"black",width:2})}):new c.Style({fill:new c.Fill({color:_(e.get("color"),.3)})})}});t.getSource().forEachFeature(function(e){if("None"===e.get("color")){var t=e.getGeometry();g.fit(t,{padding:[50,50,50,50]})}}),y=t,h.addLayer(t)})};E("CA"),window.onchange=function(){E(q())};
 },{"ol/ol.css":"vFY1","ol/Feature":"E2jd","ol/geom/Polygon":"DTlF","ol/Map":"ZXtR","ol/View":"rXL1","ol/format/GeoJSON":"csgN","ol/layer":"x523","ol/source":"Vrgk","ol/style":"TZKB","ol/extent":"L0Vw","fs":"vFY1","./district_plans/phase_1/*.geojson":"XyHp","./district_plans/phase_2/*.geojson":"rvET"}]},{},["Focm"], null)
-//# sourceMappingURL=pages.4e4c81d7.js.map
+//# sourceMappingURL=pages.a9956c76.js.map
