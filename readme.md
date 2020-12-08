@@ -14,12 +14,4 @@ npm run start
 This app uses openlayers.org and bundles it into a single app as recommended with parcel.
 
 # Update
-add geojson to `district_plans` folder. Run:
-```
-npm run predeploy
-```
-Then commit the geojson files *and* the produced `dist` folder. After pushing you'll need to run
-```
-git subtree push --prefix dist origin gh-pages
-```
-which pushes a branch as a subtree so that github pages updates. The maps can then be viewed at archerwheeler.github.io/district-gui#STATE_NAME
+Commit any changes you want deployed to the master branch. Run `./deploy.sh`. This will build the `/dist` directory and copy it (along with other necessary assets) to the `/docs` folder which github-pages uses to display the site. Commit the updated `/docs` directory and push the changes. It can take around 10m to deploy and sometimes I've found github-pages can have a weird intermediary state where it's only half updated and things break. Once the page is finally updated you might need to hard refresh to see all the changes (cmd + shift + R).
