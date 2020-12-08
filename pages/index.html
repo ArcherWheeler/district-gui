@@ -32,11 +32,11 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Home</a></li>
-            <li><a href="#Visualization">Visualization</a></li>
-            <li><a href="#PowerDiagrams">Balanced Power Diagrams</a></li>
-            <li><a href="#GeographicAdvantage">Geographic Advantage</a></li>
-            <li><a href="#Code">Code</a></li>
-            <li><a href="#Contact">Contact</a></li>
+            <li><a href="index.html#maps">Maps</a></li>
+            <li><a href="balanced_power_diagrams.html">Balanced Power Diagrams</a></li>
+            <li><a href="urban_rural.html">Geographic Advantage</a></li>
+            <li><a href="index.html#Code">Code</a></li>
+            <li><a href="index.html#Contact">Contact</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
@@ -51,7 +51,7 @@
       </div>
     </div>
 
-    <div class="container">
+    <div class="container" id="maps">
       <h2>District Maps</h2>
       <p> Plans are built to minimize the real world distance between all residents within a district, while perfectly balancing the population of all districts. Compact districts mean all voters live in districts that best match their neighborhood. Phase one shows the idealized "power diagram" district plan while phase two shows a realizable plan based on the 2010 census with <em>perfect</em> population balance down to the person. </p>
 
@@ -124,110 +124,6 @@
         <script src="index.js"></script>
       </div>
     </div>
-
-    <div class="container" id="PowerDiagrams">
-      <div id="text">
-        <h3>Balanced Centroidal Power Diagrams:</h3>
-        <p class="documentation">
-  
-          We consider the problem of political <em>redistricting</em>: given the
-          locations of people in a geographical area (e.g.~a US~state), the
-          goal is to decompose the area into subareas, called <em>districts</em>, so
-          that the populations of the districts are as close as possible and
-          the districts are ``compact'' and ``contiguous,'' to use the terms
-          referred to in most US state constitutions and/or US Supreme Court
-          rulings.
-  
-          We study a method that outputs a solution in which each district is
-          the intersection of a convex polygon with the geographical area.
-          The average number of sides per polygon is less than six. The
-          polygons tend to be quite compact. Every two districts differ in
-          population by at most one (so we call the solution <em>balanced</em>).
-  
-          In fact,
-          the solution is a <em>centroidal power diagram</em>: each polygon has an
-          associated <em>center</em> in &#8477;&#179; such that
-        <ul>
-          <li> the projection of the center onto the plane <em>z</em> = 0 is the
-            centroid of the locations of people assigned to the polygon, and
-          <li> for each person assigned to that polygon, the polygon's center
-            is closest among all centers. The polygons are convex because they
-            are the intersections of 3D Voronoi cells with the plane.
-        </ul>
-        The solution is, in a well-defined sense, a locally optimal solution to the problem
-        of choosing centers in the plane and choosing an assignment of people
-        to those 2-d centers so as to minimize the sum of squared distances
-        subject to the assignment being balanced.
-  
-        A practical problem with this approach is that, in real-world redistricting,
-        exact locations of people are unknown. Instead, the input consists of
-        polygons (<em>census blocks</em>) and associated populations. A real
-        redistricting must not split census blocks. We therefore propose
-        a <em>second phase</em> that perturbs the solution slightly so it does not
-        split census blocks. In our experiments, the second phase
-        achieves this while preserving <em> perfect population balance</em>.
-        The district polygons are no longer convex at
-        the fine scale because their boundaries must follow the boundaries of
-        census blocks, but at a coarse scale they preserve the shape of the
-        original polygons. <br> <br>A conference version of this paper
-        appeared in <em> Proceedings of the 26th ACM SIGSPATIAL
-          International Conference on Advances in Geographic Information
-          Systems</em> (2018), pp. 389-396. The conference version can be
-        obtained here:
-        <!-- ACM DL Article: Balanced centroidal power diagrams for redistricting -->
-        <div class="acmdlitem" id="item3274979"><img src="http://dl.acm.org/images/oa.gif"
-            style="width:25px;height:25px;border:0;vertical-align:middle;" alt="ACM DL Author-ize service" /><a
-            href="https://dl.acm.org/authorize?N675893"
-            title="Balanced centroidal power diagrams for redistricting">Balanced centroidal power diagrams for
-            redistricting</a>
-          <div style="margin-left:25px"><a href="http://dl.acm.org/author_page.cfm?id=99658972501">Vincent
-              Cohen-Addad</a>, <a href="http://dl.acm.org/author_page.cfm?id=81331496042">Philip N. Klein</a>, <a
-              href="http://dl.acm.org/author_page.cfm?id=99659322444">Neal E. Young</a><br />SIGSPATIAL '18 Proceedings of
-            the 26th ACM SIGSPATIAL International Conference on Advances in Geographic Information Systems, 2018</div>
-        </div>
-        <!-- ACM DL Bibliometrics: Balanced centroidal power diagrams for redistricting-->
-        <div class="acmdlstat" id="stats3274979"><iframe src="https://dl.acm.org/authorizestats?N675893" width="100%"
-            height="30" scrolling="no" frameborder="0">frames are not supported</iframe></div>
-        <hr>
-      </div>
-    </div>
-
-    <div class="container" id="GeographicAdvantage">
-      <div id="text">
-        <h3>The impact of highly compact algorithmic redistricting on the rural-versus-urban balance:</h3>
-    <div class="col-md-8">
-      <p class="documentation">
-        It is commonly believed that, in congressional and state legislature
-        elections in the United States, rural voters have an inherent
-        political advantage over urban voters. We study this hypothesis
-        using an idealized redistricting method, balanced centroidal
-        power diagrams, that achieves essentially perfect population
-        balance while optimizing a principled measure of compactness.  We
-        find that, using this method, the degree to which rural or urban
-        voters have a political advantage depends on the number of districts
-        and the population density of urban areas.  Moreover, we find that the political
-        advantage in any case tends to be dramatically less than that
-        afforded by district plans used in the real world,
-        including district plans drawn by presumably neutral parties such
-        as the courts. One possible explanation is suggested by the
-        following discovery: modifying centroidal power diagrams to prefer placing
-        boundaries along city boundaries significantly increases the advantage
-        rural voters have over urban voters.
-        <a id="linktochange" onload="setlink()" href="">More</a>
-      </p>
-      A version of this paper will appear in In 28th International Conference on Advances in Geographic Information Systems (SIGSPATIAL ’20), November 3–6, 2020, Seattle, WA, USA. 
-    </div>
-    <div class="col-md-4" id="VA_img">
-      <figure class="figure">
-        <img id="fig1" src="" class="figure-img img-fluid rounded" alt="">
-        <figcaption class="figure-caption">Average election outcomes with a 50/50 popular vote split given the number of districts drawn. The parameter λ controls the population distribution with a higher λ representing a denser population.
-        </figcaption>
-      </figure>
-    </div>
-
-    </div>
-  </div>
-
 
     <div class="container" id="Code">
       <div id="text">

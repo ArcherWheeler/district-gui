@@ -4,9 +4,9 @@
   "description": "view district plans",
   "main": "index.js",
   "scripts": {
-    "start": "parcel index.html",
-    "build": "parcel build --public-url . index.html",
-    "predeploy": "rm -rf dist && parcel build --public-url . index.html"
+    "start": "cp -R pages/assets dist && parcel pages/index.html",
+    "build": "parcel build --public-url . pages/index.html",
+    "predeploy": "rm -rf dist && parcel build --public-url . pages/index.html"
   },
   "author": "Archer Wheeler",
   "license": "ISC",

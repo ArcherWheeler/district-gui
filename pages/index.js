@@ -13,22 +13,6 @@ import 'fs';
 const phase1DistrictPlans = require('./district_plans/phase_1/*.geojson');
 const phase2DistrictPlans = require('./district_plans/phase_2/*.geojson');
 
-const fig = require('./assets/district_trend.png');
-const pdflink = require('./assets/political_geography.pdf');
-
-// Very hacky work around to load images correct. The <right> solution if we start doing more 
-// is to use a framework like angular or react.
-
-
-document.addEventListener("DOMContentLoaded", function() {
-  document.getElementById("linktochange").setAttribute("href", pdflink);
-  var image = new Image();
-  image.src = fig.substring(1);
-  image.onload = function () {
-    document.getElementById('fig1').setAttribute('src', this.src);
-};
-});
-
 // Hacky global var to update / delete layers from the open layer map app
 var currentLayer = null;
 
