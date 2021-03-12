@@ -8,36 +8,36 @@ with open('../state_plans/states.geojson', 'r') as states_file:
     states = geojson.load(states_file)["features"]
     
 for state in states:
-    if state["properties"]["NAME"] == "Wyoming":
-        with open('../state_plans/WY.geojson', 'w') as WY_state_file:
-            geojson.dump(state["geometry"], WY_state_file)
+    if state["properties"]["NAME"] == "New Jersey":
+        with open('../state_plans/NJ.geojson', 'w') as NJ_state_file:
+            geojson.dump(state["geometry"], NJ_state_file)
             
-        with open('../pages/district_plans/phase_1/WY.geojson', 'w') as WY_phase_one_file:
-            phase_one_dict = {
-                "type": "FeatureCollection",
-                "features": [
-                    {
-                        "type": "Feature",
-                        "properties": {
-                            "color": "#23628F"
-                        },
-                        "geometry": state["geometry"]
-                    }
-                ],
-            }
-            geojson.dump(phase_one_dict, WY_phase_one_file)
+        # with open('../pages/district_plans/phase_1/OH.geojson', 'w') as OH_phase_one_file:
+        #     phase_one_dict = {
+        #         "type": "FeatureCollection",
+        #         "features": [
+        #             {
+        #                 "type": "Feature",
+        #                 "properties": {
+        #                     "color": "#23628F"
+        #                 },
+        #                 "geometry": state["geometry"]
+        #             }
+        #         ],
+        #     }
+        #     geojson.dump(phase_one_dict, OH_phase_one_file)
             
-        with open('../pages/district_plans/phase_2/WY.geojson', 'w') as WY_phase_two_file:
-            phase_two_dict = {
-                "type": "FeatureCollection",
-                "features": [
-                    {
-                        "type": "Feature",
-                        "properties": {
-                            "color": "#23628F"
-                        },
-                        "geometry": state["geometry"]
-                    }
-                ],
-            }
-            geojson.dump(phase_two_dict, WY_phase_two_file)
+        # with open('../pages/district_plans/phase_2/OH.geojson', 'w') as OH_phase_two_file:
+        #     phase_two_dict = {
+        #         "type": "FeatureCollection",
+        #         "features": [
+        #             {
+        #                 "type": "Feature",
+        #                 "properties": {
+        #                     "color": "#23628F"
+        #                 },
+        #                 "geometry": state["geometry"]
+        #             }
+        #         ],
+        #     }
+        #     geojson.dump(phase_two_dict, OH_phase_two_file)
